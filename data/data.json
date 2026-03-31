@@ -1,0 +1,1612 @@
+{
+  "report": {
+    "meta": {
+      "n_total": 346,
+      "year": 2026,
+      "sources": [
+        "general26",
+        "BCG26",
+        "Regiocom26",
+        "KühneUndNagel26"
+      ]
+    },
+    "charts": {
+      "challenges_by_stage": {
+        "labels": [
+          "results2026.findings.maturity.p1.name",
+          "results2026.findings.maturity.p2.name",
+          "results2026.findings.maturity.p3.name",
+          "results2026.findings.maturity.p4.name"
+        ],
+        "datasets": [
+          {
+            "label_i18n": "results2026.findings.challenges.roi",
+            "values": [
+              26.0,
+              27.5,
+              13.3,
+              15.2
+            ],
+            "color": "#1565C0"
+          },
+          {
+            "label_i18n": "results2026.findings.challenges.governance",
+            "values": [
+              25.0,
+              22.5,
+              17.1,
+              18.2
+            ],
+            "color": "#3F7DBF"
+          },
+          {
+            "label_i18n": "results2026.findings.challenges.data",
+            "values": [
+              18.3,
+              14.7,
+              20.0,
+              30.3
+            ],
+            "color": "#90CAF9"
+          },
+          {
+            "label_i18n": "results2026.findings.challenges.it",
+            "values": [
+              17.3,
+              12.7,
+              27.6,
+              27.3
+            ],
+            "color": "#BEBEBE"
+          },
+          {
+            "label_i18n": "results2026.findings.challenges.personnel",
+            "values": [
+              13.5,
+              22.5,
+              21.9,
+              9.1
+            ],
+            "color": "#004A99"
+          }
+        ]
+      },
+      "stacked_proficiency": {
+        "today": {
+          "labels_i18n": [
+            "results2026.findings.proficiency.level1",
+            "results2026.findings.proficiency.level2",
+            "results2026.findings.proficiency.level3",
+            "results2026.findings.proficiency.level4",
+            "results2026.findings.proficiency.level5",
+            "results2026.findings.proficiency.level6"
+          ],
+          "pct_data": [
+            [
+              5.6,
+              55.6,
+              33.3,
+              5.6
+            ],
+            [
+              0.8,
+              11.3,
+              72.9,
+              15.0
+            ],
+            [
+              0.0,
+              5.6,
+              49.5,
+              44.9
+            ],
+            [
+              0.0,
+              0.0,
+              41.2,
+              58.8
+            ],
+            [
+              5.9,
+              0.0,
+              47.1,
+              47.1
+            ],
+            [
+              12.5,
+              25.0,
+              25.0,
+              37.5
+            ]
+          ],
+          "raw_data": [
+            [
+              1,
+              1,
+              0,
+              0,
+              1,
+              1
+            ],
+            [
+              10,
+              15,
+              6,
+              0,
+              0,
+              2
+            ],
+            [
+              6,
+              97,
+              53,
+              14,
+              8,
+              2
+            ],
+            [
+              1,
+              20,
+              48,
+              20,
+              8,
+              3
+            ]
+          ],
+          "category_labels_i18n": [
+            "results2026.findings.productivity.negative",
+            "results2026.findings.productivity.none",
+            "results2026.findings.productivity.slight",
+            "results2026.findings.productivity.significant"
+          ]
+        },
+        "future": {
+          "labels_i18n": [
+            "results2026.findings.proficiency.level1",
+            "results2026.findings.proficiency.level2",
+            "results2026.findings.proficiency.level3",
+            "results2026.findings.proficiency.level4",
+            "results2026.findings.proficiency.level5",
+            "results2026.findings.proficiency.level6"
+          ],
+          "pct_data": [
+            [
+              5.6,
+              22.2,
+              38.9,
+              33.3
+            ],
+            [
+              3.0,
+              7.5,
+              36.1,
+              53.4
+            ],
+            [
+              0.9,
+              4.7,
+              20.6,
+              73.8
+            ],
+            [
+              2.9,
+              2.9,
+              20.6,
+              73.5
+            ],
+            [
+              5.9,
+              0.0,
+              5.9,
+              88.2
+            ],
+            [
+              37.5,
+              0.0,
+              25.0,
+              37.5
+            ]
+          ],
+          "raw_data": [
+            [
+              1,
+              4,
+              1,
+              1,
+              1,
+              3
+            ],
+            [
+              4,
+              10,
+              5,
+              1,
+              0,
+              0
+            ],
+            [
+              7,
+              48,
+              22,
+              7,
+              1,
+              2
+            ],
+            [
+              6,
+              71,
+              79,
+              25,
+              15,
+              3
+            ]
+          ],
+          "category_labels_i18n": [
+            "results2026.findings.productivity.negative",
+            "results2026.findings.productivity.none",
+            "results2026.findings.productivity.slight",
+            "results2026.findings.productivity.significant"
+          ]
+        }
+      },
+      "growth_by_phase": {
+        "labels_i18n": [
+          "results2026.findings.maturity.p1.name",
+          "results2026.findings.maturity.p2.name",
+          "results2026.findings.maturity.p3.name",
+          "results2026.findings.maturity.p4.name"
+        ],
+        "pct_data": [
+          [
+            41.3,
+            50.0,
+            54.3,
+            39.4
+          ],
+          [
+            21.2,
+            22.5,
+            28.6,
+            21.2
+          ],
+          [
+            4.8,
+            9.8,
+            8.6,
+            27.3
+          ],
+          [
+            32.7,
+            17.6,
+            8.6,
+            12.1
+          ]
+        ],
+        "raw_counts": [
+          [
+            43,
+            51,
+            57,
+            13
+          ],
+          [
+            22,
+            23,
+            30,
+            7
+          ],
+          [
+            5,
+            10,
+            9,
+            9
+          ],
+          [
+            34,
+            18,
+            9,
+            4
+          ]
+        ]
+      },
+      "growth_by_proficiency": {
+        "labels_i18n": [
+          "results2026.findings.proficiency.level1",
+          "results2026.findings.proficiency.level2",
+          "results2026.findings.proficiency.level3",
+          "results2026.findings.proficiency.level4",
+          "results2026.findings.proficiency.level5",
+          "results2026.findings.proficiency.level6"
+        ],
+        "pct_data": [
+          [
+            44.4,
+            51.9,
+            49.5,
+            58.8,
+            35.3,
+            37.5
+          ],
+          [
+            11.1,
+            23.3,
+            28.0,
+            17.6,
+            41.2,
+            0.0
+          ],
+          [
+            11.1,
+            5.3,
+            15.0,
+            14.7,
+            17.6,
+            12.5
+          ],
+          [
+            33.3,
+            19.5,
+            7.5,
+            8.8,
+            5.9,
+            50.0
+          ]
+        ],
+        "raw_counts": [
+          [
+            8,
+            69,
+            53,
+            20,
+            6,
+            3
+          ],
+          [
+            2,
+            31,
+            30,
+            6,
+            7,
+            0
+          ],
+          [
+            2,
+            7,
+            16,
+            5,
+            3,
+            1
+          ],
+          [
+            6,
+            26,
+            8,
+            3,
+            1,
+            4
+          ]
+        ]
+      },
+      "productivity_timeline": {
+        "labels": [
+          "2024 / 25",
+          "2026 (heute)",
+          "2026 (in 1–3 J.)"
+        ],
+        "forecast_from_index": 1,
+        "datasets": [
+          {
+            "label_i18n": "results2026.findings.productivity.significant",
+            "values": [
+              39.4,
+              31.5,
+              62.8
+            ],
+            "color": "var(--th-blue)"
+          },
+          {
+            "label_i18n": "results2026.findings.productivity.slight",
+            "values": [
+              58.2,
+              56.8,
+              27.4
+            ],
+            "color": "#90CAF9"
+          },
+          {
+            "label_i18n": "results2026.findings.productivity.none_neg",
+            "values": [
+              2.4,
+              11.7,
+              9.8
+            ],
+            "color": "#BEBEBE",
+            "border_dash": [
+              5,
+              4
+            ]
+          }
+        ]
+      }
+    },
+    "components": {
+      "usage_frequency": [
+        {
+          "label_i18n": "results2026.findings.usage.daily",
+          "value": 55.2,
+          "color": "var(--th-blue)",
+          "displayValue": "55.2 %"
+        },
+        {
+          "label_i18n": "results2026.findings.usage.weekly",
+          "value": 22.8,
+          "color": "#42A5F5",
+          "displayValue": "22.8 %"
+        },
+        {
+          "label_i18n": "results2026.findings.usage.rarely",
+          "value": 13.6,
+          "color": "#90CAF9",
+          "displayValue": "13.6 %"
+        },
+        {
+          "label_i18n": "results2026.findings.usage.never",
+          "value": 8.4,
+          "color": "#BEBEBE",
+          "displayValue": "8.4 %"
+        }
+      ],
+      "model_strategy": [
+        {
+          "label_i18n": "results2026.dash.q15.hybrid",
+          "value": 45.4,
+          "color": "var(--th-blue)",
+          "displayValue": "45.4 %"
+        },
+        {
+          "label_i18n": "results2026.dash.q15.specialized",
+          "value": 20.2,
+          "color": "#42A5F5",
+          "displayValue": "20.2 %"
+        },
+        {
+          "label_i18n": "results2026.dash.q15.uncertain",
+          "value": 19.9,
+          "color": "#BEBEBE",
+          "displayValue": "19.9 %"
+        },
+        {
+          "label_i18n": "results2026.dash.q15.multiple",
+          "value": 11.3,
+          "color": "#90CAF9",
+          "displayValue": "11.3 %"
+        },
+        {
+          "label_i18n": "results2026.dash.q15.universal",
+          "value": 3.2,
+          "color": "#D32F2F",
+          "displayValue": "3.2 %"
+        }
+      ],
+      "privacy_compliance": [
+        {
+          "label_i18n": "results2026.privacy.konsequent",
+          "value": 39.6,
+          "color": "#1565C0",
+          "displayValue": "39.6 %"
+        },
+        {
+          "label_i18n": "results2026.privacy.bestEffort",
+          "value": 47.4,
+          "color": "#42A5F5",
+          "displayValue": "47.4 %"
+        },
+        {
+          "label_i18n": "results2026.privacy.notAlways",
+          "value": 9.2,
+          "color": "#FF9800",
+          "displayValue": "9.2 %"
+        },
+        {
+          "label_i18n": "results2026.privacy.noRules",
+          "value": 3.8,
+          "color": "#D32F2F",
+          "displayValue": "3.8 %"
+        }
+      ],
+      "strategic_direction": [
+        {
+          "label_i18n": "growthEfficiency.cat.efficiency",
+          "value": 47.7,
+          "color": "#004A99",
+          "displayValue": "47.7 %"
+        },
+        {
+          "label_i18n": "growthEfficiency.cat.both",
+          "value": 23.7,
+          "color": "repeating-linear-gradient(-45deg,#004A99 0,#004A99 2px,#90CAF9 2px,#90CAF9 8px)",
+          "displayValue": "23.7 %"
+        },
+        {
+          "label_i18n": "growthEfficiency.cat.growth",
+          "value": 9.8,
+          "color": "#90CAF9",
+          "displayValue": "9.8 %"
+        },
+        {
+          "label_i18n": "growthEfficiency.cat.neither",
+          "value": 18.8,
+          "color": "#BEBEBE",
+          "displayValue": "18.8 %"
+        }
+      ],
+      "q15_icons": [
+        {
+          "icon": "git-merge",
+          "label_i18n": "results2026.dash.q15.hybrid",
+          "value": "45.4 %",
+          "highlight": true
+        },
+        {
+          "icon": "crosshair",
+          "label_i18n": "results2026.dash.q15.specialized",
+          "value": "20.2 %",
+          "highlight": false
+        },
+        {
+          "icon": "help-circle",
+          "label_i18n": "results2026.dash.q15.uncertain",
+          "value": "19.9 %",
+          "highlight": false
+        },
+        {
+          "icon": "cpu",
+          "label_i18n": "results2026.dash.q15.multiple",
+          "value": "11.3 %",
+          "highlight": false
+        },
+        {
+          "icon": "globe",
+          "label_i18n": "results2026.dash.q15.universal",
+          "value": "3.2 %",
+          "highlight": false
+        }
+      ]
+    }
+  },
+  "comparative": {
+    "bcg": {
+      "meta": {
+        "has_longitudinal": true,
+        "n_company": 76,
+        "n_benchmark": 346,
+        "n_benchmark_users": 317,
+        "display": "BCG",
+        "industry_i18n": "cmp.meta.industry.consulting"
+      },
+      "kpis": [
+        {
+          "key": "adoption",
+          "company_value": 100.0,
+          "bench_value": 91.6,
+          "delta": 8.4
+        },
+        {
+          "key": "daily_usage",
+          "company_value": 90.8,
+          "bench_value": 55.2,
+          "delta": 35.6
+        },
+        {
+          "key": "productivity_positive",
+          "company_value": 96.1,
+          "bench_value": 88.3,
+          "delta": 7.8
+        },
+        {
+          "key": "in_production",
+          "company_value": 63.2,
+          "bench_value": 40.1,
+          "delta": 23.1
+        },
+        {
+          "key": "strategic_lever",
+          "company_value": 96.1,
+          "bench_value": 81.2,
+          "delta": 14.9
+        }
+      ],
+      "sections": {
+        "usage_frequency": [
+          {
+            "label": "Täglich",
+            "company_value": 90.8,
+            "bench_value": 55.2
+          },
+          {
+            "label": "Wöchentlich",
+            "company_value": 7.9,
+            "bench_value": 22.8
+          },
+          {
+            "label": "Selten",
+            "company_value": 1.3,
+            "bench_value": 13.6
+          },
+          {
+            "label": "Gar nicht",
+            "company_value": 0.0,
+            "bench_value": 8.4
+          }
+        ],
+        "tools": {
+          "items": [
+            {
+              "label": "OpenAI ChatGPT",
+              "company_value": 98.7,
+              "bench_value": 72.2
+            },
+            {
+              "label": "Microsoft Copilot",
+              "company_value": 25.0,
+              "bench_value": 49.5
+            },
+            {
+              "label": "Google Gemini",
+              "company_value": 14.5,
+              "bench_value": 21.1
+            },
+            {
+              "label": "Anthropic Claude",
+              "company_value": 9.2,
+              "bench_value": 18.9
+            }
+          ],
+          "n_bench_override": 317
+        },
+        "productivity": {
+          "today": {
+            "items": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 47.4
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 48.7
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 3.9
+              }
+            ],
+            "bench": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 31.5
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 56.8
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 11.7
+              }
+            ]
+          },
+          "future": {
+            "items": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 81.6
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 15.8
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 2.6
+              }
+            ],
+            "bench": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 62.8
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 27.4
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 9.8
+              }
+            ]
+          }
+        },
+        "privacy": [
+          {
+            "label": "Regelungen bekannt & konsequent",
+            "company_value": 43.4,
+            "bench_value": 39.6
+          },
+          {
+            "label": "Best-effort Umsetzung",
+            "company_value": 44.7,
+            "bench_value": 47.4
+          },
+          {
+            "label": "Richtlinien bekannt, nicht immer",
+            "company_value": 9.2,
+            "bench_value": 9.2
+          },
+          {
+            "label": "Keine Regeln bekannt",
+            "company_value": 2.6,
+            "bench_value": 3.8
+          }
+        ],
+        "phase_grid": [
+          {
+            "phase": "Phase 1",
+            "company_value": 14.5,
+            "bench_value": 30.2
+          },
+          {
+            "phase": "Phase 2",
+            "company_value": 22.4,
+            "bench_value": 29.7
+          },
+          {
+            "phase": "Phase 3",
+            "company_value": 36.8,
+            "bench_value": 30.5
+          },
+          {
+            "phase": "Phase 4",
+            "company_value": 26.3,
+            "bench_value": 9.6
+          }
+        ],
+        "challenges_rank": {
+          "benchmark": [
+            {
+              "cat": "roi",
+              "label": "Unklarer ROI-Nachweis",
+              "value": 21.7
+            },
+            {
+              "cat": "gov",
+              "label": "Governance & Regulatorik",
+              "value": 21.1
+            },
+            {
+              "cat": "it",
+              "label": "IT-Integration",
+              "value": 20.2
+            },
+            {
+              "cat": "data",
+              "label": "Datenqualität",
+              "value": 18.8
+            },
+            {
+              "cat": "staff",
+              "label": "Qualifiziertes Personal",
+              "value": 18.2
+            }
+          ],
+          "company": [
+            {
+              "cat": "data",
+              "label": "Datenqualität",
+              "value": 27.6
+            },
+            {
+              "cat": "roi",
+              "label": "Unklarer ROI-Nachweis",
+              "value": 26.3
+            },
+            {
+              "cat": "it",
+              "label": "IT-Integration",
+              "value": 22.4
+            },
+            {
+              "cat": "staff",
+              "label": "Qualifiziertes Personal",
+              "value": 13.2
+            },
+            {
+              "cat": "gov",
+              "label": "Governance & Regulatorik",
+              "value": 10.5
+            }
+          ]
+        },
+        "proficiency": [
+          {
+            "level": "Ausprobiert",
+            "company_value": 1.3,
+            "bench_value": 5.7
+          },
+          {
+            "level": "Einfache Prompts",
+            "company_value": 22.4,
+            "bench_value": 42.0
+          },
+          {
+            "level": "Modelle & Prompting",
+            "company_value": 47.4,
+            "bench_value": 33.8
+          },
+          {
+            "level": "Erweiterte Funktionen",
+            "company_value": 19.7,
+            "bench_value": 10.7
+          },
+          {
+            "level": "Eigene Lösungen",
+            "company_value": 7.9,
+            "bench_value": 5.4
+          },
+          {
+            "level": "Eigene Modelle",
+            "company_value": 1.3,
+            "bench_value": 2.5
+          }
+        ],
+        "growth_efficiency": [
+          {
+            "label": "Effizienzhebel",
+            "company_value": 56.6,
+            "bench_value": 47.7
+          },
+          {
+            "label": "Gleichermaßen beides",
+            "company_value": 23.7,
+            "bench_value": 23.7
+          },
+          {
+            "label": "Wachstumstreiber",
+            "company_value": 15.8,
+            "bench_value": 9.8
+          },
+          {
+            "label": "Bisher weder noch",
+            "company_value": 3.9,
+            "bench_value": 18.8
+          }
+        ]
+      },
+      "charts": {
+        "productivity_timeline": {
+          "labels": [
+            "2024 / 25",
+            "2026 (heute)",
+            "2026 (in 1–3 J.)"
+          ],
+          "forecast_from_index": 1,
+          "datasets": [
+            {
+              "label": "Deutliche Verbesserung",
+              "values": [
+                40.8,
+                47.4,
+                81.6
+              ]
+            },
+            {
+              "label": "Leichte Verbesserung",
+              "values": [
+                59.2,
+                48.7,
+                15.8
+              ]
+            },
+            {
+              "label": "Keine / Negative Änderung",
+              "values": [
+                0.0,
+                3.9,
+                2.6
+              ]
+            }
+          ]
+        }
+      },
+      "fazit": {
+        "de": "<strong>Gesamteinschätzung:</strong> BCG validiert sich als <strong>führender GenAI-Adopter</strong> und zeigt ein kohärentes Bild gestiegener Reife in allen untersuchten Dimensionen. Die Universalität der Adoption (100 %) kombiniert mit ausgeprägter täglicher Nutzung (90,8 % vs. 55,2 % Gesamtdurchschnitt, +35,6 PP) und vorangetriebenem Implementierungsstand (63,1 % in Produktion vs. 39,4 %) belegt eine deutlich höhere operationale Durchdringung und Reife von GenAI-Einsätzen. Besonders bemerkenswert sind die <strong>gestiegenen Kompetenzerwartungen</strong>: 75 % der BCG-Befragten bewerten ihre eigene GenAI-Kompetenz als mittelhoch bis fortgeschritten (vs. 51,6 % im Gesamtdurchschnitt), was auf eine nachhaltige Fähigkeitsentwicklung hindeutet.",
+        "en": "<strong>Overall assessment:</strong> BCG validates itself as a <strong>leading GenAI adopter</strong> and shows a consistent pattern of higher maturity across all analyzed dimensions. Universal adoption (100%), combined with strong daily usage (90.8% vs. 55.2% benchmark, +35.6 pp) and a more advanced implementation status (63.1% in production vs. 39.4%), indicates substantially deeper operational integration of GenAI. Particularly notable is the <strong>higher competency profile</strong>: 75% of BCG respondents rate their GenAI skills as intermediate to advanced (vs. 51.6% in the benchmark), pointing to sustained capability development."
+      }
+    },
+    "regiocom": {
+      "meta": {
+        "has_longitudinal": false,
+        "n_company": 150,
+        "n_benchmark": 346,
+        "n_benchmark_users": 317,
+        "display": "Regiocom",
+        "industry_i18n": "cmp.meta.industry.it_services"
+      },
+      "kpis": [
+        {
+          "key": "adoption",
+          "company_value": 85.3,
+          "bench_value": 91.6,
+          "delta": -6.3
+        },
+        {
+          "key": "daily_usage",
+          "company_value": 38.7,
+          "bench_value": 55.2,
+          "delta": -16.5
+        },
+        {
+          "key": "productivity_positive",
+          "company_value": 82.0,
+          "bench_value": 88.3,
+          "delta": -6.3
+        },
+        {
+          "key": "in_production",
+          "company_value": 31.5,
+          "bench_value": 40.1,
+          "delta": -8.6
+        },
+        {
+          "key": "strategic_lever",
+          "company_value": 76.0,
+          "bench_value": 81.2,
+          "delta": -5.2
+        }
+      ],
+      "sections": {
+        "usage_frequency": [
+          {
+            "label": "Täglich",
+            "company_value": 38.7,
+            "bench_value": 55.2
+          },
+          {
+            "label": "Wöchentlich",
+            "company_value": 26.0,
+            "bench_value": 22.8
+          },
+          {
+            "label": "Selten",
+            "company_value": 20.7,
+            "bench_value": 13.6
+          },
+          {
+            "label": "Gar nicht",
+            "company_value": 14.7,
+            "bench_value": 8.4
+          }
+        ],
+        "tools": {
+          "items": [
+            {
+              "label": "OpenAI ChatGPT",
+              "company_value": 58.6,
+              "bench_value": 72.2
+            },
+            {
+              "label": "Microsoft Copilot",
+              "company_value": 58.6,
+              "bench_value": 49.5
+            },
+            {
+              "label": "Google Gemini",
+              "company_value": 21.1,
+              "bench_value": 21.1
+            },
+            {
+              "label": "Anthropic Claude",
+              "company_value": 10.9,
+              "bench_value": 18.9
+            }
+          ],
+          "n_bench_override": 317
+        },
+        "productivity": {
+          "today": {
+            "items": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 21.9
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 60.2
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 18.0
+              }
+            ],
+            "bench": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 31.5
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 56.8
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 11.7
+              }
+            ]
+          },
+          "future": {
+            "items": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 57.8
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 25.8
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 16.4
+              }
+            ],
+            "bench": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 62.8
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 27.4
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 9.8
+              }
+            ]
+          }
+        },
+        "privacy": [
+          {
+            "label": "Regelungen bekannt & konsequent",
+            "company_value": 43.3,
+            "bench_value": 39.6
+          },
+          {
+            "label": "Best-effort Umsetzung",
+            "company_value": 49.3,
+            "bench_value": 47.4
+          },
+          {
+            "label": "Richtlinien bekannt, nicht immer",
+            "company_value": 5.3,
+            "bench_value": 9.2
+          },
+          {
+            "label": "Keine Regeln bekannt",
+            "company_value": 2.0,
+            "bench_value": 3.8
+          }
+        ],
+        "phase_grid": [
+          {
+            "phase": "Phase 1",
+            "company_value": 38.9,
+            "bench_value": 30.2
+          },
+          {
+            "phase": "Phase 2",
+            "company_value": 29.5,
+            "bench_value": 29.7
+          },
+          {
+            "phase": "Phase 3",
+            "company_value": 27.5,
+            "bench_value": 30.5
+          },
+          {
+            "phase": "Phase 4",
+            "company_value": 4.0,
+            "bench_value": 9.6
+          }
+        ],
+        "challenges_rank": {
+          "benchmark": [
+            {
+              "cat": "roi",
+              "label": "Unklarer ROI-Nachweis",
+              "value": 21.7
+            },
+            {
+              "cat": "gov",
+              "label": "Governance & Regulatorik",
+              "value": 21.1
+            },
+            {
+              "cat": "it",
+              "label": "IT-Integration",
+              "value": 20.2
+            },
+            {
+              "cat": "data",
+              "label": "Datenqualität",
+              "value": 18.8
+            },
+            {
+              "cat": "staff",
+              "label": "Qualifiziertes Personal",
+              "value": 18.2
+            }
+          ],
+          "company": [
+            {
+              "cat": "it",
+              "label": "IT-Integration",
+              "value": 27.3
+            },
+            {
+              "cat": "gov",
+              "label": "Governance & Regulatorik",
+              "value": 22.0
+            },
+            {
+              "cat": "staff",
+              "label": "Qualifiziertes Personal",
+              "value": 18.7
+            },
+            {
+              "cat": "data",
+              "label": "Datenqualität",
+              "value": 16.7
+            },
+            {
+              "cat": "roi",
+              "label": "Unklarer ROI-Nachweis",
+              "value": 15.3
+            }
+          ]
+        },
+        "proficiency": [
+          {
+            "level": "Ausprobiert",
+            "company_value": 7.8,
+            "bench_value": 5.7
+          },
+          {
+            "level": "Einfache Prompts",
+            "company_value": 52.3,
+            "bench_value": 42.0
+          },
+          {
+            "level": "Modelle & Prompting",
+            "company_value": 27.3,
+            "bench_value": 33.8
+          },
+          {
+            "level": "Erweiterte Funktionen",
+            "company_value": 7.8,
+            "bench_value": 10.7
+          },
+          {
+            "level": "Eigene Lösungen",
+            "company_value": 1.6,
+            "bench_value": 5.4
+          },
+          {
+            "level": "Eigene Modelle",
+            "company_value": 3.1,
+            "bench_value": 2.5
+          }
+        ],
+        "growth_efficiency": [
+          {
+            "label": "Effizienzhebel",
+            "company_value": 40.0,
+            "bench_value": 47.7
+          },
+          {
+            "label": "Gleichermaßen beides",
+            "company_value": 28.7,
+            "bench_value": 23.7
+          },
+          {
+            "label": "Wachstumstreiber",
+            "company_value": 7.3,
+            "bench_value": 9.8
+          },
+          {
+            "label": "Bisher weder noch",
+            "company_value": 24.0,
+            "bench_value": 18.8
+          }
+        ]
+      },
+      "charts": {
+        "productivity_timeline": {
+          "labels": [
+            "2026 (heute)",
+            "2026 (in 1–3 J.)"
+          ],
+          "forecast_from_index": 0,
+          "datasets": [
+            {
+              "label": "Deutliche Verbesserung",
+              "values": [
+                21.9,
+                57.8
+              ]
+            },
+            {
+              "label": "Leichte Verbesserung",
+              "values": [
+                60.2,
+                25.8
+              ]
+            },
+            {
+              "label": "Keine / Negative Änderung",
+              "values": [
+                18.0,
+                16.4
+              ]
+            }
+          ]
+        }
+      },
+      "fazit": {
+        "de": "",
+        "en": ""
+      }
+    },
+    "kuehnenagl": {
+      "meta": {
+        "has_longitudinal": false,
+        "n_company": 13,
+        "n_benchmark": 346,
+        "n_benchmark_users": 317,
+        "display": "Kühne und Nagel",
+        "industry_i18n": "cmp.meta.industry.logistics"
+      },
+      "kpis": [
+        {
+          "key": "adoption",
+          "company_value": 100.0,
+          "bench_value": 91.6,
+          "delta": 8.4
+        },
+        {
+          "key": "daily_usage",
+          "company_value": 76.9,
+          "bench_value": 55.2,
+          "delta": 21.7
+        },
+        {
+          "key": "productivity_positive",
+          "company_value": 100.0,
+          "bench_value": 88.3,
+          "delta": 11.7
+        },
+        {
+          "key": "in_production",
+          "company_value": 38.5,
+          "bench_value": 40.1,
+          "delta": -1.6
+        },
+        {
+          "key": "strategic_lever",
+          "company_value": 100.0,
+          "bench_value": 81.2,
+          "delta": 18.8
+        }
+      ],
+      "sections": {
+        "usage_frequency": [
+          {
+            "label": "Täglich",
+            "company_value": 76.9,
+            "bench_value": 55.2
+          },
+          {
+            "label": "Wöchentlich",
+            "company_value": 23.1,
+            "bench_value": 22.8
+          },
+          {
+            "label": "Selten",
+            "company_value": 0.0,
+            "bench_value": 13.6
+          },
+          {
+            "label": "Gar nicht",
+            "company_value": 0.0,
+            "bench_value": 8.4
+          }
+        ],
+        "tools": {
+          "items": [
+            {
+              "label": "OpenAI ChatGPT",
+              "company_value": 69.2,
+              "bench_value": 72.2
+            },
+            {
+              "label": "Microsoft Copilot",
+              "company_value": 69.2,
+              "bench_value": 49.5
+            },
+            {
+              "label": "Google Gemini",
+              "company_value": 15.4,
+              "bench_value": 21.1
+            },
+            {
+              "label": "Anthropic Claude",
+              "company_value": 46.2,
+              "bench_value": 18.9
+            }
+          ],
+          "n_bench_override": 317
+        },
+        "productivity": {
+          "today": {
+            "items": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 30.8
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 69.2
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 0.0
+              }
+            ],
+            "bench": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 31.5
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 56.8
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 11.7
+              }
+            ]
+          },
+          "future": {
+            "items": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 61.5
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 38.5
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 0.0
+              }
+            ],
+            "bench": [
+              {
+                "label": "Deutliche Verbesserung",
+                "value": 62.8
+              },
+              {
+                "label": "Leichte Verbesserung",
+                "value": 27.4
+              },
+              {
+                "label": "Keine / Negative Änderung",
+                "value": 9.8
+              }
+            ]
+          }
+        },
+        "privacy": [
+          {
+            "label": "Regelungen bekannt & konsequent",
+            "company_value": 23.1,
+            "bench_value": 39.6
+          },
+          {
+            "label": "Best-effort Umsetzung",
+            "company_value": 38.5,
+            "bench_value": 47.4
+          },
+          {
+            "label": "Richtlinien bekannt, nicht immer",
+            "company_value": 23.1,
+            "bench_value": 9.2
+          },
+          {
+            "label": "Keine Regeln bekannt",
+            "company_value": 15.4,
+            "bench_value": 3.8
+          }
+        ],
+        "phase_grid": [
+          {
+            "phase": "Phase 1",
+            "company_value": 23.1,
+            "bench_value": 30.2
+          },
+          {
+            "phase": "Phase 2",
+            "company_value": 38.5,
+            "bench_value": 29.7
+          },
+          {
+            "phase": "Phase 3",
+            "company_value": 30.8,
+            "bench_value": 30.5
+          },
+          {
+            "phase": "Phase 4",
+            "company_value": 7.7,
+            "bench_value": 9.6
+          }
+        ],
+        "challenges_rank": {
+          "benchmark": [
+            {
+              "cat": "roi",
+              "label": "Unklarer ROI-Nachweis",
+              "value": 21.7
+            },
+            {
+              "cat": "gov",
+              "label": "Governance & Regulatorik",
+              "value": 21.1
+            },
+            {
+              "cat": "it",
+              "label": "IT-Integration",
+              "value": 20.2
+            },
+            {
+              "cat": "data",
+              "label": "Datenqualität",
+              "value": 18.8
+            },
+            {
+              "cat": "staff",
+              "label": "Qualifiziertes Personal",
+              "value": 18.2
+            }
+          ],
+          "company": [
+            {
+              "cat": "roi",
+              "label": "Unklarer ROI-Nachweis",
+              "value": 30.8
+            },
+            {
+              "cat": "gov",
+              "label": "Governance & Regulatorik",
+              "value": 23.1
+            },
+            {
+              "cat": "staff",
+              "label": "Qualifiziertes Personal",
+              "value": 23.1
+            },
+            {
+              "cat": "data",
+              "label": "Datenqualität",
+              "value": 15.4
+            },
+            {
+              "cat": "it",
+              "label": "IT-Integration",
+              "value": 7.7
+            }
+          ]
+        },
+        "proficiency": [
+          {
+            "level": "Ausprobiert",
+            "company_value": 7.7,
+            "bench_value": 5.7
+          },
+          {
+            "level": "Einfache Prompts",
+            "company_value": 53.8,
+            "bench_value": 42.0
+          },
+          {
+            "level": "Modelle & Prompting",
+            "company_value": 7.7,
+            "bench_value": 33.8
+          },
+          {
+            "level": "Erweiterte Funktionen",
+            "company_value": 15.4,
+            "bench_value": 10.7
+          },
+          {
+            "level": "Eigene Lösungen",
+            "company_value": 15.4,
+            "bench_value": 5.4
+          },
+          {
+            "level": "Eigene Modelle",
+            "company_value": 0.0,
+            "bench_value": 2.5
+          }
+        ],
+        "growth_efficiency": [
+          {
+            "label": "Effizienzhebel",
+            "company_value": 61.5,
+            "bench_value": 47.7
+          },
+          {
+            "label": "Gleichermaßen beides",
+            "company_value": 23.1,
+            "bench_value": 23.7
+          },
+          {
+            "label": "Wachstumstreiber",
+            "company_value": 15.4,
+            "bench_value": 9.8
+          },
+          {
+            "label": "Bisher weder noch",
+            "company_value": 0.0,
+            "bench_value": 18.8
+          }
+        ]
+      },
+      "charts": {
+        "productivity_timeline": {
+          "labels": [
+            "2026 (heute)",
+            "2026 (in 1–3 J.)"
+          ],
+          "forecast_from_index": 0,
+          "datasets": [
+            {
+              "label": "Deutliche Verbesserung",
+              "values": [
+                30.8,
+                61.5
+              ]
+            },
+            {
+              "label": "Leichte Verbesserung",
+              "values": [
+                69.2,
+                38.5
+              ]
+            },
+            {
+              "label": "Keine / Negative Änderung",
+              "values": [
+                0.0,
+                0.0
+              ]
+            }
+          ]
+        }
+      },
+      "fazit": {
+        "de": "",
+        "en": ""
+      }
+    }
+  }
+}

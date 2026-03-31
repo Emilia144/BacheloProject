@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ergebnisse 2026 | KI im IT-Arbeitsalltag | TH Brandenburg</title>
+    <!-- Google Fonts für TH Brandenburg Design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- TH Brandenburg Dashboard Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Component Loader -->
+    <script src="js/components-loader.js" defer></script>
+    <!-- Internationalization -->
+    <script src="js/i18n.js" defer></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- Shared foundation -->
+    <script type="module" src="js/shared.js"></script>
+    <!-- Chart modules -->
+    <script src="js/charts/challenges.js" defer></script>
+    <script src="js/charts/productivity.js" defer></script>
+    <script src="js/charts/stacked-proficiency.js" defer></script>
+    <script src="js/charts/growth-efficiency.js" defer></script>
+    <!-- Component modules -->
+    <script src="js/components/progress-list.js" defer></script>
+    <script src="js/components/icon-list.js" defer></script>
+    <!-- PDF Export -->
+    <script src="pdf-export.js" defer></script>
+</head>
+<body>
+
+<!-- Header wird dynamisch geladen -->
+<div id="header-placeholder"></div>
+
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="max-width:64rem;">
+            <div class="hero__badge">
+                <span class="hero__badge-dot" style="background:#FF9800;animation:pulse 2s ease-in-out infinite;"></span>
+                <span class="small-caps" data-i18n="results2026.hero.badge">Auswertung läuft aktuell</span>
+            </div>
+            <h1 class="hero__title" data-i18n="results2026.hero.title">Ergebnisse der Studie 2026</h1>
+            <p class="hero__subtitle" data-i18n="results2026.hero.subtitle">Die Auswertung der Daten unserer zweiten großen Studie zur GenAI-Adoption in der deutschen IT-Branche läuft derzeit. Die Ergebnisse werden nach Abschluss der Erhebung hier veröffentlicht.</p>
+            
+            <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;" data-no-pdf>
+                <a href="ergebnisse-2024.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);">
+                    <span data-i18n="results2026.hero.view2024">Ergebnisse 2024/25 ansehen</span>
+                </a>
+                <button class="btn pdf-download-btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);display:inline-flex;align-items:center;gap:0.5rem;cursor:pointer;" data-loading="PDF wird erstellt…">
+                    <i data-lucide="download" style="width:1.25rem;height:1.25rem;"></i>
+                    <span data-i18n="pdf.downloadBtn">Report als PDF herunterladen</span>
+                </button>
+            </div>
+            
+            <div class="hero__meta">
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">Q1</div>
+                    <div class="hero__meta-label">2026</div>
+                </div>
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">500+</div>
+                    <div class="hero__meta-label" data-i18n="results2026.hero.meta.participants">Ziel Teilnehmer</div>
+                </div>
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">Q2</div>
+                    <div class="hero__meta-label" data-i18n="results2026.hero.meta.publication">2026 Veröffentlichung</div>
+                </div>
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">16</div>
+                    <div class="hero__meta-label" data-i18n="results2026.hero.meta.questions">Fragen</div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
+    
+
+    <!-- Status der Erhebung -->
+    <section class="section">
+        <div class="container">
+            
+            
+           
+            
+            <!-- Timeline -->
+            <div class="card" style="max-width:48rem;margin:0 auto;">
+                <div class="card__header">
+                    <h3 class="card__title" data-i18n="results2026.timeline.title">Zeitplan</h3>
+                </div>
+                <div class="card__body">
+                    <div style="display:flex;flex-direction:column;gap:1.5rem;">
+                        <!-- Phase 1 -->
+                        <div style="display:flex;gap:1.5rem;align-items:start;">
+                            <div style="min-width:100px;text-align:right;">
+                                <span style="font-size:0.875rem;font-weight:600;color:var(--th-blue);">Q1 2026</span>
+                            </div>
+                            <div style="display:flex;flex-direction:column;align-items:center;min-width:24px;">
+                                <div style="width:16px;height:16px;border-radius:50%;background:#E8F4F8;border:3px solid #E8F4F8;"></div>
+                                <div style="width:2px;height:100%;background:#E8F4F8;margin-top:0.5rem;"></div>
+                            </div>
+                            <div style="flex:1;padding-bottom:1rem;">
+                                <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;" data-i18n="results2026.timeline.phase1.title">Datenerhebung</h4>
+                                <p style="font-size:0.875rem;color:var(--th-gray);line-height:1.6;" data-i18n="results2026.timeline.phase1.description">Online-Umfrage zur GenAI-Adoption in der deutschen IT-Branche mit erweiterten Fragestellungen zu Agentic AI, lokalen LLMs und Unternehmensstrategien.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Phase 2 -->
+                        <div style="display:flex;gap:1.5rem;align-items:start;">
+                            <div style="min-width:100px;text-align:right;">
+                                <span style="font-size:0.875rem;font-weight:600;color:var(--th-blue);">Q2 2026</span>
+                            </div>
+                            <div style="display:flex;flex-direction:column;align-items:center;min-width:24px;">
+                                <div style="width:16px;height:16px;border-radius:50%;background:var(--th-blue);border:3px solid #F5F5F5;"></div>
+                                <div style="width:2px;height:100%;background:#E8F4F8;margin-top:0.5rem;"></div>
+                            </div>
+                            <div style="flex:1;padding-bottom:1rem;">
+                                <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;" data-i18n="results2026.timeline.phase2.title">Datenanalyse</h4>
+                                <p style="font-size:0.875rem;color:var(--th-gray);line-height:1.6;" data-i18n="results2026.timeline.phase2.description">Auswertung der Daten, statistische Analyse und Vergleich mit den Ergebnissen von 2024 zur Identifikation von Trends.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Phase 3 -->
+                        <div style="display:flex;gap:1.5rem;align-items:start;">
+                            <div style="min-width:100px;text-align:right;">
+                                <span style="font-size:0.875rem;font-weight:600;color:var(--muted-foreground);">Q2 2026</span>
+                            </div>
+                            <div style="display:flex;flex-direction:column;align-items:center;min-width:24px;">
+                                <div style="width:16px;height:16px;border-radius:50%;background:#E0E0E0;border:3px solid #F5F5F5;"></div>
+                            </div>
+                            <div style="flex:1;">
+                                <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.5rem;color:var(--muted-foreground);" data-i18n="results2026.timeline.phase3.title">Veröffentlichung</h4>
+                                <p style="font-size:0.875rem;color:var(--th-gray);line-height:1.6;" data-i18n="results2026.timeline.phase3.description">Publikation der Ergebnisse auf dieser Website sowie als peer-reviewed Paper in wissenschaftlichen Fachzeitschriften.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neue Schwerpunkte 2026 -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2026.focus.label">Neue Schwerpunkte 2026</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="results2026.focus.title">Erweiterter Fragenkatalog</h2>
+                <p class="section-header__subtitle" data-i18n="results2026.focus.subtitle">Die Studie 2026 untersucht neue Entwicklungen und vertieft bestehende Fragestellungen</p>
+            </div>
+            
+            <div class="grid grid--3">
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;">
+                            <i data-lucide="activity" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
+                        </div>
+                        <h3 class="card__title" data-i18n="results2026.focus.card1.title">Nutzungsfrequenz & Einsatzbereiche</h3>
+                        <p class="card__subtitle" data-i18n="results2026.focus.card1.description">Wie häufig werden GenAI-Tools genutzt und für welche Aufgaben werden sie eingesetzt?</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;">
+                            <i data-lucide="server" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
+                        </div>
+                        <h3 class="card__title" data-i18n="results2026.focus.card2.title">Modellauswahl & Kompetenzen</h3>
+                        <p class="card__subtitle" data-i18n="results2026.focus.card2.description">Welche GenAI-Modelle werden genutzt und wie werden eigene Kompetenzen eingeschätzt?</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;">
+                            <i data-lucide="trending-up" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
+                        </div>
+                        <h3 class="card__title" data-i18n="results2026.focus.card3.title">Produktivität & Qualität</h3>
+                        <p class="card__subtitle" data-i18n="results2026.focus.card3.description">Einfluss auf die Produktivität heute und in Zukunft sowie Umgang mit Ergebnisqualität</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;">
+                            <i data-lucide="shield-check" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
+                        </div>
+                        <h3 class="card__title" data-i18n="results2026.focus.card4.title">Datenschutz & Sicherheit</h3>
+                        <p class="card__subtitle" data-i18n="results2026.focus.card4.description">Bewusstsein für Datenschutzregeln und gewünschte Verbesserungen bei Datensicherheit</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;">
+                            <i data-lucide="target" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
+                        </div>
+                        <h3 class="card__title" data-i18n="results2026.focus.card5.title">Strategische Ausrichtung</h3>
+                        <p class="card__subtitle" data-i18n="results2026.focus.card5.description">GenAI als Wachstumstreiber und/oder Effizienzhebel im Unternehmen</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;">
+                            <i data-lucide="puzzle" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
+                        </div>
+                        <h3 class="card__title" data-i18n="results2026.focus.card6.title">Herausforderungen & Modellstrategien</h3>
+                        <p class="card__subtitle" data-i18n="results2026.focus.card6.description">Größte Herausforderungen beim Einsatz und zukünftige Modellstrategien</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="report-view" id="report-view">
+
+
+    <!-- Bisherige Erkenntnisse 2026 -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2026.findings.label">Bisherige Erkenntnisse 2026</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="results2026.findings.title">Trends aus der laufenden Umfrage</h2>
+                <p class="section-header__subtitle" data-i18n="results2026.findings.subtitle">Stand der Umfrage mit 310 Teilnehmern - Datenerhebung läuft noch</p>
+            </div>
+
+            <div class="hero__toggle" style="margin-top:2rem; margin-bottom:2.5rem;" data-no-pdf>
+                <div class="view-toggle">
+                    <button class="view-toggle__btn active" data-view="report">Report</button>
+                    <button class="view-toggle__btn" data-view="dashboard">Dashboard</button>
+                </div>
+            </div>
+            
+            <!-- Nutzungsverhalten Section -->
+            <div class="card card--featured" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" data-i18n="results2026.findings.usage.title">Nutzungsverhalten GenAI-Tools 2026</h3>
+                </div>
+                <div class="card__body">
+                    <div class="stats-grid" style="grid-template-columns:1fr 1fr;">
+                        <div class="stat-card">
+                            <div class="stat-card__value">91<span>%</span></div>
+                            <div class="stat-card__label" data-i18n="results2026.findings.usage.stat1">Nutzen GenAI (283 von 310)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card__value">55<span>%</span></div>
+                            <div class="stat-card__label" data-i18n="results2026.findings.usage.stat2">Tägliche Nutzer (171 von 310)</div>
+                        </div>
+                    </div>
+                    <p style="margin-top:2rem;line-height:1.7;color:var(--th-gray);" data-i18n="results2026.findings.usage.analysis" data-i18n-html="true">
+                        <strong>Analyse:</strong> Die neuen Daten zeigen einen deutlichen Anstieg der GenAI-Nutzung gegenüber 2024/25 (77% → 91%). 
+                        Besonders bemerkenswert ist der hohe Anteil täglicher Nutzer mit über der Hälfte aller Teilnehmer, was auf eine intensive und 
+                        regelmäßige Integration von GenAI-Tools in den beruflichen Alltag der deutschen IT-Branche hindeutet.
+                    </p>
+                    <div style="margin-top:1.5rem;padding:1.5rem;background:#F5F5F5F5;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+                        <h4 style="margin-bottom:0.75rem;font-size:0.95rem;color:var(--th-blue);" data-i18n="results2026.findings.usage.freqTitle">Verteilung nach Nutzungsfrequenz:</h4>
+                        <div id="progress-usage-freq"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nicht-Nutzer: Gründe & Verbesserungswünsche -->
+            <div class="card" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="users" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.nonUsers.containerTitle">Meinung der Nicht-Nutzer</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    <div class="grid grid--2">
+                        <!-- Pie 1: Warum kein GenAI? -->
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                                    <i data-lucide="user-x" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                                    <span data-i18n="results2026.findings.nonUsers.reasonsTitle">Warum wird GenAI nicht genutzt?</span>
+                                </h3>
+                                <p class="card__subtitle" style="margin-top:0.25rem;font-size:0.8rem;color:#9E9E9E;" data-i18n="results2026.findings.nonUsers.reasonsSubtitle">n = 27 Nicht-Nutzer</p>
+                            </div>
+                            <div class="card__body">
+                                <div class="donut-wrapper" style="flex-direction:row;align-items:center;gap:1.5rem">
+                                    <svg width="190" height="190" viewBox="0 0 180 180" style="flex-shrink:0" class="pie-chart">
+                                        <path fill="#004A99" d="M 90 90 L 90.0 20.0 A 70 70 0 0 1 150.6 125.0 Z" data-tooltip="Problematisch im Beruf: 33%" style="cursor:pointer"></path>
+                                        <path fill="#1565C0" d="M 90 90 L 150.6 125.0 A 70 70 0 0 1 51.5 148.5 Z" data-tooltip="Ausprobiert, nicht gut: 26%" style="cursor:pointer"></path>
+                                        <path fill="#42A5F5" d="M 90 90 L 51.5 148.5 A 70 70 0 0 1 25.7 62.3 Z" data-tooltip="Sonstige Gründe: 22%" style="cursor:pointer"></path>
+                                        <path fill="#90CAF9" d="M 90 90 L 25.7 62.3 A 70 70 0 0 1 73.9 21.9 Z" data-tooltip="Noch nicht ausprobiert: 15%" style="cursor:pointer"></path>
+                                        <path fill="#c8e6ff" d="M 90 90 L 73.9 21.9 A 70 70 0 0 1 90.0 20.0 Z" data-tooltip="Keine Einsatzmöglichkeit: 4%" style="cursor:pointer"></path>
+                                    </svg>
+                                    <div class="legend legend--vertical">
+                                        <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.findings.nonUsers.problematic">Problematisch im Beruf</span><span class="legend__value">33%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#1565C0"></span><span data-i18n="results2026.findings.nonUsers.triedNotGood">Ausprobiert, nicht gut</span><span class="legend__value">26%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.findings.nonUsers.otherReasons">Sonstige Gründe</span><span class="legend__value">22%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#90CAF9"></span><span data-i18n="results2026.findings.nonUsers.notTriedYet">Noch nicht ausprobiert</span><span class="legend__value">15%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#c8e6ff"></span><span data-i18n="results2026.findings.nonUsers.noUseCase">Keine Einsatzmöglichkeit</span><span class="legend__value">4%</span></div>
+                                    </div>
+                                </div>
+                                <!-- Insight -->
+                                <div style="padding:1rem 1.25rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);margin-top:1.25rem;">
+                                    <p style="margin:0;font-size:0.8rem;color:var(--th-gray);line-height:1.7;" data-i18n="results2026.findings.nonUsers.reasonsInsight" data-i18n-html="true">
+                                        <strong style="color:var(--th-blue);">Bewusste Entscheidung:</strong> Die Mehrheit der Nicht-Nutzer hat GenAI bereits getestet — sie lehnt die Technologie aus konkreten Bedenken ab, nicht aus Unwissenheit. Nur 15 % haben sie schlicht noch nicht ausprobiert.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pie 2: Gewünschte Verbesserungen -->
+                        <div class="card">
+                            <div class="card__header">
+                                <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                                    <i data-lucide="wrench" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                                    <span data-i18n="results2026.findings.nonUsers.improvementsTitle">Gewünschte Verbesserungen</span>
+                                </h3>
+                                <p class="card__subtitle" style="margin-top:0.25rem;font-size:0.8rem;color:#9E9E9E;" data-i18n="results2026.findings.nonUsers.improvementsSubtitle">Mehrfachauswahl, 58 Nennungen bei 27 Nicht-Nutzern</p>
+                            </div>
+                            <div class="card__body">
+                                <div class="donut-wrapper" style="flex-direction:row;align-items:center;gap:1.5rem">
+                                    <svg width="190" height="190" viewBox="0 0 180 180" style="flex-shrink:0" class="pie-chart">
+                                        <path fill="#004A99" d="M 90 90 L 90.0 20.0 A 70 70 0 0 1 157.4 108.7 Z" data-tooltip="Fehlerrate: 29%" style="cursor:pointer"></path>
+                                        <path fill="#045dc4" d="M 90 90 L 157.4 108.7 A 70 70 0 0 1 75.0 158.4 Z" data-tooltip="Präzisere Antworten: 24%" style="cursor:pointer"></path>
+                                        <path fill="#1565C0" d="M 90 90 L 75.0 158.4 A 70 70 0 0 1 20.9 101.3 Z" data-tooltip="Datensicherheit: 19%" style="cursor:pointer"></path>
+                                        <path fill="#42A5F5" d="M 90 90 L 20.9 101.3 A 70 70 0 0 1 22.6 71.3 Z" data-tooltip="Integration: 7%" style="cursor:pointer"></path>
+                                        <path fill="#64B5F6" d="M 90 90 L 22.6 71.3 A 70 70 0 0 1 36.6 44.7 Z" data-tooltip="UI/UX: 7%" style="cursor:pointer"></path>
+                                        <path fill="#90CAF9" d="M 90 90 L 36.6 44.7 A 70 70 0 0 1 53.9 30.0 Z" data-tooltip="Kontextmanagement: 5%" style="cursor:pointer"></path>
+                                        <path fill="#BBDEFB" d="M 90 90 L 53.9 30.0 A 70 70 0 0 1 75.0 21.6 Z" data-tooltip="Kosten: 5%" style="cursor:pointer"></path>
+                                        <path fill="#c8e6ff" d="M 90 90 L 75.0 21.6 A 70 70 0 0 1 90.0 20.0 Z" data-tooltip="Akzeptanz im Team: 3%" style="cursor:pointer"></path>
+                                    </svg>
+                                    <div class="legend legend--vertical">
+                                        <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.findings.nonUsers.errorRate">Fehlerrate der Modelle</span><span class="legend__value">29%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#045dc4"></span><span data-i18n="results2026.findings.nonUsers.precision">Präzisere Antworten</span><span class="legend__value">24%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#1565C0"></span><span data-i18n="results2026.findings.nonUsers.dataSecurity">Datensicherheit</span><span class="legend__value">19%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.findings.nonUsers.integration">Mehr Integration</span><span class="legend__value">7%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#64B5F6"></span><span data-i18n="results2026.findings.nonUsers.uiux">Benutzbarkeit (UI/UX)</span><span class="legend__value">7%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#90CAF9"></span><span data-i18n="results2026.findings.nonUsers.context">Kontextmanagement</span><span class="legend__value">5%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#BBDEFB"></span><span data-i18n="results2026.findings.nonUsers.cost">Kosten</span><span class="legend__value">5%</span></div>
+                                        <div class="legend__item"><span class="legend__dot" style="background:#c8e6ff"></span><span data-i18n="results2026.findings.nonUsers.acceptance">Akzeptanz im Team</span><span class="legend__value">3%</span></div>
+                                    </div>
+                                </div>
+                                <!-- Insight -->
+                                <div style="padding:1rem 1.25rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);margin-top:1.25rem;">
+                                    <p style="margin:0;font-size:0.8rem;color:var(--th-gray);line-height:1.7;" data-i18n="results2026.findings.nonUsers.improvementsInsight" data-i18n-html="true">
+                                        <strong style="color:var(--th-blue);">Qualität vor Quantität:</strong> Die drei meistgenannten Verbesserungswünsche — Fehlerrate (29 %), Präzision (24 %) und Datensicherheit (19 %) — machen zusammen 72 % aller Nennungen aus. Nicht-Nutzer fordern vor allem verlässlichere und sicherere Ergebnisse, nicht mehr Features.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kontinuität: Was sich NICHT verändert hat -->
+            <div class="card" style="margin-bottom:2.5rem; margin-top:1.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="split" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.standards.title">Vom Marktführer zur Modellvielfalt</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    <p style="margin-bottom:2rem;line-height:1.7;color:var(--th-gray);" data-i18n="results2026.findings.standards.description" data-i18n-html="true">
+                        Die Kernaufgaben bleiben konstant – doch das Tool-Ökosystem befindet sich im Wandel. ChatGPTs einstige Dominanz weicht dem Wunsch nach einer bewusst gesteuerten <strong>Multi-Modell-Strategie</strong>.
+                    </p>
+
+                    <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+                        <!-- Vergleichszeile: Recherche (jetzt oben) -->
+                        <div style="border:1px solid #E0E0E0;border-radius:0.5rem;overflow:hidden;">
+                            <div style="background:#F9FAFB;padding:0.875rem 1.25rem;border-bottom:1px solid #E0E0E0;display:flex;align-items:center;gap:0.625rem;">
+                                <i data-lucide="search" style="width:1.125rem;height:1.125rem;color:var(--th-blue);flex-shrink:0;"></i>
+                                <span style="font-size:0.9375rem;font-weight:600;color:var(--th-blue);" data-i18n="results2026.findings.standards.research.header">Konstant: Recherche &amp; Wissensvermittlung bleibt die Kernaufgabe</span>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;">
+                                <div style="padding:1.25rem 1.5rem;">
+                                    <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">2024 / 25</div>
+                                    <div style="font-size:2rem;font-weight:700;color:#FF9800;line-height:1;">84%</div>
+                                    <div style="font-size:0.8125rem;color:var(--th-gray);margin-top:0.25rem;" data-i18n="results2026.findings.standards.users">der GenAI-Nutzer</div>
+                                    <div style="margin-top:0.875rem;display:flex;flex-direction:column;gap:0.375rem;">
+                                        <div style="display:flex;align-items:baseline;gap:0.5rem;font-size:0.8rem;">
+                                            <span style="font-weight:600;color:var(--th-gray);min-width:1.25rem;">2.</span>
+                                            <span style="color:var(--th-gray);">Texterstellung <strong style="color:#FF9800;">68%</strong></span>
+                                        </div>
+                                        <div style="display:flex;align-items:baseline;gap:0.5rem;font-size:0.8rem;">
+                                            <span style="font-weight:600;color:var(--th-gray);min-width:1.25rem;">3.</span>
+                                            <span style="color:var(--th-gray);">Bildgenerierung <strong style="color:#FF9800;">41%</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.75rem 1rem;border-left:1px solid #E0E0E0;border-right:1px solid #E0E0E0;background:#FAFAFA;min-width:72px;gap:0.375rem;">
+                                    <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;color:var(--th-blue);"></i>
+                                </div>
+                                <div style="padding:1.25rem 1.5rem;">
+                                    <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">2026</div>
+                                    <div style="font-size:2rem;font-weight:700;color:var(--th-blue);line-height:1;">83%</div>
+                                    <div style="font-size:0.8125rem;color:var(--th-gray);margin-top:0.25rem;" data-i18n="results2026.findings.standards.users">der GenAI-Nutzer</div>
+                                    <div style="margin-top:0.875rem;display:flex;flex-direction:column;gap:0.375rem;">
+                                        <div style="display:flex;align-items:baseline;gap:0.5rem;font-size:0.8rem;">
+                                            <span style="font-weight:600;color:var(--th-gray);min-width:1.25rem;">2.</span>
+                                            <span style="color:var(--th-gray);">Texterstellung <strong style="color:var(--th-blue);">67%</strong></span>
+                                        </div>
+                                        <div style="display:flex;align-items:baseline;gap:0.5rem;font-size:0.8rem;">
+                                            <span style="font-weight:600;color:var(--th-gray);min-width:1.25rem;">3.</span>
+                                            <span style="color:var(--th-gray);">Softwareentwicklung <strong style="color:var(--th-blue);">41%</strong></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="padding:1rem 1.5rem;background:#EEF5FF;border-top:1px solid #D6E8FB;">
+                                <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.6;" data-i18n="results2026.findings.standards.research.insight" data-i18n-html="true">
+                                    <strong style="color:var(--th-blue);">Stabiler Anker:</strong> Die meistgenutzte Aufgabe hat sich kaum verändert (84 % → 83 %). Was sich wandelt, ist nicht das <em>Was</em>, sondern das <em>Womit</em>. Während Recherche als Kernfunktion konstant bleibt, verschiebt sich das Tool-Ökosystem fundamental.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Vergleichszeile: ChatGPT (jetzt unten) -->
+                        <div style="border:1px solid #E0E0E0;border-radius:0.5rem;overflow:hidden;">
+                            <div style="background:#F9FAFB;padding:0.875rem 1.25rem;border-bottom:1px solid #E0E0E0;display:flex;align-items:center;gap:0.625rem;">
+                                <i data-lucide="message-circle" style="width:1.125rem;height:1.125rem;color:var(--th-blue);flex-shrink:0;"></i>
+                                <span style="font-size:0.9375rem;font-weight:600;color:var(--th-blue);" data-i18n="results2026.findings.standards.chatgpt.header">Im Wandel: ChatGPTs Marktführerschaft bekommt Konkurrenz</span>
+                            </div>
+                            <div style="display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;">
+                                <div style="padding:1.25rem 1.5rem;">
+                                    <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">2024 / 25</div>
+                                    <div style="font-size:2rem;font-weight:700;color:#FF9800;line-height:1;">93%</div>
+                                    <div style="font-size:0.8125rem;color:var(--th-gray);margin-top:0.25rem;" data-i18n="results2026.findings.standards.users">der GenAI-Nutzer</div>
+                                    <div style="font-size:0.8125rem;color:var(--th-gray);margin-top:0.625rem;line-height:1.5;" data-i18n="results2026.findings.standards.chatgpt.desc2024">Klarer Marktführer, kaum Alternativen</div>
+                                </div>
+                                <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0.75rem 1rem;border-left:1px solid #E0E0E0;border-right:1px solid #E0E0E0;background:#FAFAFA;min-width:72px;gap:0.375rem;">
+                                    <i data-lucide="arrow-right" style="width:1.25rem;height:1.25rem;color:var(--th-blue);"></i>
+                                </div>
+                                <div style="padding:1.25rem 1.5rem;">
+                                    <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">2026</div>
+                                    <div style="font-size:2rem;font-weight:700;color:var(--th-blue);line-height:1;">73%</div>
+                                    <div style="font-size:0.8125rem;color:var(--th-gray);margin-top:0.25rem;" data-i18n="results2026.findings.standards.users">der GenAI-Nutzer</div>
+                                    <div style="font-size:0.8125rem;color:var(--th-gray);margin-top:0.625rem;line-height:1.5;" data-i18n="results2026.findings.standards.chatgpt.desc2026">Weiterhin Nr. 1 – Alternativen gewinnen</div>
+                                </div>
+                            </div>
+                            <div style="padding:1rem 1.5rem;background:#EEF5FF;border-top:1px solid #D6E8FB;">
+                                <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.6;" data-i18n="results2026.findings.standards.chatgpt.insight" data-i18n-html="true">
+                                    <strong style="color:var(--th-blue);">Mehr Alternativen:</strong> 2024/25 nutzten noch 93 % ChatGPT – klarer Marktführer, kaum Alternativen. 2026 sind es nur noch 73 %. Microsoft Copilot (49 %), Google Gemini (21 %) und lokale Open-Source-Modelle (19 %) gewinnen signifikant hinzu. Dies ist kein Marktversagen, sondern ein strategisch bewusster Wandel – wie die Zukunftserwartungen zeigen:
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Modellstrategien: Zukunftserwartung -->
+                        <div style="border:1px solid #E0E0E0;border-radius:0.5rem;overflow:hidden;">
+                            <div style="background:#F9FAFB;padding:0.875rem 1.25rem;border-bottom:1px solid #E0E0E0;display:flex;align-items:center;gap:0.625rem;">
+                                <i data-lucide="git-branch" style="width:1.125rem;height:1.125rem;color:var(--th-blue);flex-shrink:0;"></i>
+                                <span style="font-size:0.9375rem;font-weight:600;color:var(--th-blue);" data-i18n="results2026.findings.standards.models.header">Erwartet: Plattformvielfalt als Normalmodell</span>
+                            </div>
+                            <div style="padding:1.25rem 1.5rem;">
+                                <div id="progress-model-strategy"></div>
+                            </div>
+                            <div style="padding:1rem 1.5rem;background:#EEF5FF;border-top:1px solid #D6E8FB;">
+                                <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.6;" data-i18n="results2026.findings.standards.models.insight" data-i18n-html="true">
+                                    <strong style="color:var(--th-blue);">Das Ziel ist klar:</strong> Nur 4 % erwarten künftig noch ein einzelnes, universelles Modell – das Pendant zu ChatGPTs einstiger Vorreiterrolle. 65 % antizipieren stattdessen diversifizierte Multi-Modell-Strategien (45 % Hybridansatz, 20 % spezialisierte Modelle). Die beobachtete Marktverschiebung ist damit kein Übergangsphänomen, sondern der bewusste Weg dorthin.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Produktivitätstrends -->
+            <div class="card card--featured" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="trending-up" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.productivity.title">Produktivitäts- &amp; Leistungstrends</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    
+                    <!-- Langzeittrends: Liniendiagramm -->
+                    <div style="border:1px solid #E0E0E0;border-radius:0.5rem;overflow:hidden;">
+                        <div style="padding:1rem 1.5rem;border-bottom:1px solid #E0E0E0;background:#F9FAFB;">
+                            <h4 style="margin:0 0 0.25rem 0;font-size:0.95rem;color:var(--th-blue);font-weight:600;" data-i18n="results2026.findings.productivity.chartTitle">Langzeitentwicklung der Produktivitätseinschätzung</h4>
+                            <p style="margin:0;font-size:0.8rem;color:var(--th-gray);" data-i18n="results2026.findings.productivity.chartSubtitle">Anteil der GenAI-Nutzer je Kategorie — reale Messwerte 2024/25 und 2026 sowie Erwartungshorizont in 1–3 Jahren (schraffierter Bereich)</p>
+                        </div>
+                        <div style="padding:1.5rem 1.5rem 1rem;">
+                            <div style="position:relative;height:300px;">
+                                <canvas id="productivityChart"></canvas>
+                            </div>
+                            <p style="margin:1.125rem 0 0 0;font-size:0.875rem;line-height:1.6;color:var(--th-gray);padding-top:1rem;border-top:1px solid #F0F0F0;" data-i18n="results2026.findings.productivity.breakthrough" data-i18n-html="true">
+                                <strong style="color:var(--th-blue);">Durchbruchmoment:</strong> Während die Gesamtquote positiver Produktivitätseffekte leicht steigt (85% → 90%), zeigt sich der markanteste Trend beim Shift von „leichten" zu „deutlichen" Verbesserungen: von 33% heute auf erwartete 64%. Parallel dazu schwindet die neutrale Haltung konsequent (12% → 4%) — genau dieser Schwund erklärt den positiven Zuwachs.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Kompetenz vs. Produktivität: 100% Stacked Bar Charts -->
+            <div class="card card--featured" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="bar-chart-3" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.proficiencyProductivity.title">Kompetenz vs. Produktivitätseinschätzung</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+
+                        <!-- Stacked Bar: Heute -->
+                        <div style="border:1px solid #E0E0E0;border-radius:0.5rem;overflow:hidden;">
+                            <div style="padding:1rem 1.5rem;border-bottom:1px solid #E0E0E0;background:#F9FAFB;">
+                                <h4 style="margin:0 0 0.25rem 0;font-size:0.95rem;color:var(--th-blue);font-weight:600;" data-i18n="results2026.findings.proficiencyProductivity.todayTitle">Produktivitätseinschätzung Heute</h4>
+                                <p style="margin:0;font-size:0.8rem;color:var(--th-gray);" data-i18n="results2026.findings.proficiencyProductivity.todaySubtitle">Verteilung der Produktivitätseinschätzung je Kompetenzstufe (normalisiert)</p>
+                            </div>
+                            <div style="padding:1.5rem 1.5rem 1rem;">
+                                <div style="position:relative;height:320px;">
+                                    <canvas id="stackedTodayChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Stacked Bar: In 1-3 Jahren -->
+                        <div style="border:1px solid #E0E0E0;border-radius:0.5rem;overflow:hidden;">
+                            <div style="padding:1rem 1.5rem;border-bottom:1px solid #E0E0E0;background:#F9FAFB;">
+                                <h4 style="margin:0 0 0.25rem 0;font-size:0.95rem;color:var(--th-blue);font-weight:600;" data-i18n="results2026.findings.proficiencyProductivity.futureTitle">Produktivitätseinschätzung in 1–3 Jahren</h4>
+                                <p style="margin:0;font-size:0.8rem;color:var(--th-gray);" data-i18n="results2026.findings.proficiencyProductivity.futureSubtitle">Verteilung der erwarteten Produktivitätsänderung je Kompetenzstufe (normalisiert)</p>
+                            </div>
+                            <div style="padding:1.5rem 1.5rem 1rem;">
+                                <div style="position:relative;height:320px;">
+                                    <canvas id="stackedFutureChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <p style="margin:1.125rem 0 0 0;font-size:0.875rem;line-height:1.6;color:var(--th-gray);padding-top:1rem;border-top:1px solid #F0F0F0;" data-i18n="results2026.findings.proficiencyProductivity.insight" data-i18n-html="true">
+                        <strong style="color:var(--th-blue);">Erkenntnis:</strong> Mit steigender GenAI-Kompetenz verschiebt sich die Produktivitätseinschätzung deutlich nach oben — sowohl für die heutige als auch die zukünftige Einschätzung. Besonders auffällig: In der Zukunftserwartung dominiert „Deutliche Verbesserung" ab Kompetenzstufe 3 aufwärts fast vollständig. Gleichzeitig zeigt sich auf der höchsten Kompetenzstufe (eigene Modelle) eine wachsende Skepsis: 37,5 % erwarten in 1–3 Jahren sogar negative Auswirkungen auf die Produktivität — ein deutlich höherer Anteil als in allen anderen Gruppen. Wer die Technologie am tiefsten durchdringt, sieht offenbar auch deren Grenzen am klarsten. Aufgrund der geringen Fallzahlen in den oberen Kompetenzstufen (n=15 bzw. n=8) sind diese Werte jedoch nur als Trendindikation zu verstehen.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- GenAI: Wachstumstreiber oder Effizienzhebel nach Kompetenzstufe -->
+            <div class="card card--featured" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="trending-up" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.growthEfficiencyProficiency.title">Wachstumstreiber oder Effizienzhebel – nach Kompetenzstufe</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    <div style="position:relative;height:380px;margin-bottom:1rem;">
+                        <canvas id="growthEfficiencyProficiencyChart"></canvas>
+                    </div>
+
+                    <!-- Insight-Box -->
+                    <div style="padding:1.25rem 1.5rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+                        <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.7;" data-i18n="results2026.findings.growthEfficiencyProficiency.insight" data-i18n-html="true">
+                            <strong style="color:var(--th-blue);">Kompetenz formt die Wahrnehmung:</strong> „Effizienz" dominiert auf allen Stufen, erreicht jedoch bei Stufe 4 (erweiterte Funktionen) mit 57,6 % ihren Höchstwert. Auffällig ist Stufe 5: Hier sieht fast die Hälfte (46,7 %) GenAI <strong>gleichermaßen als Effizienz- und Wachstumshebel</strong>. Auf der niedrigsten und höchsten Kompetenzstufe ist der Anteil „weder noch" am größten — bei Einsteigern aus Unerfahrenheit, bei den Expertinnen und Experten (n=8) möglicherweise aus kritischer Distanz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Reifepfad der KI-Implementierung -->
+            <div class="card card--featured" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="layers" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.maturity.title">Reifepfad der KI-Implementierung</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    <p style="margin-bottom:2rem;line-height:1.7;color:var(--th-gray);" data-i18n="results2026.findings.maturity.description">
+                        Die Verknüpfung von Implementierungsstand (Q15) und größter organisatorischer Herausforderung (Q16) zeigt ein klares Muster: Die Hindernisse wandeln sich mit zunehmender Reife – von strategischer Unsicherheit über technische Integration bis hin zu Dateninfrastruktur.
+                    </p>
+
+                    <!-- 4-Phasen-Journey -->
+                    <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:0;margin-bottom:1.75rem;align-items:stretch;">
+
+                        <!-- Phase 1: Konzeption & Entwicklung -->
+                        <div style="border:1px solid #E0E0E0;border-radius:0.5rem;padding:1.25rem;text-align:center;background:#FAFAFA;">
+                            <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Phase 1</div>
+                            <div style="font-size:0.875rem;font-weight:600;color:var(--th-blue);margin-bottom:0.75rem;line-height:1.35;" data-i18n="results2026.findings.maturity.p1.name">Konzeption &amp; Entwicklung</div>
+                            <div style="font-size:1.75rem;font-weight:700;color:#FF9800;line-height:1;margin-bottom:0.25rem;">31%</div>
+                            <div style="font-size:0.75rem;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.findings.maturity.respondents">der Befragten</div>
+                            <div style="padding:0.5rem 0.75rem;background:#FFF3E0;border-radius:0.375rem;border:1px solid #FFE0B2;">
+                                <div style="font-size:0.68rem;color:#E65100;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;" data-i18n="results2026.findings.maturity.topChallenge">Top-Herausforderung</div>
+                                <div style="font-size:0.8125rem;font-weight:700;color:#E65100;" data-i18n="results2026.findings.maturity.p1.challenge">ROI-Nachweis</div>
+                                <div style="font-size:0.72rem;color:#BF360C;margin-top:0.1rem;">25 % in dieser Phase</div>
+                            </div>
+                        </div>
+
+                        <!-- Pfeil 1 -->
+                        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.5rem;">
+                            <i data-lucide="chevron-right" style="width:1.375rem;height:1.375rem;color:#BDBDBD;flex-shrink:0;"></i>
+                        </div>
+
+                        <!-- Phase 2: Prototyp -->
+                        <div style="border:1px solid #E0E0E0;border-radius:0.5rem;padding:1.25rem;text-align:center;background:#FAFAFA;">
+                            <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Phase 2</div>
+                            <div style="font-size:0.875rem;font-weight:600;color:var(--th-blue);margin-bottom:0.75rem;line-height:1.35;" data-i18n="results2026.findings.maturity.p2.name">Prototyp-Phase</div>
+                            <div style="font-size:1.75rem;font-weight:700;color:#FF9800;line-height:1;margin-bottom:0.25rem;">29%</div>
+                            <div style="font-size:0.75rem;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.findings.maturity.respondents">der Befragten</div>
+                            <div style="padding:0.5rem 0.75rem;background:#FFF3E0;border-radius:0.375rem;border:1px solid #FFE0B2;">
+                                <div style="font-size:0.68rem;color:#E65100;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;" data-i18n="results2026.findings.maturity.topChallenge">Top-Herausforderung</div>
+                                <div style="font-size:0.8125rem;font-weight:700;color:#E65100;" data-i18n="results2026.findings.maturity.p2.challenge">ROI-Nachweis</div>
+                                <div style="font-size:0.72rem;color:#BF360C;margin-top:0.1rem;">26 % in dieser Phase</div>
+                            </div>
+                        </div>
+
+                        <!-- Pfeil 2 -->
+                        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.5rem;">
+                            <i data-lucide="chevron-right" style="width:1.375rem;height:1.375rem;color:#BDBDBD;flex-shrink:0;"></i>
+                        </div>
+
+                        <!-- Phase 3: Produktiveinsatz -->
+                        <div style="border:1px solid #90CAF9;border-radius:0.5rem;padding:1.25rem;text-align:center;background:#EEF5FF;">
+                            <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Phase 3</div>
+                            <div style="font-size:0.875rem;font-weight:600;color:var(--th-blue);margin-bottom:0.75rem;line-height:1.35;" data-i18n="results2026.findings.maturity.p3.name">Im Produktiveinsatz</div>
+                            <div style="font-size:1.75rem;font-weight:700;color:var(--th-blue);line-height:1;margin-bottom:0.25rem;">29%</div>
+                            <div style="font-size:0.75rem;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.findings.maturity.respondents">der Befragten</div>
+                            <div style="padding:0.5rem 0.75rem;background:#E3F2FD;border-radius:0.375rem;border:1px solid #90CAF9;">
+                                <div style="font-size:0.68rem;color:#1565C0;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;" data-i18n="results2026.findings.maturity.topChallenge">Top-Herausforderung</div>
+                                <div style="font-size:0.8125rem;font-weight:700;color:#1565C0;" data-i18n="results2026.findings.maturity.p3.challenge">IT-Integration</div>
+                                <div style="font-size:0.72rem;color:#1976D2;margin-top:0.1rem;">29 % in dieser Phase</div>
+                            </div>
+                        </div>
+
+                        <!-- Pfeil 3 -->
+                        <div style="display:flex;align-items:center;justify-content:center;padding:0 0.5rem;">
+                            <i data-lucide="chevron-right" style="width:1.375rem;height:1.375rem;color:#BDBDBD;flex-shrink:0;"></i>
+                        </div>
+
+                        <!-- Phase 4: Rollout abgeschlossen -->
+                        <div style="border:2px solid var(--th-blue);border-radius:0.5rem;padding:1.25rem;text-align:center;background:#EEF5FF;">
+                            <div style="font-size:0.7rem;font-weight:600;color:var(--th-gray);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;">Phase 4</div>
+                            <div style="font-size:0.875rem;font-weight:600;color:var(--th-blue);margin-bottom:0.75rem;line-height:1.35;" data-i18n="results2026.findings.maturity.p4.name">Rollout abgeschlossen</div>
+                            <div style="font-size:1.75rem;font-weight:700;color:var(--th-blue);line-height:1;margin-bottom:0.25rem;">10%</div>
+                            <div style="font-size:0.75rem;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.findings.maturity.respondents">der Befragten</div>
+                            <div style="padding:0.5rem 0.75rem;background:var(--th-blue);border-radius:0.375rem;">
+                                <div style="font-size:0.68rem;color:#CCCCCC;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:0.2rem;" data-i18n="results2026.findings.maturity.topChallenge">Top-Herausforderung</div>
+                                <div style="font-size:0.8125rem;font-weight:700;color:white;" data-i18n="results2026.findings.maturity.p4.challenge">Datenqualität</div>
+                                <div style="font-size:0.72rem;color:#D9D9D9;margin-top:0.1rem;">32 % in dieser Phase</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Insight-Box -->
+                    <div style="padding:1.25rem 1.5rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+                        <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.7;" data-i18n="results2026.findings.maturity.insight" data-i18n-html="true">
+                            <strong style="color:var(--th-blue);">Herausforderungs-Journey:</strong> Nahezu 60% der Befragten befinden sich noch in frühen Phasen – und kämpfen dort vor allem mit dem <strong>ROI-Nachweis</strong>: der strategischen Frage, ob die Investition messbar rentabel ist. Sobald Systeme in den Produktiveinsatz übergehen (29%), verschiebt sich die Haupthürde zur <strong>IT-Integration</strong> – technische Anbindung, Systemkompatibilität und Change-Management rücken in den Vordergrund. Für die 10%, die den Rollout bereits abgeschlossen haben, ist <strong>Datenqualität</strong> die nächste Grenze: Ohne konsistente, strukturierte Datenbasis lassen sich KI-Systeme nicht nachhaltig skalieren.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Herausforderungs-Entwicklung -->
+            <div class="card card--featured" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="trending-up" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.challenges.title">Entwicklung der Herausforderungen</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    <div style="position:relative;height:350px;margin-bottom:1rem;">
+                        <canvas id="challengesChart"></canvas>
+                    </div>
+
+                    <!-- Insight-Box -->
+                    <div style="padding:1.25rem 1.5rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+                        <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.7;" data-i18n="results2026.findings.challenges.insight" data-i18n-html="true">
+                            <strong style="color:var(--th-blue);">Herausforderungs-Karrieren:</strong> Jede Phase bringt ihre Hürde mit sich – und der Weg zeigt klare Muster. In den Phasen 1 und 2 dominiert der ROI-Nachweis (25–26 %) als strategische Barriere: Ist die Investition wirtschaftlich sinnvoll? Phase 3 markiert einen kritischen Wendepunkt, wo IT-Integration sprunghaft ansteigt (29 %) und ROI in den Hintergrund tritt. Phase 4 zeigt ein neues Muster: Datenqualität wird zur primären Hürde (32 %). Der Durchschnitt von 16–20 % pro Herausforderung bedeutet: Bei jedem Reifungsschritt verschieben sich die Prioritäten fundamental. Das ist ein wichtiges Pattern für Roadmapping: Was heute richtig ist, ist morgen obsolet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- GenAI: Wachstumstreiber oder Effizienzhebel nach Implementierungsphase -->
+            <div class="card card--featured" style="margin-bottom:2.5rem;">
+                <div class="card__header">
+                    <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                        <i data-lucide="trending-up" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.findings.growthEfficiency.title">Wachstumstreiber oder Effizienzhebel – nach Implementierungsphase</span>
+                    </h3>
+                </div>
+                <div class="card__body">
+                    <div style="position:relative;height:380px;margin-bottom:1rem;">
+                        <canvas id="growthEfficiencyChart"></canvas>
+                    </div>
+
+                    <!-- Insight-Box -->
+                    <div style="padding:1.25rem 1.5rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+                        <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.7;" data-i18n="results2026.findings.growthEfficiency.insight" data-i18n-html="true">
+                            <strong style="color:var(--th-blue);">Wahrnehmungswandel entlang der Reife:</strong> In frühen Phasen sieht jeder Dritte <strong>noch keinen erkennbaren Effekt</strong> – dieser Anteil sinkt auf unter 7 % im Produktiveinsatz. <strong>Effizienz</strong> dominiert durchgängig, erreicht 55 % im Produktiveinsatz. Auffällig: Bei abgeschlossenem Rollout steigt der Anteil <strong>„Wachstumstreiber"</strong> auf 29 % – erst mit voller Skalierung werden neue Umsatzpotenziale sichtbar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Weitere Insights -->
+            <div class="grid grid--2" style="margin-bottom:2.5rem;grid-template-columns:repeat(2,1fr);">
+                <!-- Datenschutzbewusstsein -->
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                            <i data-lucide="shield-check" style="width:1.25rem;height:1.25rem;color:var(--th-blue);"></i>
+                            <span data-i18n="results2026.findings.privacy.title">Datenschutzbewusstsein</span>
+                        </h3>
+                    </div>
+                    <div class="card__body" style="font-size:0.9375rem;">
+                        <div id="progress-privacy"></div>
+                    </div>
+                </div>
+                
+                <!-- Strategische Ausrichtung -->
+                <div class="card">
+                    <div class="card__header">
+                        <h3 class="card__title" style="display:flex;align-items:center;gap:0.75rem;">
+                            <i data-lucide="target" style="width:1.25rem;height:1.25rem;color:var(--th-blue);"></i>
+                            <span data-i18n="results2026.findings.strategy.title">Erwartete strategische Ausrichtung</span>
+                        </h3>
+                    </div>
+                    <div class="card__body" style="font-size:0.9375rem;">
+                        <div id="progress-strategy"></div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <!-- Vergleich 2024 vs 2026 -->
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title" data-i18n="results2026.findings.longterm.title">Zusammenfassung der Entwicklung 2024 → 2026</h3>
+                </div>
+                <div class="card__body">
+                    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;margin-bottom:2rem;">
+                        <div style="border:2px solid #E0E0E0;border-radius:0.5rem;padding:1.5rem;text-align:center;">
+                            <div style="font-size:0.8rem;font-weight:600;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.findings.longterm.adoption">ADOPTION RATE</div>
+                            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                                <div style="background:#EEF5FF;padding:0.75rem;border-radius:0.375rem;">
+                                    <div style="font-size:0.75rem;color:var(--th-gray);">2026</div>
+                                    <div style="font-size:1.25rem;font-weight:700;color:var(--th-blue);">91%</div>
+                                </div>
+                                <div style="color:var(--th-blue);font-weight:600;font-size:0.9rem;">↗ ~+14pp</div>
+                                <div style="background:#F5F5F5;padding:0.75rem;border-radius:0.375rem;">
+                                    <div style="font-size:0.75rem;color:var(--th-gray);">2024</div>
+                                    <div style="font-size:1.25rem;font-weight:700;color:#FF9800;">77%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="border:2px solid #E0E0E0;border-radius:0.5rem;padding:1.5rem;text-align:center;">
+                            <div style="font-size:0.8rem;font-weight:600;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.findings.longterm.productivity">PRODUKTIVITÄT</div>
+                            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                                <div style="background:#EEF5FF;padding:0.75rem;border-radius:0.375rem;">
+                                    <div style="font-size:0.75rem;color:var(--th-gray);">2026</div>
+                                    <div style="font-size:1.25rem;font-weight:700;color:var(--th-blue);">89%</div>
+                                </div>
+                                <div style="color:var(--th-blue);font-weight:600;font-size:0.9rem;">↗ ~+5pp</div>
+                                <div style="background:#F5F5F5;padding:0.75rem;border-radius:0.375rem;">
+                                    <div style="font-size:0.75rem;color:var(--th-gray);">2024</div>
+                                    <div style="font-size:1.25rem;font-weight:700;color:#FF9800;">85%</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="border:2px solid #E0E0E0;border-radius:0.5rem;padding:1.5rem;text-align:center;">
+                            <div style="font-size:0.8rem;font-weight:600;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.findings.longterm.dailyusers">TÄGLICHE NUTZER</div>
+                            <div style="display:flex;flex-direction:column;gap:0.75rem;">
+                                <div style="background:#EEF5FF;padding:0.75rem;border-radius:0.375rem;">
+                                    <div style="font-size:0.75rem;color:var(--th-gray);">2026</div>
+                                    <div style="font-size:1.25rem;font-weight:700;color:var(--th-blue);">55%</div>
+                                </div>
+                                <div style="color:var(--th-blue);font-weight:600;font-size:0.9rem;">↗ ~+5pp</div>
+                                <div style="background:#F5F5F5;padding:0.75rem;border-radius:0.375rem;">
+                                    <div style="font-size:0.75rem;color:var(--th-gray);">2024</div>
+                                    <div style="font-size:1.25rem;font-weight:700;color:#FF9800;">~50%*</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding:1.5rem;background:#F5F5F5;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+                        <h4 style="margin-bottom:1rem;font-size:0.95rem;color:var(--th-blue);" data-i18n="results2026.findings.longterm.insightsTitle">Kernerkenntnisse des Langzeitvergleichs:</h4>
+                        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;font-size:0.9375rem;">
+                            <li style="display:flex;gap:0.75rem;align-items:start;">
+                                <strong style="color:var(--th-blue);">✓</strong>
+                                <span data-i18n="results2026.findings.longterm.insight1" data-i18n-html="true"><strong>Adoption beschleunigt:</strong> Mit +14.8 Prozentpunkten zeigt sich eine starke Verbreitung. Die Nutzung ist von einer "Option" zur "Standard-Erwartung" geworden.</span>
+                            </li>
+                            <li style="display:flex;gap:0.75rem;align-items:start;">
+                                <strong style="color:var(--th-blue);">✓</strong>
+                                <span data-i18n="results2026.findings.longterm.insight2" data-i18n-html="true"><strong>Positive Erwartungen:</strong> Der Anteil der erwarteten Produktivitätsgewinne wird sich verdoppeln (33% → 64%). Was eine positive Erwartungshaltung der Befragten zeigt.</span>
+                            </li>
+                            <li style="display:flex;gap:0.75rem;align-items:start;">
+                                <strong style="color:var(--th-blue);">✓</strong>
+                                <span data-i18n="results2026.findings.longterm.insight3" data-i18n-html="true"><strong>Tägliche Integration:</strong> Über 55% der Nutzer setzen KI täglich ein – ein Signal für wachsende Akzeptanz und Integration.</span>
+                            </li>
+                            <li style="display:flex;gap:0.75rem;align-items:start;">
+                                <strong style="color:var(--th-blue);">✓</strong>
+                                <span data-i18n="results2026.findings.longterm.insight4" data-i18n-html="true"><strong>Compliance im Fokus:</strong> 87% zeigen hohes Datenschutzbewusstsein, ein Erhöhung gegenüber 2024, wo Sicherheitsbedenken dominanter Grund für Nicht-Nutzung waren.</span>
+                            </li>
+                        </ul>
+                        <p style="margin:1rem 0 0 0;font-size:0.875rem;color:var(--th-gray);font-style:italic;">
+                            * Geschätzter Wert aus 2024/25 Studie; genaue Vergleichswerte siehe <a href="ergebnisse-2024.html" style="color:var(--th-blue);text-decoration:underline;">Ergebnisse 2024/25</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </section>
+
+    <!-- Benachrichtigung -->
+    <section class="section" data-no-pdf>
+        <div class="container" style="max-width:48rem;">
+            <div class="card" style="background:#F5F5F5;border-left:4px solid var(--th-blue);">
+                <div class="card__body">
+                    <h4 style="margin-bottom:1rem;font-size:1.125rem;display:flex;align-items:center;gap:0.5rem;">
+                        <i data-lucide="bell" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i>
+                        <span data-i18n="results2026.notification.title">Benachrichtigung bei Veröffentlichung</span>
+                    </h4>
+                    <p style="line-height:1.7;color:var(--th-gray);margin-bottom:1rem;" data-i18n="results2026.notification.description">
+                        Möchten Sie informiert werden, sobald die Ergebnisse der Studie 2026 veröffentlicht werden? 
+                        Kontaktieren Sie uns per E-Mail, und wir senden Ihnen eine Nachricht, sobald die Daten verfügbar sind.
+                    </p>
+                    <a href="mailto:ai-survey@th-brandenburg.de?subject=Benachrichtigung%20Ergebnisse%202026" 
+                       style="color:var(--th-blue);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:0.5rem;">
+                        <i data-lucide="mail" style="width:1.25rem;height:1.25rem;"></i>
+                        <span data-i18n="results2026.notification.send">E-Mail senden</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div><!-- end report-view -->
+
+    
+
+
+
+    <!------ Dashboard View ------------------>
+
+    <div class="dashboard-view" id="dashboard-view">
+        <section class="section section--alt">
+            <div class="container">
+                <div class="section-label">
+                    <span class="section-label__line"></span>
+                    <span class="small-caps" data-i18n="results2026.findings.label">Bisherige Erkenntnisse 2026</span>
+                    <span class="section-label__line"></span>
+                </div>
+                
+                <div class="section-header">
+                    <h2 class="section-header__title" data-i18n="results2026.findings.title">Trends aus der laufenden Umfrage</h2>
+                    <p class="section-header__subtitle" data-i18n="results2026.findings.subtitle">Stand der Umfrage mit 310 Teilnehmern - Datenerhebung läuft noch</p>
+                </div>
+
+                <div class="hero__toggle" style="margin-top:2rem; margin-bottom:2.5rem;">
+                    <div class="view-toggle">
+                        <button class="view-toggle__btn active" data-view="report">Report</button>
+                        <button class="view-toggle__btn" data-view="dashboard">Dashboard</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="dash-demografie">
+            <div class="container">
+                <div class="section-label"><span class="section-label__line"></span><span class="small-caps" data-i18n="results2026.dash.stat.label">Statistische Daten</span><span class="section-label__line"></span></div>
+                <div class="grid grid--2">
+                    <!-- Frage 1: Arbeitsbereich -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 01</div><h3 class="card__title" data-i18n="results2026.dash.q01.title">Arbeitsbereich</h3></div>
+                        <div class="card__body">
+                            <div class="donut-wrapper" style="flex-direction:row;align-items:center;gap:1.5rem">
+                                <svg width="190" height="190" viewBox="0 0 180 180" style="flex-shrink:0" class="pie-chart">
+                                    <path fill="#004A99" d="M 90 90 L 90 20 A 70 70 0 0 1 146.6 131.1 Z" data-tooltip="Entwicklung &amp; Architektur: 35%" style="cursor:pointer"></path>
+                                    <path fill="#045dc4" d="M 90 90 L 146.6 131.1 A 70 70 0 0 1 56.3 151.3 Z" data-tooltip="IT-Consulting: 23%" style="cursor:pointer"></path>
+                                    <path fill="#106bc5" d="M 90 90 L 56.3 151.3 A 70 70 0 0 1 22.2 107.4 Z" data-tooltip="Management: 13%" style="cursor:pointer"></path>
+                                    <path fill="#42A5F5" d="M 90 90 L 22.2 107.4 A 70 70 0 0 1 26.7 60.2 Z" data-tooltip="Operations: 11%" style="cursor:pointer"></path>
+                                    <path fill="#90CAF9" d="M 90 90 L 26.7 60.2 A 70 70 0 0 1 90 20 Z" data-tooltip="Sonstige: 18%" style="cursor:pointer"></path>
+                                </svg>
+                                <div class="legend legend--vertical">
+                                    <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.dash.q01.devarch">Entwicklung &amp; Architektur</span><span class="legend__value">35%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#045dc4"></span><span data-i18n="results2026.dash.q01.itcons">IT-Consulting</span><span class="legend__value">23%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#106bc5"></span><span data-i18n="results2026.dash.q01.mgmt">Management</span><span class="legend__value">13%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.dash.q01.ops">Operations</span><span class="legend__value">11%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#90CAF9"></span><span data-i18n="results2026.dash.q01.other">Sonstige</span><span class="legend__value">18%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Frage 2: Unternehmensgröße -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 02</div><h3 class="card__title" data-i18n="results2026.dash.q02.title">Unternehmensgröße</h3></div>
+                        <div class="card__body">
+                            <div class="donut-wrapper" style="flex-direction:row;align-items:center;gap:1.5rem">
+                                <svg width="190" height="190" viewBox="0 0 180 180" style="flex-shrink:0" class="pie-chart">
+                                    <path fill="#004A99" d="M 90 90 L 90 20 A 70 70 0 1 1 84.5 159.8 Z" data-tooltip="Konzern: 51%" style="cursor:pointer"></path>
+                                    <path fill="#1565C0" d="M 90 90 L 84.5 159.8 A 70 70 0 0 1 41.3 39.7 Z" data-tooltip="Groß: 37%" style="cursor:pointer"></path>
+                                    <path fill="#42A5F5" d="M 90 90 L 41.3 39.7 A 70 70 0 0 1 66.5 24.1 Z" data-tooltip="Klein: 7%" style="cursor:pointer"></path>
+                                    <path fill="#90CAF9" d="M 90 90 L 66.5 24.1 A 70 70 0 0 1 90 20 Z" data-tooltip="Mittel: 6%" style="cursor:pointer"></path>
+                                </svg>
+                                <div class="legend legend--vertical">
+                                    <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.dash.q02.corp">Konzern</span><span class="legend__value">51%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#1565C0"></span><span data-i18n="results2026.dash.q02.large">Groß</span><span class="legend__value">37%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.dash.q02.small">Klein</span><span class="legend__value">7%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#90CAF9"></span><span data-i18n="results2026.dash.q02.medium">Mittel</span><span class="legend__value">6%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Frage 3: Branche -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 03</div><h3 class="card__title" data-i18n="results2026.dash.q03.title">Branche</h3></div>
+                        <div class="card__body">
+                            <div class="matrix-chart">
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2026.dash.q03.it">IT &amp; Beratung</span><span class="matrix-chart__value">65%</span></div>
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2026.dash.q03.energy">Energie &amp; Versorgung</span><span class="matrix-chart__value">22%</span></div>
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2026.dash.q03.health">Gesundheitswesen &amp; Pharma</span><span class="matrix-chart__value">4%</span></div>
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2026.dash.q03.finance">Finanz &amp; Versicherung</span><span class="matrix-chart__value">3%</span></div>
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2026.dash.q03.other">Sonstige</span><span class="matrix-chart__value">6%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="dash-nutzung">
+            <div class="container">
+                <div class="section-label"><span class="section-label__line"></span><span class="small-caps" data-i18n="results2026.dash.usage.label">Aktuelle Nutzung</span><span class="section-label__line"></span></div>
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-card__value">78<span>%</span></div><div class="stat-card__label" data-i18n="results2026.dash.stat.dailyweekly">Täglich/Wöchentlich</div></div>
+                    <div class="stat-card"><div class="stat-card__value">1.9</div><div class="stat-card__label" data-i18n="results2026.dash.stat.toolsperuser">Tools pro Nutzer</div></div>
+                    <div class="stat-card"><div class="stat-card__value">83<span>%</span></div><div class="stat-card__label" data-i18n="results2026.dash.stat.cloudbased">Cloud-basiert</div></div>
+                    <div class="stat-card"><div class="stat-card__value">9<span>%</span></div><div class="stat-card__label" data-i18n="results2026.dash.stat.nonusers">Nicht-Nutzer</div></div>
+                </div>
+                <div class="grid grid--2">
+                    <!-- Frage 4: Nutzungshäufigkeit -->
+                    <div class="card card--featured">
+                        <div class="card__header"><div class="card__number">FRAGE 04</div><h3 class="card__title" data-i18n="results2026.dash.q04.title">Nutzungshäufigkeit</h3></div>
+                        <div class="card__body">
+                            <div class="donut-wrapper">
+                                <div class="donut-chart donut-chart--lg">
+                                    <svg class="donut-chart__svg" width="180" height="180" viewBox="0 0 180 180">
+                                        <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#004A99" stroke-dasharray="243 440"></circle>
+                                        <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#1565C0" stroke-dasharray="102 440" stroke-dashoffset="-243"></circle>
+                                        <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#90CAF9" stroke-dasharray="57 440" stroke-dashoffset="-345"></circle>
+                                        <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#E0E0E0" stroke-dasharray="38 440" stroke-dashoffset="-402"></circle>
+                                    </svg>
+                                    <div class="donut-chart__center"><span class="donut-chart__center-value">78%</span><span class="donut-chart__center-label" data-i18n="results2026.dash.q04.center">Regelmäßig</span></div>
+                                </div>
+                                <div class="legend">
+                                    <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.dash.q04.daily">Täglich</span><span class="legend__value">55%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#1565C0"></span><span data-i18n="results2026.dash.q04.weekly">Wöchentlich</span><span class="legend__value">23%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#90CAF9"></span><span data-i18n="results2026.dash.q04.rarely">Selten</span><span class="legend__value">13%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#E0E0E0"></span><span data-i18n="results2026.dash.q04.never">Nie</span><span class="legend__value">9%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frage 5: Einsatzzwecke -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 05</div><h3 class="card__title" data-i18n="results2026.dash.q05.title">Einsatzzwecke</h3></div>
+                        <div class="card__body">
+                            <div class="bar-chart">
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q05.research">Recherche</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:83%"><span class="bar-chart__fill-value">83%</span></div></div><span class="bar-chart__value">83%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q05.text">Texterstellung</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:67%"><span class="bar-chart__fill-value">67%</span></div></div><span class="bar-chart__value">67%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q05.softdev">Softwareentwicklung</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:41%"><span class="bar-chart__fill-value">41%</span></div></div><span class="bar-chart__value">41%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q05.bugfix">Bugfixing</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:23%"><span class="bar-chart__fill-value">23%</span></div></div><span class="bar-chart__value">23%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q05.image">Bildgenerierung</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:19%"><span class="bar-chart__fill-value">19%</span></div></div><span class="bar-chart__value">19%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Frage 6: Genutzte Tools -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 06</div><h3 class="card__title" data-i18n="results2026.dash.q06.title">Genutzte Tools</h3></div>
+                        <div class="card__body">
+                            <div class="table-wrapper">
+                                <table class="comparison-table">
+                                    <thead><tr><th>Tool</th><th data-i18n="results2026.dash.q06.usage">Nutzung</th><th></th></tr></thead>
+                                    <tbody>
+                                        <tr><td><div class="comparison-table__tool"><div class="comparison-table__icon" style="background:#000;">◯</div>ChatGPT</div></td><td><div class="comparison-table__bar"><div class="comparison-table__bar-fill" style="width:73%"></div></div></td><td><strong>73%</strong></td></tr>
+                                        <tr><td><div class="comparison-table__tool"><div class="comparison-table__icon" style="background:#0078D4;">M</div>Copilot</div></td><td><div class="comparison-table__bar"><div class="comparison-table__bar-fill" style="width:49%"></div></div></td><td><strong>49%</strong></td></tr>
+                                        <tr><td><div class="comparison-table__tool"><div class="comparison-table__icon" style="background:#4285F4;">G</div>Gemini</div></td><td><div class="comparison-table__bar"><div class="comparison-table__bar-fill" style="width:21%"></div></div></td><td><strong>21%</strong></td></tr>
+                                        <tr><td><div class="comparison-table__tool"><div class="comparison-table__icon" style="background:#412991;">C</div>Claude</div></td><td><div class="comparison-table__bar"><div class="comparison-table__bar-fill" style="width:19%"></div></div></td><td><strong>19%</strong></td></tr>
+                                        <tr><td><div class="comparison-table__tool"><div class="comparison-table__icon" style="background:#6B6B6B;">OS</div>Open Source</div></td><td><div class="comparison-table__bar"><div class="comparison-table__bar-fill" style="width:19%"></div></div></td><td><strong>19%</strong></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frage 7: Kompetenzstufe -->
+                    <div class="card card--featured">
+                        <div class="card__header"><div class="card__number">FRAGE 07</div><h3 class="card__title" data-i18n="results2026.dash.q07.title">Kompetenzstufe</h3></div>
+                        <div class="card__body">
+                            <div class="icon-list">
+                                <div class="icon-list__item"><div class="icon-list__icon" style="background:#004A99;color:white;width:2.75rem;height:2.75rem;font-size:1rem;">3%</div><div class="icon-list__content"><div class="icon-list__title"><span data-i18n="results2026.dash.q07.l6">entwickeln oder trainieren eigene Modelle</span></div></div></div>
+                                <div class="icon-list__item"><div class="icon-list__icon" style="background:#1565C0;color:white;width:2.75rem;height:2.75rem;font-size:1rem;">5%</div><div class="icon-list__content"><div class="icon-list__title"><span data-i18n="results2026.dash.q07.l5">entwickeln eigene GenAI-basierte Lösungen</span></div></div></div>
+                                <div class="icon-list__item"><div class="icon-list__icon" style="background:#0066CC;color:white;width:2.75rem;height:2.75rem;font-size:1rem;">11%</div><div class="icon-list__content"><div class="icon-list__title"><span data-i18n="results2026.dash.q07.l4">nutzen erweiterte Funktionen (z.B. MCP-Zugriffe)</span></div></div></div>
+                                <div class="icon-list__item"><div class="icon-list__icon" style="background:#42A5F5;color:white;width:2.75rem;height:2.75rem;font-size:1rem;">32%</div><div class="icon-list__content"><div class="icon-list__title"><span data-i18n="results2026.dash.q07.l3">nutzen gezielt verschiedene Modelle und Prompting-Methoden</span></div></div></div>
+                                <div class="icon-list__item"><div class="icon-list__icon" style="background:#90CAF9;color:white;width:2.75rem;height:2.75rem;font-size:1rem;">36%</div><div class="icon-list__content"><div class="icon-list__title"><span data-i18n="results2026.dash.q07.l2">nutzen einfache Prompts für grundlegende Aufgaben</span></div></div></div>
+                                <div class="icon-list__item"><div class="icon-list__icon" style="background:#BEBEBE;color:white;width:2.75rem;height:2.75rem;font-size:1rem;">6%</div><div class="icon-list__content"><div class="icon-list__title"><span data-i18n="results2026.dash.q07.l1">haben GenAI-Tools lediglich ausprobiert</span></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frage 8: Produktivität heute vs. Zukunft -->
+                    <div class="card card--span-2">
+                        <div class="card__header"><div class="card__number">FRAGE 08</div><h3 class="card__title" data-i18n="results2026.dash.q08.title">Produktivität: Heute vs. Zukunft</h3></div>
+                        <div class="card__body">
+                            <div class="scale-chart">
+                                <div class="scale-chart__row"><span class="scale-chart__label" data-i18n="results2026.dash.q08.today">Heute</span><div class="scale-chart__bar"><div class="scale-chart__segment" style="width:33%; background:#004A99;">33%</div><div class="scale-chart__segment" style="width:56%; background:#42A5F5;">56%</div><div class="scale-chart__segment" style="width:9%; background:#E0E0E0; color:#666;">9%</div><div class="scale-chart__segment" style="width:2%; background:#BDBDBD; color:#666;"></div></div></div>
+                                <div class="scale-chart__row"><span class="scale-chart__label" data-i18n="results2026.dash.q08.future">In 1-3 Jahren</span><div class="scale-chart__bar"><div class="scale-chart__segment" style="width:64%; background:#004A99;">64%</div><div class="scale-chart__segment" style="width:26%; background:#42A5F5;">26%</div><div class="scale-chart__segment" style="width:3%; background:#E0E0E0; color:#666;"></div><div class="scale-chart__segment" style="width:7%; background:#BDBDBD; color:#666;">7%</div></div></div>
+                            </div>
+                            <div class="legend mt-2">
+                                <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.dash.q08.significant">Deutlich besser</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.dash.q08.slight">Leicht besser</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:#E0E0E0"></span><span data-i18n="results2026.dash.q08.none">Keine Änderung</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:#BDBDBD"></span><span data-i18n="results2026.dash.q08.neg">Neg./Unklar</span></div>
+                            </div>
+                        </div>
+                        <div class="card__footer"><span data-i18n="results2026.dash.q08.footer">+30,8 PP bei "Deutlich besser" erwartet</span><span></span></div>
+                    </div>
+
+                    <!-- Frage 9: Sicherheit bei Einordnung der GenAI-Ergebnisse -->
+                    <div class="card card--featured">
+                        <div class="card__header"><div class="card__number">FRAGE 09</div><h3 class="card__title" data-i18n="results2026.dash.q09.title">Einordnung von GenAI-Ergebnissen</h3></div>
+                        <div class="card__body">
+                            <div class="icon-list">
+                                <div class="icon-list__item">
+                                    <div class="icon-list__icon" style="background:#004A99;color:white;width:2.75rem;height:2.75rem;font-size:0.8rem;font-weight:700;">32%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q09.l4">Überprüfen jede Antwort mit eigener Recherche oder Wissen</div></div>
+                                </div>
+                                <div class="icon-list__item" style="background:var(--accent-muted);border:1px solid var(--accent-light);">
+                                    <div class="icon-list__icon" style="background:#1565C0;color:white;width:2.75rem;height:2.75rem;font-size:0.8rem;font-weight:700;">59%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q09.l3">Überprüfen nur manche Antworten selbst, sind aber kritisch</div></div>
+                                </div>
+                                <div class="icon-list__item">
+                                    <div class="icon-list__icon" style="background:#42A5F5;color:white;width:2.75rem;height:2.75rem;font-size:0.8rem;font-weight:700;">7%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q09.l2">Nutzen die meisten antworten ohne Prüfung oder lassen KI prüfen</div></div>
+                                </div>
+                                <div class="icon-list__item">
+                                    <div class="icon-list__icon" style="background:#BEBEBE;color:white;width:2.75rem;height:2.75rem;font-size:0.8rem;font-weight:700;">2%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q09.l1">Übernehmen Antworten einfach direkt</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frage 11: Datenschutz-/Datensicherheitsbewusstsein -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 11</div><h3 class="card__title" data-i18n="results2026.dash.q11.title">Datenschutzbewusstsein</h3></div>
+                        <div class="card__body">
+                            <div class="icon-list">
+                                <div class="icon-list__item" style="background:var(--accent-muted);border:1px solid var(--accent-light);">
+                                    <div class="icon-list__icon" style="background:#004A99;color:white;width:2.75rem;height:2.75rem;font-size:1rem;font-weight:700;">46%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q11.l1">Kennen gesetzliche Rahmenbedingungen und halten sie konsequent ein</div></div>
+                                </div>
+                                <div class="icon-list__item">
+                                    <div class="icon-list__icon" style="background:#1565C0;color:white;width:2.75rem;height:2.75rem;font-size:1rem;font-weight:700;">41%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q11.l2">Sind mit den wichtigsten Regeln vertraut und halten sie größtenteils ein</div></div>
+                                </div>
+                                <div class="icon-list__item">
+                                    <div class="icon-list__icon" style="background:#90CAF9;color:white;width:2.75rem;height:2.75rem;font-size:1rem;font-weight:700;">9%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q11.l3">Kennen grundlegende Richtlinien, aber wenden sie nicht immer konsequent an</div></div>
+                                </div>
+                                <div class="icon-list__item">
+                                    <div class="icon-list__icon" style="background:#BEBEBE;color:white;width:2.75rem;height:2.75rem;font-size:1rem;font-weight:700;">4%</div>
+                                    <div class="icon-list__content"><div class="icon-list__title" data-i18n="results2026.dash.q11.l4">Kennen keine konkreten Regeln</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frage 10: Gewünschte Verbesserungen (Mehrfachauswahl) -->
+                    <div class="card card--span-2">
+                        <div class="card__header">
+                            <div class="card__number">FRAGE 10</div>
+                            <h3 class="card__title" data-i18n="results2026.dash.q10.title">Gewünschte Verbesserungen bei der persönlichen Nutzung <span style="font-weight:400;font-size:0.8rem;color:var(--th-gray);">(Mehrfachauswahl)</span></h3>
+                        </div>
+                        <div class="card__body">
+                            <div class="bar-chart">
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.errorrate">Fehlerrate der Modelle</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:61%"><span class="bar-chart__fill-value">61%</span></div></div><span class="bar-chart__value">61%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.precision">Präzisere &amp; treffsichere Antworten</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:60%"><span class="bar-chart__fill-value">60%</span></div></div><span class="bar-chart__value">60%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.datasec">Datensicherheit</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:50%"><span class="bar-chart__fill-value">50%</span></div></div><span class="bar-chart__value">50%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.context">Kontextmanagement</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:40%"><span class="bar-chart__fill-value">40%</span></div></div><span class="bar-chart__value">40%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.integration">Mehr Integration (E-Mail, Kalender, Office)</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:36%"><span class="bar-chart__fill-value">36%</span></div></div><span class="bar-chart__value">36%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.costs">Kosten</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:22%"><span class="bar-chart__fill-value">22%</span></div></div><span class="bar-chart__value">22%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.ux">Benutzbarkeit (UI/UX)</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:20%"><span class="bar-chart__fill-value">20%</span></div></div><span class="bar-chart__value">20%</span></div>
+                                <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2026.dash.q10.acceptance">Akzeptanz im Team/Unternehmen</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:15%"><span class="bar-chart__fill-value">15%</span></div></div><span class="bar-chart__value">15%</span></div>
+                            </div>
+                        </div>
+                        <div class="card__footer"><span data-i18n="results2026.dash.q10.footer">n=310; Mehrfachauswahl möglich</span><span></span></div>
+                    </div>
+                </div>    
+            </div>
+        </section>
+
+
+
+
+        <section class="section" id="dash-strategie">
+            <div class="container">
+                <div class="section-label"><span class="section-label__line"></span><span class="small-caps" data-i18n="results2026.dash.strategy.label">Strategische Einschätzungen</span><span class="section-label__line"></span></div>
+                <div class="grid grid--2">
+
+                    <!-- Frage 12: Erwartete Auswirkung auf Unternehmen -->
+                    <div class="card card--featured">
+                        <div class="card__header"><div class="card__number">FRAGE 12</div><h3 class="card__title" data-i18n="results2026.dash.q12.title">Erwartete Auswirkung von GenAI auf Unternehmen</h3></div>
+                        <div class="card__body">
+                            <div class="donut-wrapper" style="flex-direction:row;align-items:center;gap:1.5rem">
+                                <svg width="190" height="190" viewBox="0 0 180 180" style="flex-shrink:0" class="pie-chart">
+                                    <path fill="#004A99" d="M 90 90 L 90 20 A 70 70 0 0 1 155.2 120.7 Z" data-tooltip="Effizienzhebel: 47%" style="cursor:pointer"></path>
+                                    <path fill="#42A5F5" d="M 90 90 L 155.2 120.7 A 70 70 0 0 1 78.1 159.4 Z" data-tooltip="Sowohl als auch: 23%" style="cursor:pointer"></path>
+                                    <path fill="#1565C0" d="M 90 90 L 78.1 159.4 A 70 70 0 0 1 43.0 143.5 Z" data-tooltip="Wachstumstreiber: 11%" style="cursor:pointer"></path>
+                                    <path fill="#E0E0E0" d="M 90 90 L 43.0 143.5 A 70 70 0 0 1 90 20 Z" data-tooltip="Weder noch: 19%" style="cursor:pointer"></path>
+                                </svg>
+                                <div class="legend legend--vertical">
+                                    <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.dash.q12.efficiency">Effizienzhebel (Kostensenkung, Prozessoptimierung)</span><span class="legend__value">47%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.dash.q12.both">sowohl Effizienzhebel als auch Wachstumstreiber</span><span class="legend__value">23%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#1565C0"></span><span data-i18n="results2026.dash.q12.growth">Wachstumstreiber(neue Produkte, Märkte, Umsatzpotenziale)</span><span class="legend__value">11%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#E0E0E0"></span><span data-i18n="results2026.dash.q12.neither">Weder noch</span><span class="legend__value">19%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frage 13: Stadium der KI-Anwendungsfälle -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 13</div><h3 class="card__title" data-i18n="results2026.dash.q13.title">Stadium der KI-Anwendungsfälle</h3></div>
+                        <div class="card__body">
+                            <div class="donut-wrapper">
+                                <div class="donut-chart">
+                                    <svg class="donut-chart__svg" width="160" height="160" viewBox="0 0 160 160">
+                                        <circle class="donut-chart__segment" cx="80" cy="80" r="60" stroke="#004A99" stroke-dasharray="116 377"></circle>
+                                        <circle class="donut-chart__segment" cx="80" cy="80" r="60" stroke="#1565C0" stroke-dasharray="111 377" stroke-dashoffset="-116"></circle>
+                                        <circle class="donut-chart__segment" cx="80" cy="80" r="60" stroke="#42A5F5" stroke-dasharray="111 377" stroke-dashoffset="-227"></circle>
+                                        <circle class="donut-chart__segment" cx="80" cy="80" r="60" stroke="#90CAF9" stroke-dasharray="38 377" stroke-dashoffset="-338"></circle>
+                                    </svg>
+                                    <div class="donut-chart__center"><span class="donut-chart__center-value" style="font-size:1.5rem;">60%</span><span class="donut-chart__center-label" data-i18n="results2026.dash.q13.center">Frühphase</span></div>
+                                </div>
+                                <div class="legend legend--vertical">
+                                    <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.dash.q13.konzeption">In Konzeption oder Entwicklung</span><span class="legend__value">30%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#1565C0"></span><span data-i18n="results2026.dash.q13.prototyp">Prototyp vorhanden</span><span class="legend__value">30%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.dash.q13.produktiv">Erste Produktivversion im Einsatz</span><span class="legend__value">30%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#90caf9"></span><span data-i18n="results2026.dash.q13.rollout">Rollout abgeschlossen</span><span class="legend__value">10%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                    <!-- Frage 14: Größte Herausforderungen beim unternehmensnahen Einsatz von GenAI -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 14</div><h3 class="card__title" data-i18n="results2026.dash.q14.title">Größte Herausforderungen beim unternehmensnahen Einsatz von GenAI</h3></div>
+                        <div class="card__body">
+                            <div class="donut-wrapper" style="flex-direction:row;align-items:center;gap:1.5rem">
+                                <svg width="190" height="190" viewBox="0 0 180 180" style="flex-shrink:0" class="pie-chart">
+                                    <path fill="#004A99" d="M 90 90 L 90 20 A 70 70 0 0 1 158.6 75.9 Z" data-tooltip="ROI-Nachweis: 22%" style="cursor:pointer"></path>
+                                    <path fill="#0066CC" d="M 90 90 L 158.6 75.9 A 70 70 0 0 1 121.5 152.5 Z" data-tooltip="IT-Integration: 21%" style="cursor:pointer"></path>
+                                    <path fill="#42A5F5" d="M 90 90 L 121.5 152.5 A 70 70 0 0 1 40.9 139.9 Z" data-tooltip="Governance: 20%" style="cursor:pointer"></path>
+                                    <path fill="#90CAF9" d="M 90 90 L 40.9 139.9 A 70 70 0 0 1 27.0 59.5 Z" data-tooltip="Datenqualität: 20%" style="cursor:pointer"></path>
+                                    <path fill="#c8e6ff" d="M 90 90 L 27.0 59.5 A 70 70 0 0 1 90 20 Z" data-tooltip="Personal &amp; Know-how: 18%" style="cursor:pointer"></path>
+                                </svg>
+                                <div class="legend legend--vertical">
+                                    <div class="legend__item"><span class="legend__dot" style="background:#004A99"></span><span data-i18n="results2026.dash.q14.roi">ROI-Nachweis</span><span class="legend__value">22%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#0066CC"></span><span data-i18n="results2026.dash.q14.integration">IT-Integration</span><span class="legend__value">20%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#42A5F5"></span><span data-i18n="results2026.dash.q14.governance">Governance</span><span class="legend__value">20%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#90CAF9"></span><span data-i18n="results2026.dash.q14.data">Datenqualität</span><span class="legend__value">20%</span></div>
+                                    <div class="legend__item"><span class="legend__dot" style="background:#c8e6ff"></span><span data-i18n="results2026.dash.q14.staff">Personal &amp; Know-how</span><span class="legend__value">18%</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Frage 15: Erwartete Modellstrategie in den nächsten 5 Jahren -->
+                    <div class="card">
+                        <div class="card__header"><div class="card__number">FRAGE 15</div><h3 class="card__title" data-i18n="results2026.dash.q15.title">Erwartete Modellstrategie in den nächsten 5 Jahren</h3></div>
+                        <div class="card__body">
+                            <div id="icon-list-q15"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- end dashboard-view -->
+
+</main>
+
+<!-- Footer wird dynamisch geladen -->
+<div id="footer-placeholder"></div>
+
+<script type="module">
+    // Page initialisation — runs after all defer scripts have executed.
+    // Our chart/component files expose globals (window.X), not ES-module exports,
+    // so we reference them directly rather than importing.
+    function renderAll(data, lang) {
+        lang = lang || document.documentElement.lang || 'de';
+        if (!data) return;
+
+        initChallengesChart(data, lang);
+        initProductivityChart(data, lang);
+        initStackedProficiencyCharts(data, lang);
+        initGrowthEfficiencyChart(data, lang);
+        initGrowthEfficiencyProficiencyChart(data, lang);
+
+        renderProgressList('progress-usage-freq',     data.report.components.usage_frequency,      { lang: lang });
+        renderProgressList('progress-model-strategy', data.report.components.model_strategy,        { lang: lang });
+        renderProgressList('progress-privacy',        data.report.components.privacy_compliance,    { lang: lang });
+        renderProgressList('progress-strategy',       data.report.components.strategic_direction,   { lang: lang });
+
+        renderIconList('icon-list-q15', data.report.components.q15_icons, { lang: lang });
+
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+    }
+
+    Shared.loadData().then(function (data) {
+        renderAll(data);
+        Shared.onLanguageChange(renderAll);
+    });
+</script>
+
+<script>
+    // Pie-Chart Tooltips
+    (function() {
+        var tip = document.createElement('div');
+        tip.id = 'pie-tooltip';
+        document.body.appendChild(tip);
+        document.querySelectorAll('.pie-chart [data-tooltip]').forEach(function(path) {
+            path.addEventListener('mousemove', function(e) {
+                tip.textContent = path.dataset.tooltip;
+                tip.style.opacity = '1';
+                tip.style.left = (e.clientX + 14) + 'px';
+                tip.style.top  = (e.clientY - 36) + 'px';
+            });
+            path.addEventListener('mouseleave', function() {
+                tip.style.opacity = '0';
+            });
+        });
+    })();
+
+    // View-Toggle: Report ↔ Dashboard
+    function setView(view) {
+        document.querySelectorAll('.view-toggle__btn').forEach(function(btn) {
+            btn.classList.toggle('active', btn.dataset.view === view);
+        });
+
+        if (view === 'dashboard') {
+            document.getElementById('report-view').classList.add('hidden');
+            document.getElementById('dashboard-view').classList.add('active');
+        } else {
+            document.getElementById('report-view').classList.remove('hidden');
+            document.getElementById('dashboard-view').classList.remove('active');
+        }
+
+        // Lucide-Icons im sichtbaren Bereich neu rendern
+        if (typeof lucide !== 'undefined' && lucide.createIcons) { lucide.createIcons(); }
+    }
+
+    document.querySelectorAll('.view-toggle__btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            setView(this.dataset.view);
+        });
+    });
+
+    setView(document.getElementById('dashboard-view').classList.contains('active') ? 'dashboard' : 'report');
+
+    // Lucide Icons initialisieren
+    function initLucide() {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        } else {
+            setTimeout(initLucide, 50);
+        }
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLucide);
+    } else {
+        initLucide();
+    }
+</script>
+
+<style>
+    .dashboard-view { display: none; }
+    .dashboard-view.active { display: block; }
+    .report-view { display: block; }
+    .report-view.hidden { display: none; }
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.7;
+            transform: scale(1.1);
+        }
+    }
+    #pie-tooltip {
+        position: fixed;
+        pointer-events: none;
+        background: #3A4A5F;
+        color: #fff;
+        padding: 0.4rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        white-space: nowrap;
+        box-shadow: 0 4px 12px #D9D9D9;
+        opacity: 0;
+        transition: opacity 0.15s;
+        z-index: 1000;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof initPDFExport === 'function') {
+            initPDFExport({
+                filename: 'Ergebnisse_2026_Report.pdf',
+                title: 'Ergebnisse der Studie 2026',
+                subtitle: 'GenAI-Adoption in der deutschen IT-Branche',
+                meta: 'Q1 2026 \u00b7 310 Teilnehmer \u00b7 16 Fragen',
+                forceShowSelectors: ['.dashboard-view', '.report-view'],
+                _loadingText: 'PDF wird erstellt\u2026',
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+

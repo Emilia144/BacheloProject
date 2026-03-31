@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ergebnisse 2024 | KI im IT-Arbeitsalltag | TH Brandenburg</title>
+    <!-- Google Fonts für TH Brandenburg Design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- TH Brandenburg Dashboard Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Component Loader -->
+    <script src="js/components-loader.js" defer></script>
+    <!-- Internationalization -->
+    <script src="js/i18n.js" defer></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<!-- Header wird dynamisch geladen -->
+<div id="header-placeholder"></div>
+
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container" style="max-width:64rem;">
+            <div class="hero__badge">
+                <span class="hero__badge-dot"></span>
+                <span class="small-caps" data-i18n="results2024.hero.badge">Peer-Reviewed Paper</span>
+            </div>
+            <h1 class="hero__title" data-i18n="results2024.hero.title">Ergebnisse der Studie 2024/25</h1>
+            <p class="hero__subtitle" data-i18n="results2024.hero.subtitle">Erste umfassende Erhebung zur GenAI-Adoption in der deutschen IT-Branche. Die Daten zeigen: KI ist in der Praxis angekommen – mit deutlichen Unterschieden zwischen Unternehmen.</p>
+            
+            <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;">
+                <a href="AI_Survey_Paper2024.pdf" class="btn btn--primary" download>
+                    <i data-lucide="download" style="width:1.25rem;height:1.25rem;"></i>
+                    <span data-i18n="results2024.hero.download">Vollständiges Paper herunterladen (PDF)</span>
+                </a>
+            </div>
+            
+            <div class="hero__meta">
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">174</div>
+                    <div class="hero__meta-label" data-i18n="results2024.hero.meta.participants">Teilnehmer</div>
+                </div>
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">12</div>
+                    <div class="hero__meta-label" data-i18n="results2024.hero.meta.questions">Fragen</div>
+                </div>
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">Q4</div>
+                    <div class="hero__meta-label">2024</div>
+                </div>
+                <!--<div class="hero__meta-item">
+                    <div class="hero__meta-value">LNCS</div>
+                    <div class="hero__meta-label">Publikation</div>
+                </div>-->
+            </div>
+        </div>
+    </section>
+
+    <!-- Kernzahlen -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2024.stats.label">Kernzahlen</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card__value">76.5<span>%</span></div>
+                    <div class="stat-card__label" data-i18n="results2024.stats.usage">nutzen GenAI beruflich</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">84.8<span>%</span></div>
+                    <div class="stat-card__label" data-i18n="results2024.stats.productivity">berichten Produktivitätsgewinn</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">50<span>%</span></div>
+                    <div class="stat-card__label" data-i18n="results2024.stats.security">betrachten Datensicherheit als Hürde</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card__value">73.5<span>%</span></div>
+                    <div class="stat-card__label" data-i18n="results2024.stats.cloud">nutzen cloudbasierte GenAI-Dienste</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aktuelle Nutzung -->
+    <section class="section section--alt" id="nutzung">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2024.usage.label">Aktuelle Nutzung</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="results2024.usage.title">Aktuelle Nutzung</h2>
+                <p class="section-header__subtitle" data-i18n="results2024.usage.subtitle">Einblicke in Nutzungshäufigkeit, Einsatzzwecke und bevorzugte Tools der Befragten.</p>
+            </div>
+            
+            <div class="grid grid--2">
+                <!-- GenAI-Nutzung -->
+                <div class="card">
+                    <div class="card__header">
+                        <div class="card__number" data-i18n="results2024.usage.q1">FRAGE 01</div>
+                        <h3 class="card__title" data-i18n="results2024.usage.q1.title">GenAI-Nutzung im Beruf</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="donut-wrapper">
+                            <div class="donut-chart">
+                                <svg class="donut-chart__svg" width="160" height="160" viewBox="0 0 160 160">
+                                    <circle class="donut-chart__segment" cx="80" cy="80" r="60" stroke="var(--th-blue)" stroke-dasharray="288 377"></circle>
+                                    <circle class="donut-chart__segment" cx="80" cy="80" r="60" stroke="#E0E0E0" stroke-dasharray="89 377" stroke-dashoffset="-288"></circle>
+                                </svg>
+                                <div class="donut-chart__center">
+                                    <span class="donut-chart__center-value" style="font-size:1.5rem;">76.5%</span>
+                                    <span class="donut-chart__center-label" data-i18n="results2024.usage.q1.label">Nutzen</span>
+                                </div>
+                            </div>
+                            <div class="legend legend--vertical">
+                                <div class="legend__item"><span class="legend__dot" style="background:var(--th-blue)"></span><span data-i18n="results2024.usage.q1.use">Nutzen GenAI</span><span class="legend__value">76.5%</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:#E0E0E0"></span><span data-i18n="results2024.usage.q1.notuse">Nutzen nicht</span><span class="legend__value">23.5%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Einsatzzwecke -->
+                <div class="card card--featured">
+                    <div class="card__header">
+                        <div class="card__number" data-i18n="results2024.usage.q2">FRAGE 02</div>
+                        <h3 class="card__title" data-i18n="results2024.usage.q2.title">Einsatzzwecke</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="bar-chart">
+                            <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2024.usage.q2.research">Recherche</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:92%"><span class="bar-chart__fill-value">92%</span></div></div></div>
+                            <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2024.usage.q2.text">Texterstellung</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:78%"><span class="bar-chart__fill-value">78%</span></div></div></div>
+                            <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2024.usage.q2.image">Bildgenerierung</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:54%"><span class="bar-chart__fill-value">54%</span></div></div></div>
+                            <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2024.usage.q2.code">Code-Generierung</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:48%"><span class="bar-chart__fill-value">48%</span></div></div></div>
+                            <div class="bar-chart__item"><span class="bar-chart__label" data-i18n="results2024.usage.q2.review">Code Review</span><div class="bar-chart__track"><div class="bar-chart__fill" style="width:32%"><span class="bar-chart__fill-value">32%</span></div></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Genutzte Tools -->
+                <div class="card card--span-2">
+                    <div class="card__header">
+                        <div class="card__number" data-i18n="results2024.usage.q3">FRAGE 03</div>
+                        <h3 class="card__title" data-i18n="results2024.usage.q3.title">Genutzte GenAI-Tools</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="table-wrapper">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="results2024.usage.q3.tool">Tool</th>
+                                        <th data-i18n="results2024.usage.q3.daily">Täglich</th>
+                                        <th data-i18n="results2024.usage.q3.weekly">Wöchentlich</th>
+                                        <th data-i18n="results2024.usage.q3.tried">Ausprobiert</th>
+                                        <th data-i18n="results2024.usage.q3.total">Gesamt</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="comparison-table__tool">
+                                                <div class="comparison-table__icon" style="background:#10A37F;padding:6px;">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M22.2819 9.8211C22.7819 10.7511 22.7819 11.8811 22.2819 12.8111L17.7619 20.8611C17.2619 21.7911 16.3219 22.3611 15.2819 22.3611H6.24191C5.20191 22.3611 4.26191 21.7911 3.76191 20.8611L-0.758087 12.8111C-1.25809 11.8811 -1.25809 10.7511 -0.758087 9.8211L3.76191 1.7711C4.26191 0.841104 5.20191 0.271104 6.24191 0.271104H15.2819C16.3219 0.271104 17.2619 0.841104 17.7619 1.7711L22.2819 9.8211Z" transform="translate(1 1)" fill="white"/>
+                                                    </svg>
+                                                </div>
+                                                ChatGPT
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">42%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:42%;height:100%;background:var(--th-blue);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">28%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:28%;height:100%;background:var(--th-blue-light);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">25%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:25%;height:100%;background:#5B9FCF;"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:600;font-size:0.875rem;">95%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:95%;height:100%;background:var(--th-blue-dark);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="comparison-table__tool">
+                                                <div class="comparison-table__icon" style="background:#0078D4;padding:6px;">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="3" y="3" width="8" height="8" rx="1" fill="white"/>
+                                                        <rect x="13" y="3" width="8" height="8" rx="1" fill="white" opacity="0.7"/>
+                                                        <rect x="3" y="13" width="8" height="8" rx="1" fill="white" opacity="0.7"/>
+                                                        <rect x="13" y="13" width="8" height="8" rx="1" fill="white"/>
+                                                    </svg>
+                                                </div>
+                                                Microsoft Copilot
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">14%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:14%;height:100%;background:var(--th-blue);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">16%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:16%;height:100%;background:var(--th-blue-light);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">28%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:28%;height:100%;background:#5B9FCF;"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:600;font-size:0.875rem;">58%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:58%;height:100%;background:var(--th-blue-dark);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="comparison-table__tool">
+                                                <div class="comparison-table__icon" style="background:linear-gradient(135deg, #4285F4, #34A853, #FBBC05, #EA4335);padding:6px;">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
+                                                        <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                        <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </div>
+                                                Google Gemini
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">8%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:8%;height:100%;background:var(--th-blue);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">12%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:12%;height:100%;background:var(--th-blue-light);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">35%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:35%;height:100%;background:#5B9FCF;"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:600;font-size:0.875rem;">55%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:55%;height:100%;background:var(--th-blue-dark);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="comparison-table__tool">
+                                                <div class="comparison-table__icon" style="background:#24292e;padding:6px;">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" fill="white" transform="scale(0.9) translate(1.3, 1.3)"/>
+                                                    </svg>
+                                                </div>
+                                                GitHub Copilot
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">18%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:18%;height:100%;background:var(--th-blue);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">12%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:12%;height:100%;background:var(--th-blue-light);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">22%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:22%;height:100%;background:#5B9FCF;"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:600;font-size:0.875rem;">52%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:52%;height:100%;background:var(--th-blue-dark);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="comparison-table__tool">
+                                                <div class="comparison-table__icon" style="background:#D97757;padding:6px;">
+                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect x="2" y="2" width="20" height="20" rx="4" fill="white"/>
+                                                        <path d="M8 8h8M8 12h8M8 16h5" stroke="#D97757" stroke-width="2" stroke-linecap="round"/>
+                                                    </svg>
+                                                </div>
+                                                Claude
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">6%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:6%;height:100%;background:var(--th-blue);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">8%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:8%;height:100%;background:var(--th-blue-light);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:500;font-size:0.875rem;">18%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:18%;height:100%;background:#5B9FCF;"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                                                <span style="font-weight:600;font-size:0.875rem;">32%</span>
+                                                <div style="width:100%;height:20px;background:#E8F4F8;border-radius:4px;overflow:hidden;">
+                                                    <div style="width:32%;height:100%;background:var(--th-blue-dark);"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kompetenz & Produktivität -->
+    <section class="section" id="produktivitaet">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2024.productivity.label">Kompetenz & Produktivität</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="results2024.productivity.title">Kompetenz & Produktivität</h2>
+                <p class="section-header__subtitle" data-i18n="results2024.productivity.subtitle">Wie bewerten IT-Fachkräfte ihre eigene KI-Kompetenz und den Einfluss auf ihre Produktivität?</p>
+            </div>
+            
+            <div class="grid grid--2">
+                <!-- Selbsteingeschätzte Kompetenz -->
+                <div class="card">
+                    <div class="card__header">
+                        <div class="card__number" data-i18n="results2024.productivity.q7">FRAGE 07</div>
+                        <h3 class="card__title" data-i18n="results2024.productivity.q7.title">Selbsteingeschätzte Kompetenz</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="donut-wrapper">
+                            <div class="donut-chart donut-chart--lg">
+                                <svg class="donut-chart__svg" width="180" height="180" viewBox="0 0 180 180">
+                                    <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#9E9E9E" stroke-dasharray="26 440"></circle>
+                                    <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="var(--th-blue-light)" stroke-dasharray="273 440" stroke-dashoffset="-26"></circle>
+                                    <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="var(--th-blue)" stroke-dasharray="116 440" stroke-dashoffset="-299"></circle>
+                                    <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="var(--th-blue-dark)" stroke-dasharray="26 440" stroke-dashoffset="-415"></circle>
+                                </svg>
+                                <div class="donut-chart__center">
+                                    <span class="donut-chart__center-value">62%</span>
+                                    <span class="donut-chart__center-label" data-i18n="results2024.productivity.q7.advanced">Fortgeschritten</span>
+                                </div>
+                            </div>
+                            <div class="legend">
+                                <div class="legend__item"><span class="legend__dot" style="background:#9E9E9E"></span><span data-i18n="results2024.productivity.q7.beginner">Anfänger</span><span class="legend__value">5.8%</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:var(--th-blue-light)"></span><span data-i18n="results2024.productivity.q7.advanced">Fortgeschritten</span><span class="legend__value">62%</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:var(--th-blue)"></span><span data-i18n="results2024.productivity.q7.experienced">Erfahren</span><span class="legend__value">26.3%</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:var(--th-blue-dark)"></span><span data-i18n="results2024.productivity.q7.specialist">Spezialist</span><span class="legend__value">5.8%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Produktivitätseinfluss -->
+                <div class="card card--featured">
+                    <div class="card__header">
+                        <div class="card__number" data-i18n="results2024.productivity.q8">FRAGE 08</div>
+                        <h3 class="card__title" data-i18n="results2024.productivity.q8.title">Produktivitätseinfluss</h3>
+                    </div>
+                    <div class="card__body">
+                        <div class="donut-wrapper">
+                            <div class="donut-chart donut-chart--lg">
+                                <svg class="donut-chart__svg" width="180" height="180" viewBox="0 0 180 180">
+                                    <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#2E7D32" stroke-dasharray="150 440"></circle>
+                                    <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#4CAF50" stroke-dasharray="223 440" stroke-dashoffset="-150"></circle>
+                                    <circle class="donut-chart__segment" cx="90" cy="90" r="70" stroke="#E0E0E0" stroke-dasharray="67 440" stroke-dashoffset="-373"></circle>
+                                </svg>
+                                <div class="donut-chart__center">
+                                    <span class="donut-chart__center-value">84.8%</span>
+                                    <span class="donut-chart__center-label" data-i18n="results2024.productivity.q8.positive">Positiv</span>
+                                </div>
+                            </div>
+                            <div class="legend">
+                                <div class="legend__item"><span class="legend__dot" style="background:#2E7D32"></span><span data-i18n="results2024.productivity.q8.significant">Deutliche Verbesserung</span><span class="legend__value">34.1%</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:#4CAF50"></span><span data-i18n="results2024.productivity.q8.slight">Leichte Verbesserung</span><span class="legend__value">50.7%</span></div>
+                                <div class="legend__item"><span class="legend__dot" style="background:#E0E0E0"></span><span data-i18n="results2024.productivity.q8.neutral">Neutral/Negativ/Unklar</span><span class="legend__value">15.2%</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__footer">
+                        <span data-i18n="results2024.productivity.q8.total"><strong>Gesamt positiv: 84.8%</strong></span>
+                    </div>
+                </div>
+                
+                <!-- Unternehmensvergleich -->
+                <div class="card card--span-2">
+                    <div class="card__header">
+                        <h3 class="card__title" data-i18n="results2024.productivity.comparison.title">Unternehmensvergleich: Am Beispiel der insgesamten GenAI-Adoption</h3>
+                        <p class="card__subtitle" data-i18n="results2024.productivity.comparison.subtitle">Internationale Beratung vs. Nationaler IT-Dienstleister</p>
+                    </div>
+                    <div class="card__body">
+                        <div class="grid grid--2" style="gap:1rem;">
+                            <div class="stat-card">
+                                <div class="stat-card__value">100<span>%</span></div>
+                                <div class="stat-card__label" data-i18n="results2024.productivity.comparison.consulting">GenAI Nutzung (Beratung)</div>
+                                <div style="font-size:0.75rem;color:var(--th-gray);margin-top:0.5rem;" data-i18n="results2024.productivity.comparison.consultingNote">Vollständige Adoption</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card__value">~50<span>%</span></div>
+                                <div class="stat-card__label" data-i18n="results2024.productivity.comparison.provider">GenAI Nutzung (Dienstleister)</div>
+                                <div style="font-size:0.75rem;color:var(--th-gray);margin-top:0.5rem;" data-i18n="results2024.productivity.comparison.providerNote">Nur halb so hoch wie bei der Beratung</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card__value">49<span>:</span>1</div>
+                                <div class="stat-card__label" data-i18n="results2024.productivity.comparison.licenses">Firmenlizenz (Beratung) vs. Private Lizenzen (Dienstleister)</div>
+                                <div style="font-size:0.75rem;color:var(--th-gray);margin-top:0.5rem;" data-i18n="results2024.productivity.comparison.licensesNote">Unterschiedliche strategische Ausrichtung</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-card__value">73.5<span>%</span></div>
+                                <div class="stat-card__label" data-i18n="results2024.productivity.comparison.cloud">Cloud-Nutzung</div>
+                                <div style="font-size:0.75rem;color:var(--th-gray);margin-top:0.5rem;" data-i18n="results2024.productivity.comparison.cloudNote">vs. 8% lokal</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Herausforderungen -->
+    <section class="section section--alt" id="herausforderungen">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2024.challenges.label">Herausforderungen</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="results2024.challenges.title">Herausforderungen</h2>
+                <p class="section-header__subtitle" data-i18n="results2024.challenges.subtitle">Welche Hindernisse sehen IT-Fachkräfte beim Einsatz von GenAI im Unternehmen?</p>
+            </div>
+            
+            <div class="card card--featured">
+                <div class="card__header">
+                    <div class="card__number" data-i18n="results2024.challenges.q9">FRAGE 09</div>
+                    <h3 class="card__title" data-i18n="results2024.challenges.q9.title">Genannte Herausforderungen (Mehrfachauswahl)</h3>
+                </div>
+                <div class="card__body">
+                    <div class="bar-chart">
+                        <div class="bar-chart__item">
+                            <span class="bar-chart__label" data-i18n="results2024.challenges.security">Datensicherheit</span>
+                            <div class="bar-chart__track">
+                                <div class="bar-chart__fill" style="width:50%; background:linear-gradient(90deg, #EF5350, #E57373);">
+                                    <span class="bar-chart__fill-value">50%</span>
+                                </div>
+                            </div>
+                            <span class="bar-chart__value">87</span>
+                        </div>
+                        <div class="bar-chart__item">
+                            <span class="bar-chart__label" data-i18n="results2024.challenges.cost">Kosten</span>
+                            <div class="bar-chart__track">
+                                <div class="bar-chart__fill" style="width:22%">
+                                    <span class="bar-chart__fill-value">22%</span>
+                                </div>
+                            </div>
+                            <span class="bar-chart__value">38</span>
+                        </div>
+                        <div class="bar-chart__item">
+                            <span class="bar-chart__label" data-i18n="results2024.challenges.integration">Technische Integration</span>
+                            <div class="bar-chart__track">
+                                <div class="bar-chart__fill" style="width:21%">
+                                    <span class="bar-chart__fill-value">21%</span>
+                                </div>
+                            </div>
+                            <span class="bar-chart__value">37</span>
+                        </div>
+                        <div class="bar-chart__item">
+                            <span class="bar-chart__label" data-i18n="results2024.challenges.acceptance">Team-Akzeptanz</span>
+                            <div class="bar-chart__track">
+                                <div class="bar-chart__fill" style="width:16%">
+                                    <span class="bar-chart__fill-value">16%</span>
+                                </div>
+                            </div>
+                            <span class="bar-chart__value">27</span>
+                        </div>
+                        <div class="bar-chart__item">
+                            <span class="bar-chart__label" data-i18n="results2024.challenges.usability">Bedienungsprobleme</span>
+                            <div class="bar-chart__track">
+                                <div class="bar-chart__fill" style="width:13%">
+                                    <span class="bar-chart__fill-value">13%</span>
+                                </div>
+                            </div>
+                            <span class="bar-chart__value">23</span>
+                        </div>
+                        <div class="bar-chart__item">
+                            <span class="bar-chart__label" data-i18n="results2024.challenges.usecases">Fehlende Anwendungsfälle</span>
+                            <div class="bar-chart__track">
+                                <div class="bar-chart__fill" style="width:9%; background:#9E9E9E;">
+                                    <span class="bar-chart__fill-value">9%</span>
+                                </div>
+                            </div>
+                            <span class="bar-chart__value">16</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kernerkenntnisse -->
+    <section class="section" id="erkenntnisse">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2024.insights.label">Kernerkenntnisse</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="results2024.insights.title">Kernerkenntnisse</h2>
+                <p class="section-header__subtitle" data-i18n="results2024.insights.subtitle">Was die Daten zeigen</p>
+            </div>
+            
+            <div class="grid grid--2">
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="check-circle" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="results2024.insights.arrived.title">GenAI ist angekommen</h3>
+                        <p class="card__subtitle" style="line-height:1.6;" data-i18n="results2024.insights.arrived.text">Über drei Viertel der IT-Fachkräfte nutzen bereits GenAI-Tools im Arbeitsalltag – ein klarer Indikator für die Relevanz der Technologie.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="trending-up" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="results2024.insights.productivity.title">Produktivität steigt</h3>
+                        <p class="card__subtitle" style="line-height:1.6;" data-i18n="results2024.insights.productivity.text">84.8% berichten von Produktivitätsverbesserungen – selbst bei mittlerer Kompetenz zeigen sich deutliche Effizienzgewinne.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="shield-alert" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="results2024.insights.security.title">Sicherheit als Hauptsorge</h3>
+                        <p class="card__subtitle" style="line-height:1.6;" data-i18n="results2024.insights.security.text">Datensicherheit dominiert die Bedenken – trotzdem setzen 73.5% auf Cloud-Dienste. Lokale Lösungen bleiben unterrepräsentiert.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="building-2" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="results2024.insights.culture.title">Unternehmenskultur entscheidet</h3>
+                        <p class="card__subtitle" style="line-height:1.6;" data-i18n="results2024.insights.culture.text">Zwischen der GenAI-Adoption von Beratungen (100%) und Dienstleistern (~50%) klafft eine große Lücke. Organisationskultur beeinflusst Adoption maßgeblich.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="search" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="results2024.insights.research.title">Recherche dominiert</h3>
+                        <p class="card__subtitle" style="line-height:1.6;" data-i18n="results2024.insights.research.text">Wissensrecherche und Texterstellung sind Hauptanwendungen. Code-bezogene Aufgaben werden weniger häufig an KI delegiert. Ein Grund für die Zurückhaltung sind Unsicherheiten bezüglich der Compliance mit Vorschriften und Datenschutz.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="rocket" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="results2024.insights.chatgpt.title">ChatGPT führt deutlich</h3>
+                        <p class="card__subtitle" style="line-height:1.6;" data-i18n="results2024.insights.chatgpt.text">ChatGPT ist das bekannteste Tool mit der höchsten Nutzungsrate. Andere Tools wie Copilot und Claude wachsen langsamer.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Methodik-Hinweis -->
+            <div class="card" style="margin-top:2.5rem;background:var(--accent-muted);border-left:4px solid var(--th-blue);">
+                <div class="card__body">
+                    <h4 style="margin-bottom:1rem;font-size:1.125rem;display:flex;align-items:center;gap:0.5rem;"><i data-lucide="info" style="width:1.5rem;height:1.5rem;color:var(--th-blue);"></i><span data-i18n="results2024.insights.methodology.title">Hinweis zur Methodik</span></h4>
+                    <p style="line-height:1.7;color:var(--th-gray);" data-i18n="results2024.insights.methodology.text">Die Erhebung fand von November bis Dezember 2024 als Online-Umfrage statt. Die Stichprobe von 174 Teilnehmern ist nicht repräsentativ für die gesamte deutsche IT-Branche, ermöglicht jedoch erste Trendeinschätzungen. Details zur Methodik finden Sie im vollständigen Paper.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wissenschaftliche Publikation -->
+    <section class="section section--alt" id="publikation">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="results2024.publication.label">Wissenschaftliche Publikation</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="results2024.publication.title">Peer-Reviewed Research Paper</h2>
+                <p class="section-header__subtitle" data-i18n="results2024.publication.subtitle">Die vollständigen Ergebnisse wurden in einem peer-reviewed Paper auf veröffentlicht und präsentiert</p>
+            </div>
+            
+            <div class="card card--featured" style="max-width:48rem;margin:0 auto;">
+                <div class="card__body" style="padding:2.5rem;">
+                    <div style="display:flex;align-items:start;gap:2rem;flex-wrap:wrap;">
+                        <div style="flex:1;min-width:280px;">
+                            <h3 class="card__title" style="margin-bottom:1rem;font-size:1.25rem;" data-i18n="results2024.publication.paperTitle">On the current state of Generative AI adoption in German IT Industry</h3>
+                            <div style="margin-bottom:1rem;">
+                                <p style="font-size:0.9375rem;color:var(--th-gray);margin-bottom:0.5rem;" data-i18n="results2024.publication.authors">Emilia Knauff, Florian Marquardt</p>
+                                <p style="font-size:0.875rem;color:var(--muted-foreground);" data-i18n="results2024.publication.publisher">Lecture Notes in Computer Science (LNCS), Springer</p>
+                            </div>
+                            
+                            <div class="matrix-chart" style="margin-bottom:1.5rem;">
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2024.publication.participants">Teilnehmer</span><span class="matrix-chart__value">174</span></div>
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2024.publication.survey">Erhebung</span><span class="matrix-chart__value" style="font-size:0.875rem;">Q4 2024</span></div>
+                                <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="results2024.publication.published">Publikation</span><span class="matrix-chart__value" style="font-size:0.875rem;" data-i18n="results2024.publication.publishedValue">Januar 2025</span></div>
+                            </div>
+                            
+                            <div style="margin-bottom:1.5rem;">
+                                <h4 style="font-size:0.875rem;font-weight:600;margin-bottom:0.5rem;color:var(--th-blue);" data-i18n="results2024.publication.topics">Kernthemen</h4>
+                                <ul style="list-style:none;padding:0;margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.8;">
+                                    <li data-i18n="results2024.publication.topic1">• Quantitative Analyse der GenAI-Adoption</li>
+                                    <li data-i18n="results2024.publication.topic2">• Produktivitätseffekte im IT-Arbeitsalltag</li>
+                                    <li data-i18n="results2024.publication.topic3">• Herausforderungen bei der Implementierung</li>
+                                    <li data-i18n="results2024.publication.topic4">• Unternehmensvergleich und Best Practices</li>
+                                </ul>
+                            </div>
+                            
+                            <a href="AI_Survey_Paper2024.pdf" class="btn btn--primary" download style="width:100%;">
+                                <i data-lucide="download" style="width:1.25rem;height:1.25rem;"></i>
+                                <span data-i18n="results2024.publication.download">Vollständiges Paper herunterladen (PDF)</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+</main>
+
+<!-- Footer wird dynamisch geladen -->
+<div id="footer-placeholder"></div>
+
+<script>
+    // Lucide Icons initialisieren
+    function initLucide() {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        } else {
+            setTimeout(initLucide, 50);
+        }
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLucide);
+    } else {
+        initLucide();
+    }
+</script>
+
+</body>
+</html>
+

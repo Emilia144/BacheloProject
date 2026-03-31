@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unternehmensvergleich | KI im IT-Arbeitsalltag | TH Brandenburg</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/i18n.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- PDF Export -->
+    <script src="pdf-export.js" defer></script>
+    <style>
+        /* Comparison bar component */
+        .cmp-row { margin-bottom: 1.5rem; }
+        .cmp-row__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem; }
+        .cmp-row__label { font-size: 0.875rem; font-weight: 600; color: var(--th-blue); }
+        .cmp-delta { font-size: 0.75rem; font-weight: 700; padding: 0.15rem 0.6rem; border-radius: 999px; }
+        .cmp-delta--pos  { background: #E8F5E9; color: #1B5E20; }
+        .cmp-delta--neg  { background: #FBE9E7; color: #BF360C; }
+        .cmp-delta--neu  { background: #F5F5F5; color: #616161; }
+        .cmp-bars { display: flex; flex-direction: column; gap: 4px; }
+        .cmp-bar-row { display: flex; align-items: center; gap: 0.75rem; }
+        .cmp-bar-row__who { font-size: 0.7rem; color: var(--th-gray); width: 7rem; flex-shrink: 0; text-align: right; }
+        .cmp-bar-row__track { flex: 1; height: 12px; background: #E8EEF7; border-radius: 6px; overflow: hidden; }
+        .cmp-bar-row__fill { height: 100%; border-radius: 6px; }
+        .cmp-bar-row__val { font-size: 0.8rem; font-weight: 700; width: 3.5rem; flex-shrink: 0; }
+        .fill--bench { background: #90CAF9; }
+        .fill--company { background: #004A99; }
+
+        /* KPI card */
+        .kpi-card { background: white; border-radius: 0.75rem; padding: 2rem 1.5rem; text-align: center; box-shadow: 0 2px 8px #E0E0E0; border: 1px solid #E8EEF7; }
+        .kpi-card__title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--th-gray); margin-bottom: 1rem; }
+        .kpi-card__value { font-size: 2.5rem; font-weight: 700; line-height: 1; margin-bottom: 0.25rem; }
+        .kpi-card__sub { font-size: 0.8rem; color: var(--th-gray); margin-bottom: 1.25rem; }
+        .kpi-card__bench { font-size: 0.8rem; color: var(--th-gray); margin-bottom: 0.75rem; }
+        .kpi-card__delta { display: inline-block; font-size: 0.875rem; font-weight: 700; padding: 0.3rem 0.9rem; border-radius: 999px; }
+
+        /* Challenge ranking */
+        .rank-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 0; border-bottom: 1px solid #F0F0F0; }
+        .rank-item:last-child { border-bottom: none; }
+        .rank-num { width: 1.75rem; height: 1.75rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+        .rank-label { flex: 1; font-size: 0.875rem; font-weight: 500; color: var(--th-blue); }
+        .rank-pct { font-size: 0.875rem; font-weight: 700; }
+
+        /* Phase grid */
+        .phase-cell { border-radius: 0.5rem; padding: 1.25rem; text-align: center; }
+        .phase-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--th-gray); margin-bottom: 0.4rem; }
+        .phase-title { font-size: 0.8rem; font-weight: 600; color: var(--th-blue); margin-bottom: 0.875rem; line-height: 1.3; }
+        .phase-num { font-size: 1.75rem; font-weight: 700; line-height: 1; margin-bottom: 0.2rem; }
+        .phase-who { font-size: 0.7rem; color: var(--th-gray); margin-bottom: 0.625rem; }
+        .phase-sep { height: 1px; background: #E0E0E0; margin: 0.625rem 0; }
+        .phase-num-2 { font-size: 1.75rem; font-weight: 700; line-height: 1; margin-bottom: 0.2rem; }
+        .phase-who-2 { font-size: 0.7rem; color: var(--th-gray); }
+    </style>
+</head>
+<body>
+
+<!-- Header mit Zurück-Button -->
+<header class="header">
+    <div class="container header__inner">
+        <a href="index.html" class="header__logo">
+            <div class="header__logo-icon">
+                <img src="logo-thb-klein.png" alt="TH Brandenburg Logo" style="width:2.5rem;height:2.5rem;">
+            </div>
+            <span class="header__logo-text">TH Brandenburg - AI Survey</span>
+        </a>
+        <nav class="header__nav">
+            <a href="ergebnisse-2026.html">Ergebnisse 2026</a>
+            <a href="ergebnisse-2024.html">Ergebnisse 2024/25</a>
+        </nav>
+        <div class="header__actions">
+            <a href="index.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);display:inline-flex;align-items:center;gap:0.5rem;">
+                <i data-lucide="arrow-left" style="width:1rem;height:1rem;"></i>
+                Zur Hauptseite
+            </a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<!-- ══════════════════════════════════════════════ HERO ══ -->
+<section class="hero">
+    <div class="container" style="max-width:64rem;">
+        <div class="hero__badge">
+            <span class="hero__badge-dot" style="background:var(--th-blue);"></span>
+            <span class="small-caps">Firmenspezifischer Vergleich · IT-Consulting</span>
+        </div>
+        <h1 class="hero__title">Unternehmensvergleich 2026</h1>
+        <p class="hero__subtitle" id="cmp-hero-subtitle">Direkter Vergleich der <strong>BCG</strong> (n&nbsp;=&nbsp;76) mit dem Gesamtdurchschnitt der 2026-Studie (n&nbsp;=&nbsp;346). Die Auswertung zeigt Stärken, Abweichungen und strategische Positionierung.</p>
+
+        <div id="company-switcher-placeholder" data-no-pdf></div>
+
+        <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;" data-no-pdf>
+            <a href="ergebnisse-2026.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);display:inline-flex;align-items:center;gap:0.5rem;">
+                <i data-lucide="arrow-left" style="width:1.25rem;height:1.25rem;"></i>
+                Zurück zu Ergebnisse 2026
+            </a>
+            <button class="btn pdf-download-btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);display:inline-flex;align-items:center;gap:0.5rem;cursor:pointer;" data-loading="PDF wird erstellt…">
+                <i data-lucide="download" style="width:1.25rem;height:1.25rem;"></i>
+                <span data-i18n="pdf.downloadBtn">Report als PDF herunterladen</span>
+            </button>
+        </div>
+
+        <div class="hero__meta">
+            <div class="hero__meta-item">
+                <div class="hero__meta-value">2026</div>
+                <div class="hero__meta-label">Datenbasis</div>
+            </div>
+            <div class="hero__meta-item">
+                <div class="hero__meta-value" id="cmp-meta-n-benchmark">346</div>
+                <div class="hero__meta-label">Alle Teilnehmer</div>
+            </div>
+            <div class="hero__meta-item">
+                <div class="hero__meta-value" id="cmp-meta-n-company">76</div>
+                <div class="hero__meta-label" id="cmp-meta-company-label">BCG Teilnehmer</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════  HIGHLIGHTS ->  Auf einen Blick ══ -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps">Schlüsselkennzahlen im Vergleich</span>
+            <span class="section-label__line"></span>
+        </div>
+        <div class="section-header">
+            <h2 class="section-header__title">Auf einen Blick</h2>
+            <p class="section-header__subtitle" id="cmp-kpi-subtitle">BCG-Werte (blau) vs. Gesamtdurchschnitt 2026 — Delta in Prozentpunkten (PP)</p>
+        </div>
+
+        <div class="grid grid--3" style="gap:1.25rem;">
+
+            <!-- 1. Adoption -->
+            <div class="kpi-card" data-kpi-id="adoption">
+                <div class="kpi-card__value" data-kpi-value style="color:var(--th-blue);">100&thinsp;%</div>
+                <div class="kpi-card__title">Nutzen GenAI im Arbeitskontext</div>
+                <div style="height:6px;background:var(--th-blue);border-radius:3px;overflow:hidden;margin-bottom:0.75rem;"></div>
+                <div class="kpi-card__bench" data-kpi-bench>Alle: 91,3&thinsp;%</div>
+                <span class="kpi-card__delta" data-kpi-delta style="background:#E8F5E9;color:#1B5E20;">+&thinsp;8,7&thinsp;PP</span>
+            </div>
+
+            <!-- 2. Tägliche Nutzung -->
+            <div class="kpi-card" data-kpi-id="daily_usage">
+                <div class="kpi-card__value" data-kpi-value style="color:var(--th-blue);">90,8&thinsp;%</div>
+                <div class="kpi-card__title">Nutzen GenAI täglich</div>
+                <div style="height:6px;background:var(--th-blue);border-radius:3px;overflow:hidden;margin-bottom:0.75rem;"></div>
+                <div class="kpi-card__bench" data-kpi-bench>Alle: 55,2&thinsp;%</div>
+                <span class="kpi-card__delta" data-kpi-delta style="background:#E8F5E9;color:#1B5E20;">+&thinsp;35,6&thinsp;PP</span>
+            </div>
+
+            <!-- 3. Nutzungszwecke -->
+            <div class="kpi-card" data-kpi-id="research_usage">
+                <div class="kpi-card__value" data-kpi-value style="color:var(--th-blue);">90,8&thinsp;%</div>
+                <div class="kpi-card__title">Nutzen GenAI für Recherche und Wissensvermittlung</div>
+                <div style="height:6px;background:var(--th-blue);border-radius:3px;overflow:hidden;margin-bottom:0.75rem;"></div>
+                <div class="kpi-card__bench" data-kpi-bench>Alle: 67,5&thinsp;%</div>
+                <span class="kpi-card__delta" data-kpi-delta style="background:#E8F5E9;color:#1B5E20;">+&thinsp;23,3&thinsp;PP</span>
+            </div>
+
+            <!-- 4. Produktivität -->
+            <div class="kpi-card" data-kpi-id="productivity_positive">
+                <div class="kpi-card__value" data-kpi-value style="color:var(--th-blue);">96,1&thinsp;%</div>
+                <div class="kpi-card__title">sehen eine Produktivitätssteigerung</div>
+                <div style="height:6px;background:var(--th-blue);border-radius:3px;overflow:hidden;margin-bottom:0.75rem;"></div>
+                <div class="kpi-card__bench" data-kpi-bench>Alle: 88,7&thinsp;%</div>
+                <span class="kpi-card__delta" data-kpi-delta style="background:#E8F5E9;color:#1B5E20;">+&thinsp;7,4&thinsp;PP</span>
+            </div>
+
+            <!-- 5. Im Produktiveinsatz -->
+            <div class="kpi-card" data-kpi-id="in_production">
+                <div class="kpi-card__value" data-kpi-value style="color:var(--th-blue);">63,1&thinsp;%</div>
+                <div class="kpi-card__title">Im Produktiveinsatz (Phase 3+4)</div>
+                <div style="height:6px;background:var(--th-blue);border-radius:3px;overflow:hidden;margin-bottom:0.75rem;"></div>
+                <div class="kpi-card__bench" data-kpi-bench>Alle: 39,4&thinsp;%</div>
+                <span class="kpi-card__delta" data-kpi-delta style="background:#E8F5E9;color:#1B5E20;">+&thinsp;23,7&thinsp;PP</span>
+            </div>
+
+            <!-- 6. Strategische Wirkung -->
+            <div class="kpi-card" data-kpi-id="strategic_lever">
+                <div class="kpi-card__value" data-kpi-value style="color:var(--th-blue);">96,1&thinsp;%</div>
+                <div class="kpi-card__title">sehen GenAI als Effizienz- oder Wachstumshebel</div>
+                <div style="height:6px;background:var(--th-blue);border-radius:3px;overflow:hidden;margin-bottom:0.75rem;"></div>
+                <div class="kpi-card__bench" data-kpi-bench>Alle: 81,0&thinsp;%</div>
+                <span class="kpi-card__delta" data-kpi-delta style="background:#E8F5E9;color:#1B5E20;">+&thinsp;15,1&thinsp;PP</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ NUTZUNGSVERHALTEN ══ -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps"> Nutzungsverhalten</span>
+            <span class="section-label__line"></span>
+        </div>
+        <div class="section-header">
+            <h2 class="section-header__title">Nutzungsintensität &amp; Tools</h2>
+            <p class="section-header__subtitle">Wie häufig wird GenAI genutzt, und welche Werkzeuge kommen zum Einsatz?</p>
+        </div>
+
+        <div class="grid grid--2" style="gap:1.5rem;align-items:start;">
+
+            <!-- NutzungsHäufigkeit -->
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Nutzungshäufigkeit</h3>
+                    <p style="margin:0;font-size:0.8rem;color:var(--th-gray);">Anteil der Befragten nach Nutzungsfrequenz</p>
+                </div>
+                <div class="card__body" data-section-container="usage_frequency" data-section-id="usage_frequency">
+
+                    <!-- Legende -->
+                    <div style="display:flex;gap:1.25rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-gray);" data-cmp-legend-role="bench">
+                            <div style="width:14px;height:10px;background:#90CAF9;border-radius:2px;"></div> Alle (n=346)
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-blue);font-weight:600;" data-cmp-legend-role="company">
+                            <div style="width:14px;height:10px;background:#004A99;border-radius:2px;"></div> BCG (n=76)
+                        </div>
+                    </div>
+
+                    <!-- Vergleichs-Bars -->
+
+                    <!--Täglich-->
+                    <div class="cmp-row" data-item-id="daily">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Täglich</span>
+                            <span class="cmp-delta cmp-delta--pos" data-delta>+&thinsp;35,6&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" data-bench-val="bar" style="width:55.2%;"></div></div>
+                                <span class="cmp-bar-row__val" data-bench-val="text" style="color:#1565C0;">55,2&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" data-company-val="bar" style="width:90.8%;"></div></div>
+                                <span class="cmp-bar-row__val" data-company-val="text" style="color:#004A99;">90,8&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wöchentlich -->
+                    <div class="cmp-row" data-item-id="weekly">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Wöchentlich</span>
+                            <span class="cmp-delta cmp-delta--neg" data-delta>−&thinsp;15,3&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" data-bench-val="bar" style="width:23.2%;"></div></div>
+                                <span class="cmp-bar-row__val" data-bench-val="text" style="color:#1565C0;">23,2&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" data-company-val="bar" style="width:7.9%;"></div></div>
+                                <span class="cmp-bar-row__val" data-company-val="text" style="color:#004A99;">7,9&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Selten -->
+                    <div class="cmp-row" data-item-id="rarely">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Selten</span>
+                            <span class="cmp-delta cmp-delta--neg" data-delta>−&thinsp;11,6&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" data-bench-val="bar" style="width:12.9%;"></div></div>
+                                <span class="cmp-bar-row__val" data-bench-val="text" style="color:#1565C0;">12,9&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" data-company-val="bar" style="width:1.3%;"></div></div>
+                                <span class="cmp-bar-row__val" data-company-val="text" style="color:#004A99;">1,3&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gar nicht -->
+                    <div class="cmp-row" data-item-id="never" style="margin-bottom:0;">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Gar nicht</span>
+                            <span class="cmp-delta cmp-delta--neg" data-delta>−&thinsp;8,7&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" data-bench-val="bar" style="width:8.7%;"></div></div>
+                                <span class="cmp-bar-row__val" data-bench-val="text" style="color:#1565C0;">8,7&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" data-company-val="bar" style="width:0%;"></div></div>
+                                <span class="cmp-bar-row__val" data-company-val="text" style="color:#004A99;">0,0&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top:1.25rem;padding:0.875rem 1rem;background:rgb(238, 245, 255);border-radius:0.5rem;border-left:3px solid var(--th-blue);">
+                        <p style="margin:0;font-size:0.8rem;color:var(--thb-blue);font-weight:600;">
+                            Alle BCG-Teilnehmer nutzen GenAI im Arbeitskontext und nutzen diese auch regelmäßiger als der Durchschnitt aller Teilnehmenden.  
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Tool-Nutzung -->
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Genutzte GenAI-Tools</h3>
+                    <p style="margin:0;font-size:0.8rem;color:var(--th-gray);">Mehrfachnennung möglich · % der Befragten je Gruppe</p>
+                </div>
+                <div class="card__body" data-section-container="tools">
+
+                    <div style="display:flex;gap:1.25rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-gray);" data-cmp-legend-role="bench-tools">
+                            <div style="width:14px;height:10px;background:#90CAF9;border-radius:2px;"></div> Alle (Nutzer, n=317)
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-blue);font-weight:600;" data-cmp-legend-role="company">
+                            <div style="width:14px;height:10px;background:#004A99;border-radius:2px;"></div> BCG (n=76)
+                        </div>
+                    </div>
+
+                    <div class="cmp-row">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">OpenAI ChatGPT</span>
+                            <span class="cmp-delta cmp-delta--pos">+&thinsp;26,0&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:72.8%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">72,8&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:98.7%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">98,7&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cmp-row">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Microsoft Copilot</span>
+                            <span class="cmp-delta cmp-delta--neg">−&thinsp;23,8&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:48.8%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">48,8&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:25.0%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">25,0&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cmp-row">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Google Gemini</span>
+                            <span class="cmp-delta cmp-delta--neg">−&thinsp;6,0&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:20.5%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">20,5&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:14.5%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">14,5&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cmp-row" style="margin-bottom:0;">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Anthropic Claude</span>
+                            <span class="cmp-delta cmp-delta--neg">−&thinsp;9,9&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:19.1%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">19,1&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:9.2%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">9,2&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top:1.25rem;padding:0.875rem 1rem;background:rgb(238, 245, 255);border-radius:0.5rem;border-left:3px solid var(--th-blue);">
+                        <p style="margin:0;font-size:0.8rem;color:var(--thb-blue);font-weight:600;">
+                            BCG-Teilnehmer nutzen am ehesten ChatGPT, während sich das Nutzungsverhalten im Durchschnitt etwas breiter auf verschiedene Tools verteilt.  
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- /grid -->
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ PRODUKTIVITÄT ══ -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps">Produktivität &amp; Kompetenz</span>
+            <span class="section-label__line"></span>
+        </div>
+        <div class="section-header">
+            <h2 class="section-header__title">Produktivitätswahrnehmung</h2>
+            <p class="section-header__subtitle">Subjektive Einschätzung der Produktivitätsveränderung – heute und in 1–3 Jahren</p>
+        </div>
+
+        <div class="grid grid--2" style="gap:1.5rem;align-items:start;">
+
+            <!-- Heute -->
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Produktivität heute</h3>
+                    <p style="margin:0;font-size:0.8rem;color:var(--th-gray);">Veränderung durch GenAI-Einsatz (% der Befragten je Gruppe)</p>
+                </div>
+                <div class="card__body" data-section-container="productivity_today">
+
+                    <!-- Legende -->
+                    <div style="display:flex;gap:1.25rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-gray);">
+                            <div style="width:14px;height:10px;background:#90CAF9;border-radius:2px;"></div> Alle (Nutzer)
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-blue);font-weight:600;" data-cmp-legend-role="company-noN">
+                            <div style="width:14px;height:10px;background:#004A99;border-radius:2px;"></div> BCG
+                        </div>
+                    </div>
+
+                    <!-- Vergleichs-Bars -->
+                     <!-- Deutliche Verbesserung -->
+                    <div class="cmp-row">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Deutliche Verbesserung</span>
+                            <span class="cmp-delta cmp-delta--pos">+&thinsp;14,2&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:33.2%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">33,2&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:47.4%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">47,4&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leichte Verbesserung -->
+                    <div class="cmp-row">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Leichte Verbesserung</span>
+                            <span class="cmp-delta cmp-delta--neg">−&thinsp;6,8&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:55.5%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">55,5&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:48.7%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">48,7&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Keine / Negative Änderung -->
+                    <div class="cmp-row" style="margin-bottom:0;">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Keine / Negative Änderung</span>
+                            <span class="cmp-delta cmp-delta--neg">−&thinsp;7,5&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:11.3%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">11,3&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:3.9%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">3,9&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- in 1-3 Jahren -->
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Produktivität in 1–3 Jahren</h3>
+                    <p style="margin:0;font-size:0.8rem;color:var(--th-gray);">Erwartete Produktivitätsveränderung (% der Befragten je Gruppe)</p>
+                </div>
+                <div class="card__body" data-section-container="productivity_future">
+
+                    <!-- Legende -->
+                    <div style="display:flex;gap:1.25rem;margin-bottom:1.25rem;flex-wrap:wrap;">
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-gray);">
+                            <div style="width:14px;height:10px;background:#90CAF9;border-radius:2px;"></div> Alle (Nutzer)
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-blue);font-weight:600;" data-cmp-legend-role="company-noN">
+                            <div style="width:14px;height:10px;background:#004A99;border-radius:2px;"></div> BCG
+                        </div>
+                    </div>
+
+                    <!-- Vergleichs-Bars -->
+                     <!-- Deutliche Verbesserung -->
+                    <div class="cmp-row">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Deutliche Verbesserung</span>
+                            <span class="cmp-delta cmp-delta--pos">+&thinsp;17,6&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:64.0%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">64,0&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:81.6%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">81,6&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leichte Verbesserung -->
+                    <div class="cmp-row">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Leichte Verbesserung</span>
+                            <span class="cmp-delta cmp-delta--neg">−&thinsp;10,3&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:26.1%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">26,1&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:15.8%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">15,8&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Keine / Negative Änderung -->
+                    <div class="cmp-row" style="margin-bottom:0;">
+                        <div class="cmp-row__header">
+                            <span class="cmp-row__label">Keine Einschätzung / Negativ</span>
+                            <span class="cmp-delta cmp-delta--neg">−&thinsp;7,4&thinsp;PP</span>
+                        </div>
+                        <div class="cmp-bars">
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who">Alle</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:9.9%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#1565C0;">9,9&thinsp;%</span>
+                            </div>
+                            <div class="cmp-bar-row">
+                                <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                                <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:2.6%;"></div></div>
+                                <span class="cmp-bar-row__val" style="color:#004A99;">2,6&thinsp;%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div><!-- /grid -->
+
+        <!-- Gesamtfazit Produktivitätswahrnehmung -->
+        <div style="margin-top:1.5rem;padding:1.25rem 1.5rem;background:#F8F9FA;border-radius:0.5rem;border:1px solid #E0E0E0;">
+            <p style="margin:0;font-size:0.9375rem;color:var(--th-gray);line-height:1.75;">
+                <strong style="color:var(--th-blue);">Fazit Produktivitätswahrnehmung:</strong> BCG-Mitarbeitende bewerten den Produktivitätseffekt von GenAI sowohl aktuell als auch perspektivisch deutlich positiver als der Gesamtdurchschnitt. Bereits heute sehen 96,1&thinsp;% eine Verbesserung (Alle: 88,7&thinsp;%), wobei der Anteil mit <em>deutlicher</em> Produktivitätssteigerung bei BCG um 14,2&thinsp;PP höher liegt. Beim Blick auf die nächsten 1–3 Jahre verstärkt sich dieses Bild: 81,6&thinsp;% der BCG-Befragten erwarten eine deutliche Verbesserung gegenüber 64,0&thinsp;% im Gesamtdurchschnitt (+17,6&thinsp;PP). Gleichzeitig sinkt der Anteil der Skeptiker bei BCG auf nur 2,6&thinsp;%. Die hohe Nutzungsintensität und der fortgeschrittene Implementierungsgrad bei BCG schlagen sich somit direkt in einer spürbar positiveren Produktivitätswahrnehmung nieder.
+            </p>
+        </div>
+
+        <!-- Produktivitätstrends -->
+        
+                    
+                
+                <div class="card" style="margin-top:1.5rem;">
+                    
+                    
+                    <!-- Langzeittrends: Liniendiagramm -->
+                    <div style="border:1px solid #E0E0E0;border-radius:0.5rem;overflow:hidden;">
+                        <div style="padding:1rem 1.5rem;border-bottom:1px solid #E0E0E0;background:#F9FAFB;">
+                            <h4 style="margin:0 0 0.25rem 0;font-size:0.95rem;color:var(--th-blue);font-weight:600;" data-i18n="results2026.findings.productivity.chartTitle">Langzeitentwicklung der Produktivitätseinschätzung</h4>
+                            <p style="margin:0;font-size:0.8rem;color:var(--th-gray);" data-i18n="results2026.findings.productivity.chartSubtitle">Anteil der GenAI-Nutzer je Kategorie — reale Messwerte 2024/25 und 2026 sowie Erwartungshorizont in 1–3 Jahren (schraffierter Bereich)</p>
+                        </div>
+                        <div style="padding:1.5rem 1.5rem 1rem;">
+                            <div style="position:relative;height:300px;">
+                                <canvas id="productivityChart"></canvas>
+                            </div>
+                            <p style="margin:1.125rem 0 0 0;font-size:0.875rem;line-height:1.6;color:var(--th-gray);padding-top:1rem;border-top:1px solid #F0F0F0;" data-i18n="results2026.findings.productivity.breakthrough" data-i18n-html="true">
+                                <strong style="color:var(--th-blue);">Durchbruchmoment:</strong> Während die Gesamtquote positiver Produktivitätseffekte kontinuierlich steigt (85,4% → 90,1%), zeigt sich der markanteste Trend beim Shift von „leichten" zu „deutlichen" Verbesserungen: von 33,2% heute auf erwartete 64,0%. Parallel dazu schwindet die neutrale Haltung konsequent (11,7% → 3,5%) — genau dieser Schwund erklärt den positiven Zuwachs. Bemerkenswert: Der Anteil mit negativer Erwartung steigt leicht auf 3,5%, was auf eine zunehmend differenziertere, reifere Auseinandersetzung mit den Grenzen von GenAI hindeutet.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            
+
+        <!-- Kompetenzstufe -->
+        <div class="section-header" style="margin-top:3rem;">
+            <h2 class="section-header__title">Kompetenzstufe</h2>
+            <p class="section-header__subtitle">Selbsteinschätzung der GenAI-Kompetenz — von „ausprobiert" bis „eigene Modelle"</p>
+        </div>
+
+        <div class="card">
+            <div class="card__body" data-section-id="proficiency">
+
+                <!-- Legend -->
+                <div style="display:flex;justify-content:flex-end;gap:1.25rem;margin-bottom:1.25rem;">
+                    <div style="display:flex;align-items:center;gap:0.375rem;font-size:0.8125rem;" data-cmp-legend-role="bench">
+                        <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#90CAF9;"></span>
+                        <span>Alle (n&thinsp;=&thinsp;346)</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.375rem;font-size:0.8125rem;" data-cmp-legend-role="company">
+                        <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:#004A99;"></span>
+                        <span style="font-weight:600;color:var(--th-blue);">BCG (n&thinsp;=&thinsp;76)</span>
+                    </div>
+                </div>
+
+                <!-- Vertical grouped bar chart -->
+                <div style="display:flex;align-items:flex-end;justify-content:space-around;height:230px;border-bottom:1px solid #E0E0E0;padding:0 0.25rem;">
+
+                    <!-- Stufe 1: Ausprobiert -->
+                    <div style="display:flex;align-items:flex-end;gap:3px;" data-prof-idx="0" data-level="1">
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="bench" style="font-size:0.6875rem;font-weight:600;color:#1565C0;margin-bottom:3px;">5,7%</div>
+                            <div data-prof-bar="bench" style="height:23px;background:#90CAF9;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="company" style="font-size:0.6875rem;font-weight:600;color:#004A99;margin-bottom:3px;">1,3%</div>
+                            <div data-prof-bar="company" style="height:5px;background:#004A99;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 2: Einfache Prompts -->
+                    <div style="display:flex;align-items:flex-end;gap:3px;" data-prof-idx="1" data-level="2">
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="bench" style="font-size:0.6875rem;font-weight:600;color:#1565C0;margin-bottom:3px;">42,0%</div>
+                            <div data-prof-bar="bench" style="height:168px;background:#90CAF9;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="company" style="font-size:0.6875rem;font-weight:600;color:#004A99;margin-bottom:3px;">22,4%</div>
+                            <div data-prof-bar="company" style="height:90px;background:#004A99;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 3: Verschiedene Modelle & Prompting -->
+                    <div style="display:flex;align-items:flex-end;gap:3px;" data-prof-idx="2" data-level="3">
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="bench" style="font-size:0.6875rem;font-weight:600;color:#1565C0;margin-bottom:3px;">33,8%</div>
+                            <div data-prof-bar="bench" style="height:135px;background:#90CAF9;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="company" style="font-size:0.6875rem;font-weight:600;color:#004A99;margin-bottom:3px;">47,4%</div>
+                            <div data-prof-bar="company" style="height:190px;background:#004A99;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 4: Erweiterte Funktionen -->
+                    <div style="display:flex;align-items:flex-end;gap:3px;" data-prof-idx="3" data-level="4">
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="bench" style="font-size:0.6875rem;font-weight:600;color:#1565C0;margin-bottom:3px;">10,7%</div>
+                            <div data-prof-bar="bench" style="height:43px;background:#90CAF9;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="company" style="font-size:0.6875rem;font-weight:600;color:#004A99;margin-bottom:3px;">19,7%</div>
+                            <div data-prof-bar="company" style="height:79px;background:#004A99;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 5: Eigene GenAI-Lösungen -->
+                    <div style="display:flex;align-items:flex-end;gap:3px;" data-prof-idx="4" data-level="5">
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="bench" style="font-size:0.6875rem;font-weight:600;color:#1565C0;margin-bottom:3px;">5,4%</div>
+                            <div data-prof-bar="bench" style="height:22px;background:#90CAF9;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="company" style="font-size:0.6875rem;font-weight:600;color:#004A99;margin-bottom:3px;">7,9%</div>
+                            <div data-prof-bar="company" style="height:32px;background:#004A99;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stufe 6: Eigene Modelle -->
+                    <div style="display:flex;align-items:flex-end;gap:3px;" data-prof-idx="5" data-level="6">
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="bench" style="font-size:0.6875rem;font-weight:600;color:#1565C0;margin-bottom:3px;">2,5%</div>
+                            <div data-prof-bar="bench" style="height:10px;background:#90CAF9;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                        <div style="width:44px;text-align:center;">
+                            <div data-prof-lbl="company" style="font-size:0.6875rem;font-weight:600;color:#004A99;margin-bottom:3px;">1,3%</div>
+                            <div data-prof-bar="company" style="height:5px;background:#004A99;border-radius:3px 3px 0 0;"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Category labels -->
+                <div style="display:flex;justify-content:space-around;padding:0.625rem 0.25rem 0;">
+                    <span style="width:91px;text-align:center;font-size:0.6875rem;color:var(--muted-foreground);line-height:1.35;">Ausprobiert</span>
+                    <span style="width:91px;text-align:center;font-size:0.6875rem;color:var(--muted-foreground);line-height:1.35;">Einfache Prompts</span>
+                    <span style="width:91px;text-align:center;font-size:0.6875rem;color:var(--muted-foreground);line-height:1.35;">Modelle &amp; Prompting</span>
+                    <span style="width:91px;text-align:center;font-size:0.6875rem;color:var(--muted-foreground);line-height:1.35;">Erweiterte Funktionen</span>
+                    <span style="width:91px;text-align:center;font-size:0.6875rem;color:var(--muted-foreground);line-height:1.35;">Eigene Lösungen</span>
+                    <span style="width:91px;text-align:center;font-size:0.6875rem;color:var(--muted-foreground);line-height:1.35;">Eigene Modelle</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Fazit Kompetenzstufe -->
+        <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+            <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.65;">
+                <strong style="color:var(--th-blue);">Fazit Kompetenzstufe:</strong> BCG-Mitarbeitende schätzen ihre GenAI-Kompetenz deutlich höher ein als der Durchschnitt. Die häufigste Selbsteinschätzung bei BCG ist der gezielte Einsatz verschiedener Modelle und Prompting-Methoden (47,4&thinsp;% vs. 34,6&thinsp;%), während im Gesamtdurchschnitt einfache Prompts dominieren (39,6&thinsp;% vs. 22,4&thinsp;%). Insgesamt ordnen sich 75,0&thinsp;% der BCG-Befragten auf den mittleren bis fortgeschrittenen Stufen ein (Alle: 51,6&thinsp;%), während nur 23,7&thinsp;% auf den beiden niedrigsten Stufen verbleiben (Alle: 45,6&thinsp;%). Dieses Kompetenzprofil korrespondiert mit der höheren Nutzungsintensität und dem fortgeschritteneren Implementierungsstand bei BCG.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ IMPLEMENTIERUNGSSTAND ══ -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps">Reifepfad</span>
+            <span class="section-label__line"></span>
+        </div>
+        <div class="section-header">
+            <h2 class="section-header__title">Implementierungsstand im Vergleich</h2>
+            <p class="section-header__subtitle">In welcher Phase der KI-Implementierung befindet sich BCG im Vergleich?</p>
+        </div>
+
+        <div class="card card--featured">
+            <div class="card__body">
+
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem;">
+
+                    <!-- Phase 1 -->
+                    <div class="phase-cell" style="background:#FAFAFA;border:1px solid #E0E0E0;" data-phase="1">
+                        <div class="phase-label">Phase 1</div>
+                        <div class="phase-title">Konzeption &amp; Entwicklung</div>
+                        <div class="phase-num" data-bench style="color:#1565C0;">30,2&thinsp;%</div>
+                        <div class="phase-who">Alle</div>
+                        <div class="phase-sep"></div>
+                        <div class="phase-num-2" data-company style="color:#004A99;">14,5&thinsp;%</div>
+                        <div class="phase-who-2" style="font-weight:600;color:var(--th-blue);">BCG</div>
+                        <div style="margin-top:0.75rem;">
+                            <span data-phase-delta data-delta style="font-size:0.7rem;font-weight:700;background:#E8F5E9;color:#1B5E20;padding:0.15rem 0.5rem;border-radius:999px;">−&thinsp;15,7&thinsp;PP</span>
+                        </div>
+                    </div>
+
+                    <!-- Phase 2 -->
+                    <div class="phase-cell" style="background:#FAFAFA;border:1px solid #E0E0E0;" data-phase="2">
+                        <div class="phase-label">Phase 2</div>
+                        <div class="phase-title">Prototyp vorhanden</div>
+                        <div class="phase-num" data-bench style="color:#1565C0;">29,7&thinsp;%</div>
+                        <div class="phase-who">Alle</div>
+                        <div class="phase-sep"></div>
+                        <div class="phase-num-2" data-company style="color:#004A99;">22,4&thinsp;%</div>
+                        <div class="phase-who-2" style="font-weight:600;color:var(--th-blue);">BCG</div>
+                        <div style="margin-top:0.75rem;">
+                            <span data-phase-delta data-delta style="font-size:0.7rem;font-weight:700;background:#E8F5E9;color:#1B5E20;padding:0.15rem 0.5rem;border-radius:999px;">−&thinsp;7,3&thinsp;PP</span>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3 -->
+                    <div class="phase-cell" style="background:#EEF5FF;border:1px solid #90CAF9;" data-phase="3">
+                        <div class="phase-label">Phase 3</div>
+                        <div class="phase-title">Erste Produktivversion im Einsatz</div>
+                        <div class="phase-num" data-bench style="color:#1565C0;">30,5&thinsp;%</div>
+                        <div class="phase-who">Alle</div>
+                        <div class="phase-sep"></div>
+                        <div class="phase-num-2" data-company style="color:#004A99;">36,8&thinsp;%</div>
+                        <div class="phase-who-2" style="font-weight:600;color:var(--th-blue);">BCG</div>
+                        <div style="margin-top:0.75rem;">
+                            <span data-phase-delta data-delta style="font-size:0.7rem;font-weight:700;background:#E8F5E9;color:#1B5E20;padding:0.15rem 0.5rem;border-radius:999px;">+&thinsp;6,3&thinsp;PP</span>
+                        </div>
+                    </div>
+
+                    <!-- Phase 4 -->
+                    <div class="phase-cell" style="background:#EEF5FF;border:2px solid var(--th-blue);" data-phase="4">
+                        <div class="phase-label">Phase 4</div>
+                        <div class="phase-title">Unternehmensweiter Rollout</div>
+                        <div class="phase-num" data-bench style="color:#1565C0;">9,6&thinsp;%</div>
+                        <div class="phase-who">Alle</div>
+                        <div class="phase-sep"></div>
+                        <div class="phase-num-2" data-company style="color:#004A99;">26,3&thinsp;%</div>
+                        <div class="phase-who-2" style="font-weight:600;color:var(--th-blue);">BCG</div>
+                        <div style="margin-top:0.75rem;">
+                            <span data-phase-delta data-delta style="font-size:0.7rem;font-weight:700;background:#E8F5E9;color:#1B5E20;padding:0.15rem 0.5rem;border-radius:999px;">+&thinsp;16,7&thinsp;PP</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="padding:1.25rem 1.5rem;background:#E8F5E9;border-radius:0.5rem;border-left:4px solid #2E7D32;display:flex;align-items:start;gap:0.875rem;">
+                    <i data-lucide="trending-up" style="width:1.25rem;height:1.25rem;color:#1B5E20;flex-shrink:0;margin-top:0.1rem;"></i>
+                    <p id="cmp-phase-summary" style="margin:0;font-size:0.875rem;color:#1B5E20;line-height:1.65;">
+                        <strong>63,2&thinsp;% von BCG</strong> sind bereits in Phase 3 oder 4 (aktiver Produktiveinsatz), verglichen mit <strong>40,1&thinsp;%</strong> im Gesamtdurchschnitt — ein Vorsprung von 23,1 Prozentpunkten.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ HERAUSFORDERUNGEN  ══ -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps">Herausforderungen</span>
+            <span class="section-label__line"></span>
+        </div>
+        
+
+            <!-- Herausforderungen -->
+            <div class="card">
+                <div class="card__header">
+                    <h3 class="card__title">Herausforderungen unternehmensweiter Einsatz</h3>
+                    <p style="margin:0;font-size:0.8rem;color:var(--th-gray);">Alle: Mehrfachnennung (% der Nennungen). BCG: Einzelauswahl (% der 76 Befragten).</p>
+                </div>
+                <div class="card__body">
+
+                    <div id="challenge-ranking" data-section-id="challenges_rank" style="display:grid;grid-template-columns:1fr auto 1fr;gap:0 1rem;align-items:start;">
+
+                        <!-- Alle ranking -->
+                        <div>
+                            <div data-rank-header style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#1565C0;margin-bottom:0.75rem;border-bottom:2px solid #90CAF9;padding-bottom:0.4rem;">
+                                Alle (n=346)
+                            </div>
+                            <div class="rank-item" data-cat="roi">
+                                <div class="rank-num" style="background:#90CAF9;color:#0D47A1;">1</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Unklarer ROI-Nachweis</span>
+                                <span class="rank-pct" style="color:#1565C0;">21,6&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="it">
+                                <div class="rank-num" style="background:#90CAF9;color:#0D47A1;">2</div>
+                                <span class="rank-label" style="font-size:0.8rem;">IT-Integration</span>
+                                <span class="rank-pct" style="color:#1565C0;">21,0&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="gov">
+                                <div class="rank-num" style="background:#90CAF9;color:#0D47A1;">3</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Governance &amp; Regulatorik</span>
+                                <span class="rank-pct" style="color:#1565C0;">20,0&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="data">
+                                <div class="rank-num" style="background:#90CAF9;color:#0D47A1;">4</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Datenqualität</span>
+                                <span class="rank-pct" style="color:#1565C0;">19,7&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="staff">
+                                <div class="rank-num" style="background:#90CAF9;color:#0D47A1;">5</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Qualifiziertes Personal</span>
+                                <span class="rank-pct" style="color:#1565C0;">17,7&thinsp;%</span>
+                            </div>
+                        </div>
+
+                        <!-- SVG connector lines -->
+                        <div style="width:7rem;position:relative;align-self:stretch;">
+                            <svg id="rank-connectors" style="position:absolute;top:0;left:0;width:100%;height:100%;overflow:visible;"></svg>
+                        </div>
+
+                        <!-- BCG ranking -->
+                        <div>
+                            <div data-rank-header style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--th-blue);margin-bottom:0.75rem;border-bottom:2px solid var(--th-blue);padding-bottom:0.4rem;">
+                                BCG (n=76)
+                            </div>
+                            <div class="rank-item" data-cat="data">
+                                <div class="rank-num" style="background:#004A99;color:white;">1</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Datenqualität</span>
+                                <span class="rank-pct" style="color:#004A99;">27,6&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="roi">
+                                <div class="rank-num" style="background:#004A99;color:white;">2</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Unklarer ROI-Nachweis</span>
+                                <span class="rank-pct" style="color:#004A99;">26,3&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="it">
+                                <div class="rank-num" style="background:#004A99;color:white;">3</div>
+                                <span class="rank-label" style="font-size:0.8rem;">IT-Integration</span>
+                                <span class="rank-pct" style="color:#004A99;">22,4&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="staff">
+                                <div class="rank-num" style="background:#004A99;color:white;">4</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Qualifiziertes Personal</span>
+                                <span class="rank-pct" style="color:#004A99;">13,2&thinsp;%</span>
+                            </div>
+                            <div class="rank-item" data-cat="gov">
+                                <div class="rank-num" style="background:#004A99;color:white;">5</div>
+                                <span class="rank-label" style="font-size:0.8rem;">Governance &amp; Regulatorik</span>
+                                <span class="rank-pct" style="color:#004A99;">10,5&thinsp;%</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Fazit Herausforderungen -->
+                    <div style="margin-top:1.25rem;padding:0.875rem 1rem;background:#E3F2FD;border-radius:0.5rem;border-left:3px solid var(--th-blue);">
+                        <p style="margin:0;font-size:0.8rem;color:var(--th-blue);line-height:1.6;">
+                            <strong>Fazit:</strong> Bei BCG steht Datenqualität &amp; -verfügbarkeit an erster Stelle (Alle: Rang 4), während der unklare ROI-Nachweis — im Gesamtdurchschnitt die größte Hürde — bei BCG auf Rang 2 zurückfällt. Ebenso spielen Governance &amp; Regulatorik (Rang 5, 10,5&thinsp;%) und qualifiziertes Personal (Rang 4, 13,2&thinsp;%) bei BCG eine deutlich geringere Rolle als im Durchschnitt. Diese Verschiebung lässt sich durch den fortgeschrittenen Implementierungsstand erklären: Wer KI-Lösungen bereits im Produktiveinsatz oder sogar im unternehmensweiten Rollout betreibt, hat regulatorische Fragen weitgehend geklärt und das nötige Know-how bereits aufgebaut. Stattdessen rücken operative Herausforderungen wie Datenqualität in den Vordergrund, die erst im Realbetrieb sichtbar werden. Dass der ROI-Nachweis dennoch auf Rang 2 verbleibt (26,3&thinsp;%), deutet darauf hin, dass BCG zwar technologisch voranschreitet und über die notwendigen Kompetenzen verfügt, jedoch bei Teilen der KI-Initiativen noch nach konkreten, messbaren Anwendungsfällen sucht.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</section>
+
+
+
+<!-- ══════════════════════════════════════════ DATENSCHUTZ ══ -->
+<section class="section section--alt">
+    <div class="container" style="max-width:56rem;">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps">Datenschutz &amp; Compliance</span>
+            <span class="section-label__line"></span>
+        </div>
+        <div class="section-header">
+            <h2 class="section-header__title">Datenschutzbewusstsein</h2>
+            <p class="section-header__subtitle">Selbsteinschätzung zum Umgang mit DSGVO, EU-AI-Act und unternehmensinternen Richtlinien</p>
+        </div>
+
+        <div class="card">
+            <div class="card__body" data-section-container="privacy">
+
+                <!-- Separator -->
+                <div style="height:1px;background:#E8EEF7;margin-bottom:1.5rem;"></div>
+
+                <!-- Detailed bar comparison -->
+                <div style="font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--th-gray);margin-bottom:1rem;">Detailvergleich</div>
+
+                <div style="display:flex;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+                    <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-gray);" data-cmp-legend-role="bench">
+                        <div style="width:14px;height:10px;background:#90CAF9;border-radius:2px;"></div> Alle (n=346)
+                    </div>
+                    <div style="display:flex;align-items:center;gap:0.4rem;font-size:0.75rem;color:var(--th-blue);font-weight:600;" data-cmp-legend-role="company">
+                        <div style="width:14px;height:10px;background:#004A99;border-radius:2px;"></div> BCG (n=76)
+                    </div>
+                </div>
+
+                <div class="cmp-row">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Regelungen bekannt &amp; konsequent umgesetzt</span>
+                        <span class="cmp-delta cmp-delta--pos">+&thinsp;2,4&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:41.0%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">41,0&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:43.4%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">43,4&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cmp-row">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Wichtigste Regelungen bekannt, best-effort Umsetzung</span>
+                        <span class="cmp-delta cmp-delta--neg">−&thinsp;1,4&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:46.1%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">46,1&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:44.7%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">44,7&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cmp-row">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Richtlinien bekannt, nicht immer umgesetzt</span>
+                        <span class="cmp-delta cmp-delta--neg">−&thinsp;0,2&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:9.4%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">9,4&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:9.2%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">9,2&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cmp-row" style="margin-bottom:0;">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Keine konkreten Regeln bekannt</span>
+                        <span class="cmp-delta cmp-delta--neg">−&thinsp;0,9&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:3.5%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">3,5&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:2.6%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">2,6&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top:1.25rem;padding:1rem 1.25rem;background:#EEF5FF;border-radius:0.5rem;border-left:4px solid var(--th-blue);">
+                    <p style="margin:0;font-size:0.875rem;color:var(--th-gray);line-height:1.65;">
+                        <strong style="color:var(--th-blue);">Fazit Datenschutzbewusstsein:</strong> Im Bereich Datenschutz zeigt BCG ein nahezu identisches Bild wie der Gesamtdurchschnitt. Mit 88,1&thinsp;% konsequenter Umsetzung (Alle: 87,1&thinsp;%) und Abweichungen von maximal 2,4&thinsp;PP in den einzelnen Kategorien ist dies der Bereich mit der geringsten Differenz zwischen BCG und der Gesamtstichprobe. Anders als bei Nutzungsintensität oder Implementierungsgrad, wo BCG deutlich vorausliegt, scheint das Datenschutzbewusstsein unabhängig vom Reifegrad der KI-Nutzung auf einem branchenweit einheitlich hohen Niveau verankert zu sein.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ WACHSTUMSTREIBER vs EFFIZIENZHEBEL ══ -->
+<section class="section section--alt">
+    <div class="container">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps">Strategische Wirkung</span>
+            <span class="section-label__line"></span>
+        </div>
+
+        <div class="card">
+            <div class="card__header">
+                <h3 class="card__title">GenAI als Wachstumstreiber oder Effizienzhebel?</h3>
+                <p style="margin:0;font-size:0.8rem;color:var(--th-gray);">Wie wird sich GenAI primär im Unternehmen auswirken? — Alle (n=310) vs. BCG (n=76)</p>
+            </div>
+            <div class="card__body" data-section-container="growth_efficiency">
+
+                <!-- Chart -->
+                <div style="position:relative;height:320px;margin-bottom:1.5rem;">
+                    <canvas id="growthEfficiencyChart"></canvas>
+                </div>
+
+                <!-- Comparison bars -->
+
+                <!-- Effizienzhebel-->
+                <div class="cmp-row">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Effizienzhebel (Kostensenkung, Prozessoptimierung)</span>
+                        <span class="cmp-delta cmp-delta--pos">+9,5&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:47.1%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">47,1&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:56.6%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">56,6&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gleichermaßen beides -->
+                <div class="cmp-row">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Gleichermaßen beides</span>
+                        <span class="cmp-delta cmp-delta--pos">+0,5&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:23.2%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">23,2&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:23.7%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">23,7&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wachstumstreiber -->
+                <div class="cmp-row">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Wachstumstreiber (neue Produkte, Märkte, Umsatzpotenziale)</span>
+                        <span class="cmp-delta cmp-delta--pos">+5,2&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:10.6%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">10,6&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:15.8%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">15,8&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Weder noch erkennbar -->
+                <div class="cmp-row">
+                    <div class="cmp-row__header">
+                        <span class="cmp-row__label">Bisher weder noch erkennbar</span>
+                        <span class="cmp-delta cmp-delta--neg">−15,1&thinsp;PP</span>
+                    </div>
+                    <div class="cmp-bars">
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who">Alle</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--bench" style="width:19.0%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#1565C0;">19,0&thinsp;%</span>
+                        </div>
+                        <div class="cmp-bar-row">
+                            <span class="cmp-bar-row__who" style="font-weight:600;color:var(--th-blue);">BCG</span>
+                            <div class="cmp-bar-row__track"><div class="cmp-bar-row__fill fill--company" style="width:3.9%;"></div></div>
+                            <span class="cmp-bar-row__val" style="color:#004A99;">3,9&thinsp;%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fazit -->
+                <div style="margin-top:1.25rem;padding:0.875rem 1rem;background:#E3F2FD;border-radius:0.5rem;border-left:3px solid var(--th-blue);">
+                    <p style="margin:0;font-size:0.8rem;color:var(--th-blue);line-height:1.6;">
+                        <strong>Auffälligkeit:</strong> Besonders markant ist der Unterschied bei „weder noch erkennbar": Nur 3,9&thinsp;% der BCG-Befragten sehen bisher keinen positiven Effekt von GenAI in diesen beiden Dimensionen — im Gesamtdurchschnitt sind es hingegen 19,0&thinsp;% (−15,1&thinsp;PP). Das bedeutet, dass nahezu alle BCG-Mitarbeitenden bereits einen konkreten Nutzen von GenAI wahrnehmen, sei es als Effizienz- oder Wachstumshebel. Diese hohe Wirkungswahrnehmung spiegelt den fortgeschrittenen Implementierungsstand wider und zeigt, dass reale Erfahrung mit KI-Tools die Skepsis erheblich reduziert. Darüber hinaus sehen BCG-Befragte GenAI deutlich stärker als Effizienzhebel (56,6&thinsp;% vs. 47,1&thinsp;%), und auch der Anteil, der GenAI als Wachstumstreiber einordnet, liegt höher (15,8&thinsp;% vs. 10,6&thinsp;%) — bleibt aber insgesamt moderat. Dies deutet darauf hin, dass GenAI im Unternehmenskontext primär als Optimierungswerkzeug und weniger als Transformationshebel wahrgenommen wird.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ FAZIT ══ -->
+<section class="section">
+    <div class="container" style="max-width:56rem;">
+        <div class="section-label">
+            <span class="section-label__line"></span>
+            <span class="small-caps">Zusammenfassung</span>
+            <span class="section-label__line"></span>
+        </div>
+        <div class="section-header">
+            <h2 class="section-header__title">Einordnung &amp; Fazit</h2>
+        </div>
+
+        <div class="card card--featured">
+            <div class="card__body" id="cmp-fazit-body">
+
+                <div style="padding:1.25rem 1.5rem;background:#F8F9FA;border-radius:0.5rem;border:1px solid #E0E0E0;">
+                    <p data-fazit style="margin:0;font-size:0.9375rem;color:var(--th-gray);line-height:1.75;">
+                        <strong style="color:var(--th-blue);">Gesamteinschätzung:</strong> BCG validiert sich als <strong>führender GenAI-Adopter</strong> und zeigt ein kohärentes Bild gestiegener Reife in allen untersuchten Dimensionen. Die Universalität der Adoption (100&thinsp;%) kombiniert mit ausgeprägter täglicher Nutzung (90,8&thinsp;% vs. 55,2&thinsp;% Gesamtdurchschnitt, +35,6&thinsp;PP) und vorangetriebenem Implementierungsstand (63,1&thinsp;% in Produktion vs. 39,4&thinsp;%) belegt eine deutlich höhere operationale Durchdringung und Reife von GenAI-Einsätzen. Besonders bemerkenswert sind die <strong>gestiegenen Kompetenzerwartungen</strong>: 75&thinsp;% der BCG-Befragten bewerten ihre eigene GenAI-Kompetenz als mittelhoch bis fortgeschritten (vs. 51,6&thinsp;% im Gesamtdurchschnitt), was auf eine nachhaltige Fähigkeitsentwicklung hindeutet.
+                    </p>
+                    <p style="margin:1rem 0 0 0;font-size:0.9375rem;color:var(--th-gray);line-height:1.75;">
+                        <strong style="color:var(--th-blue);">Einordnung nach Diffusionstheorie:</strong> Im Sinne von Everett Rogers' <em>Diffusion of Innovations</em> lässt sich BCG klar als <strong>Early Adopter</strong> einordnen — jene Gruppe, die nach den Innovators als erste neue Technologien gezielt übernimmt und durch ihren Einfluss als Multiplikator für die breitere Adoption wirkt. Die Daten stützen diese Einordnung auf mehreren Ebenen: Die nahezu vollständige Nutzungsrate (100&thinsp;%), die überdurchschnittlich hohe Kompetenz und vor allem die geringe Skepsis gegenüber dem Nutzen von GenAI (nur 3,9&thinsp;% sehen „weder noch" einen Effekt vs. 19,0&thinsp;% im Durchschnitt) sind typische Merkmale von Early Adopters — sie haben den konkreten Mehrwert bereits erfahren und die Technologie über das Experimentierfeld hinaus in operative Prozesse integriert. Der Gesamtdurchschnitt hingegen befindet sich eher im Übergangsbereich der <strong>Early Majority</strong>: Es gibt breite Nutzung, aber ein signifikanter Anteil (19,0&thinsp;%) nimmt bisher keinen spürbaren Effekt wahr, was auf eine noch unvollständige Integration in die tägliche Wertschöpfung hindeutet. Rogers beschreibt genau diesen Übergang — den sogenannten <em>Chasm</em> — als den kritischen Punkt, an dem eine Innovation entweder zur Selbstverständlichkeit wird oder stagniert.
+                    </p>
+                    <p style="margin:1rem 0 0 0;font-size:0.9375rem;color:var(--th-gray);line-height:1.75;">
+                        Das primäre <strong style="color:var(--th-blue)"> Handlungsfeld</strong> bleibt „Datenqualität und -verfügbarkeit" (#1 bei BCG) — ein Bottleneck, das trotz höherem Reifegrad bestehen bleibt und darauf hindeutet, dass der Implementierungserfolg von strukturellen Datenvorhaben abhängig ist. Potenzial existiert zudem bei der Erschließung von <strong>Wachstumspotenzialen</strong> durch strategische GenAI-Einsätze: Nur 15,8&thinsp;% der BCG-Befragten sehen KI als Wachstumstreiber (neue Produkte, Märkte), während 56,6&thinsp;% sie primär als Effizienzhebel betrachten. Dies deutet auf Chancen bei der Transformation vom Optimierungs- ins Transformations-Narrativ hin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CTA ══ -->
+<section class="section section--alt" data-no-pdf>
+    <div class="container" style="max-width:48rem;">
+        <div class="card" style="background:linear-gradient(135deg,var(--accent-muted) 0%,var(--accent-light) 100%);border:2px solid var(--th-blue);text-align:center;padding:3rem 2rem;">
+            <div style="display:flex;justify-content:center;margin-bottom:1.5rem;">
+                <i data-lucide="building-2" style="width:3rem;height:3rem;color:var(--th-blue);"></i>
+            </div>
+            <h2 style="margin-bottom:1rem;">Eigenen Unternehmensvergleich einrichten</h2>
+            <p style="font-size:1.0625rem;line-height:1.7;margin-bottom:2rem;color:var(--th-gray);">
+                Möchten Sie Ihre firmeninternen Daten mit dem Gesamtdurchschnitt vergleichen? Wir unterstützen Sie bei der Auswertung – kostenlos und anonym.
+            </p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+                <a href="mailto:ai-survey@th-brandenburg.de?subject=Unternehmensvergleich anfragen" class="btn btn--primary">
+                    <i data-lucide="mail" style="width:1.25rem;height:1.25rem;"></i>
+                    Vergleich anfragen
+                </a>
+                <a href="ergebnisse-2026.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);display:inline-flex;align-items:center;gap:0.5rem;">
+                    <i data-lucide="arrow-left" style="width:1.25rem;height:1.25rem;"></i>
+                    Zurück zu Ergebnisse 2026
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<div id="footer-placeholder"></div>
+<script src="js/components-loader.js" defer></script>
+
+<script>
+    function initLucide() {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        } else {
+            setTimeout(initLucide, 50);
+        }
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLucide);
+    } else {
+        initLucide();
+    }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof initPDFExport === 'function') {
+            initPDFExport({
+                filename: 'Unternehmensvergleich_BCG_2026.pdf',
+                title: 'Unternehmensvergleich 2026',
+                subtitle: 'BCG (n\u00a0=\u00a076) vs. Gesamtdurchschnitt (n\u00a0=\u00a0346)',
+                meta: 'Firmenspezifischer Vergleich \u00b7 IT-Consulting \u00b7 2026',
+                _loadingText: 'PDF wird erstellt\u2026',
+            });
+        }
+    });
+</script>
+
+<script src="js/charts/productivity.js"></script>
+<script src="js/charts/compare-charts.js"></script>
+<script type="module">
+import { loadData } from '/js/shared.js';
+import { initCompanySwitcher, renderComparativePage } from '/js/components/company-switcher.js';
+
+const DEFAULT_COMPANY = 'bcg';
+
+loadData().then(data => {
+    initCompanySwitcher(data);
+    renderComparativePage(data, DEFAULT_COMPANY);
+
+    document.addEventListener('languageChanged', e => {
+        const select = document.getElementById('company-select');
+        const active = select ? select.value : DEFAULT_COMPANY;
+        renderComparativePage(data, active);
+    });
+
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+});
+</script>
+
+</body>
+</html>
+

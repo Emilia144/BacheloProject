@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KI im IT-Arbeitsalltag | TH Brandenburg Forschungsprojekt</title>
+    <!-- Google Fonts für TH Brandenburg Design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- TH Brandenburg Dashboard Styles -->
+    <link href="css/styles.css" rel="stylesheet">
+    <!-- Component Loader -->
+    <script src="js/components-loader.js" defer></script>
+    <!-- Internationalization -->
+    <script src="js/i18n.js" defer></script>
+    <script>
+        function loadAlpineFallback() {
+            var fallbackScript = document.createElement('script');
+            fallbackScript.defer = true;
+            fallbackScript.src = 'https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js';
+            document.head.appendChild(fallbackScript);
+        }
+    </script>
+    <script src="js/index-alpine.js" defer></script>
+    <!-- Alpine.js (lightweight progressive framework) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js" onerror="loadAlpineFallback()"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+
+<!-- Header wird dynamisch geladen -->
+<div id="header-placeholder"></div>
+
+<main x-data="homePageData()">
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container" style="max-width:64rem;">
+            <div class="hero__badge">
+                <span class="hero__badge-dot"></span>
+                <span class="small-caps" data-i18n="hero.badge">Aktuelle Studie 2026</span>
+            </div>
+            <h1 class="hero__title" data-i18n="hero.title">KI im IT-Arbeitsalltag</h1>
+            <p class="hero__subtitle" data-i18n="hero.subtitle">Wie verändert Generative KI den Arbeitsalltag insbesondere der deutschen IT-Branche? Unsere Langzeitstudie untersucht Adoption, Produktivität und strategische Entwicklungen – mit Ihrer Unterstützung.</p>
+            
+            <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;">
+                <a href="https://forms.cloud.microsoft/e/3h5XJv0PM2" class="btn btn--primary" data-i18n="hero.cta.participate">An Umfrage 2026 teilnehmen</a>
+                <a href="ergebnisse-2024.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);" data-i18n="hero.cta.results">Ergebnisse 2024/25 ansehen</a>
+            </div>
+            
+            <div class="hero__meta">
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">174+</div>
+                    <div class="hero__meta-label" data-i18n="hero.stats.participants">Teilnehmer 2024/25</div>
+                </div>
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">76%</div>
+                    <div class="hero__meta-label" data-i18n="hero.stats.usage">GenAI-Nutzung</div>
+                </div>
+                <div class="hero__meta-item">
+                    <div class="hero__meta-value">85%</div>
+                    <div class="hero__meta-label" data-i18n="hero.stats.productivity">Produktivitätssteigerung</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über das Projekt -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="about.label">Über das Projekt</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="about.title">Empirische Forschung zur KI-Adoption in der deutschen IT-Branche</h2>
+                <p class="section-header__subtitle" data-i18n="about.subtitle" style="white-space: pre-line;">Das Thema Künstliche Intelligenz ist geprägt von Hype und Versprechungen. Die entstehenden Werkzeuge und Lösungen wirken eindrucksvoll in ihren Möglichkeiten allerdings bleibt der Großteil der Projekte immer noch einen Nachweis der Wirtschaftlichkeit schuldig. Zum aktuellen Stand kann atestiert werden, dass KI insbesondere die Arbeitsweise des Einzelnen im privaten wie im beruflichen Umfeld verändert.
+An der Forschungsgruppe Cloud Computing der Technischen Hochschule Brandenburg haben wir uns das Ziel gesetzt, solide statistische Daten zur Verwendung generativer KI zu sammeln und zu analysieren. Seit 2024 untersuchen wir systematisch mit Hilfe empirischer Fragebögen, wie generative KI den Arbeitsalltag von IT-Fachkräften tatsächlich verändert.</p>
+            </div>
+            
+            <div class="card" style="margin-bottom:2rem;padding:2rem;">
+                <p style="font-size:1.0625rem;line-height:1.7;color:var(--th-gray);" data-i18n="about.goal">Unser Ziel: Unternehmen eine empirische Grundlage bieten, um ihren eigenen Entwicklungsstand einzuordnen und strategische Entscheidungen fundiert zu treffen.</p>
+            </div>
+            
+            <div class="grid grid--3" style="margin-bottom:2.5rem;">
+                <template x-for="card in aboutCards" :key="card.titleKey">
+                    <div :class="card.featured ? 'card card--featured' : 'card'">
+                        <div class="card__body">
+                            <div class="icon-list__icon" style="margin-bottom:1rem;">
+                                <i :data-lucide="card.icon" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
+                            </div>
+                            <h3 class="card__title" :data-i18n="card.titleKey" x-text="card.title">Langzeitstudie</h3>
+                            <p class="card__subtitle" :data-i18n="card.subtitleKey" x-text="card.subtitle">Jährliche Erhebungen ermöglichen die Analyse von Trends und Entwicklungen</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </section>
+
+    <!-- Umfragen -->
+    <section class="section section--alt" id="surveys">
+        <div class="container">
+            <div class="section-label">
+                <span class="section-label__line"></span>
+                <span class="small-caps" data-i18n="surveys.label">Umfragen & Ergebnisse</span>
+                <span class="section-label__line"></span>
+            </div>
+            
+            <div class="section-header">
+                <h2 class="section-header__title" data-i18n="surveys.title">Umfragen & Ergebnisse</h2>
+            </div>
+            
+            <div class="grid grid--3">
+                <template x-for="survey in surveys" :key="survey.titleKey">
+                    <div :class="survey.featured ? 'card card--featured' : 'card'">
+                        <div class="card__header">
+                            <div class="card__number" :style="survey.statusStyle" :data-i18n="survey.statusKey" x-text="survey.status">AKTIV</div>
+                            <h3 class="card__title" :data-i18n="survey.titleKey" x-text="survey.title">KI im IT-Arbeitsalltag 2026</h3>
+                        </div>
+                        <div class="card__body">
+                            <p style="margin-bottom:1.5rem;line-height:1.6;" :data-i18n="survey.descriptionKey" x-text="survey.description">Die aktuelle Erhebung untersucht die fortschreitende Integration von GenAI in der deutschen IT-Branche.</p>
+                            <div class="matrix-chart">
+                                <template x-for="item in survey.matrixItems" :key="item.labelKey">
+                                    <div class="matrix-chart__item">
+                                        <span class="matrix-chart__label" :data-i18n="item.labelKey" x-text="item.label">Zeitraum</span>
+                                        <span class="matrix-chart__value" :style="item.valueStyle" :data-i18n="item.valueKey" x-text="item.value">Q1 2026</span>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                        <div class="card__footer" :style="survey.footerStyle">
+                            <template x-if="survey.note">
+                                <span style="font-style:italic;color:var(--muted-foreground);" :data-i18n="survey.note.key" x-text="survey.note.text">Planung startet im Q3 2026</span>
+                            </template>
+                            <template x-for="action in survey.actions" :key="action.i18nKey">
+                                <a :href="action.href" :class="action.className" :style="action.style" :data-i18n="action.i18nKey" :download="action.download ? '' : null" x-text="action.label">Jetzt teilnehmen</a>
+                            </template>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            
+            <!-- Ergebnis-Highlights -->
+            <div style="margin-top:3rem;">
+                <h3 style="text-align:center;margin-bottom:2rem;font-size:1.5rem;" data-i18n="surveys.highlights.title">Highlights aus der Studie 2024/25</h3>
+                <div class="stats-grid">
+                    <template x-for="highlight in highlights" :key="highlight.labelKey">
+                        <div class="stat-card">
+                            <div class="stat-card__value" x-html="highlight.valueHtml">76.5<span>%</span></div>
+                            <div class="stat-card__label" :data-i18n="highlight.labelKey" x-text="highlight.label">nutzen GenAI beruflich</div>
+                        </div>
+                    </template>
+                </div>
+                <div style="text-align:center;margin-top:2rem;">
+                    <a href="ergebnisse-2024.html" class="btn btn--primary" data-i18n="surveys.highlights.cta">Alle Ergebnisse ansehen →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+</main>
+
+<!-- Footer wird dynamisch geladen -->
+<div id="footer-placeholder"></div>
+
+<script>
+    // Lucide Icons initialisieren
+    function initLucide() {
+        if (typeof lucide !== 'undefined' && lucide.createIcons) {
+            lucide.createIcons();
+        } else {
+            setTimeout(initLucide, 50);
+        }
+    }
+
+    // Re-run once Alpine has rendered template blocks.
+    document.addEventListener('alpine:initialized', initLucide);
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initLucide);
+    } else {
+        initLucide();
+    }
+</script>
+
+</body>
+</html>
+
