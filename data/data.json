@@ -393,7 +393,7 @@
           "2026 (heute)",
           "2026 (in 1–3 J.)"
         ],
-        "forecast_from_index": 1,
+        "forecast_from_index": 2,
         "datasets": [
           {
             "label_i18n": "results2026.findings.productivity.significant",
@@ -490,25 +490,25 @@
       ],
       "privacy_compliance": [
         {
-          "label_i18n": "results2026.privacy.konsequent",
+          "label_i18n": "results2026.findings.privacy.consequent",
           "value": 39.6,
           "color": "#1565C0",
           "displayValue": "39.6 %"
         },
         {
-          "label_i18n": "results2026.privacy.bestEffort",
+          "label_i18n": "results2026.findings.privacy.consistent",
           "value": 47.4,
           "color": "#42A5F5",
           "displayValue": "47.4 %"
         },
         {
-          "label_i18n": "results2026.privacy.notAlways",
+          "label_i18n": "results2026.findings.privacy.partial",
           "value": 9.2,
           "color": "#FF9800",
           "displayValue": "9.2 %"
         },
         {
-          "label_i18n": "results2026.privacy.noRules",
+          "label_i18n": "results2026.findings.privacy.insufficient",
           "value": 3.8,
           "color": "#D32F2F",
           "displayValue": "3.8 %"
@@ -516,25 +516,25 @@
       ],
       "strategic_direction": [
         {
-          "label_i18n": "growthEfficiency.cat.efficiency",
+          "label_i18n": "results2026.findings.strategy.efficiency",
           "value": 47.7,
           "color": "#004A99",
           "displayValue": "47.7 %"
         },
         {
-          "label_i18n": "growthEfficiency.cat.both",
+          "label_i18n": "results2026.findings.strategy.both",
           "value": 23.7,
           "color": "repeating-linear-gradient(-45deg,#004A99 0,#004A99 2px,#90CAF9 2px,#90CAF9 8px)",
           "displayValue": "23.7 %"
         },
         {
-          "label_i18n": "growthEfficiency.cat.growth",
+          "label_i18n": "results2026.findings.strategy.growth",
           "value": 9.8,
           "color": "#90CAF9",
           "displayValue": "9.8 %"
         },
         {
-          "label_i18n": "growthEfficiency.cat.neither",
+          "label_i18n": "results2026.findings.strategy.unclear",
           "value": 18.8,
           "color": "#BEBEBE",
           "displayValue": "18.8 %"
@@ -917,6 +917,32 @@
           ]
         }
       },
+      "insights": {
+        "usage_frequency": {
+          "de": "Alle BCG-Teilnehmer nutzen GenAI im Arbeitskontext und nutzen diese auch regelmäßiger als der Durchschnitt aller Teilnehmenden.",
+          "en": "All BCG participants use GenAI in their work context and also use it more regularly than the average of all respondents."
+        },
+        "tools": {
+          "de": "BCG-Teilnehmer nutzen am ehesten ChatGPT, während sich das Nutzungsverhalten im Durchschnitt etwas breiter auf verschiedene Tools verteilt.",
+          "en": "BCG participants most commonly use ChatGPT, while tool usage in the overall benchmark is spread more broadly across different tools."
+        },
+        "productivity": {
+          "de": "<strong style=\"color:var(--th-blue);\">Fazit Produktivitätswahrnehmung:</strong> BCG-Mitarbeitende bewerten den Produktivitätseffekt von GenAI sowohl aktuell als auch perspektivisch deutlich positiver als der Gesamtdurchschnitt. Bereits heute sehen 96,1&thinsp;% eine Verbesserung (Alle: 88,7&thinsp;%), wobei der Anteil mit <em>deutlicher</em> Produktivitätssteigerung bei BCG um 14,2&thinsp;PP höher liegt. Beim Blick auf die nächsten 1–3 Jahre verstärkt sich dieses Bild: 81,6&thinsp;% der BCG-Befragten erwarten eine deutliche Verbesserung gegenüber 64,0&thinsp;% im Gesamtdurchschnitt (+17,6&thinsp;PP). Gleichzeitig sinkt der Anteil der Skeptiker bei BCG auf nur 2,6&thinsp;%. Die hohe Nutzungsintensität und der fortgeschrittene Implementierungsgrad bei BCG schlagen sich somit direkt in einer spürbar positiveren Produktivitätswahrnehmung nieder.",
+          "en": "<strong style=\"color:var(--th-blue);\">Productivity assessment:</strong> BCG employees rate the productivity effect of GenAI both currently and prospectively much more positively than the overall average. 96.1% already see an improvement today (all: 88.7%), with the share reporting <em>significant</em> gains 14.2 PP higher than the benchmark. Looking ahead 1–3 years, 81.6% of BCG respondents expect a significant improvement vs. 64.0% in the benchmark (+17.6 PP). At the same time, the share of skeptics at BCG falls to just 2.6%."
+        },
+        "challenges": {
+          "de": "<strong>Fazit:</strong> Bei BCG steht Datenqualität &amp; -verfügbarkeit an erster Stelle (Alle: Rang 4), während der unklare ROI-Nachweis — im Gesamtdurchschnitt die größte Hürde — bei BCG auf Rang 2 zurückfällt. Ebenso spielen Governance &amp; Regulatorik (Rang 5, 10,5&thinsp;%) und qualifiziertes Personal (Rang 4, 13,2&thinsp;%) bei BCG eine deutlich geringere Rolle als im Durchschnitt. Diese Verschiebung lässt sich durch den fortgeschrittenen Implementierungsstand erklären: Wer KI-Lösungen bereits im Produktiveinsatz oder sogar im unternehmensweiten Rollout betreibt, hat regulatorische Fragen weitgehend geklärt und das nötige Know-how bereits aufgebaut. Stattdessen rücken operative Herausforderungen wie Datenqualität in den Vordergrund, die erst im Realbetrieb sichtbar werden. Dass der ROI-Nachweis dennoch auf Rang 2 verbleibt (26,3&thinsp;%), deutet darauf hin, dass BCG zwar technologisch voranschreitet und über die notwendigen Kompetenzen verfügt, jedoch bei Teilen der KI-Initiativen noch nach konkreten, messbaren Anwendungsfällen sucht.",
+          "en": "<strong>Finding:</strong> At BCG, data quality &amp; availability ranks first (overall benchmark: rank 4), while unclear ROI — the biggest hurdle in the overall average — falls to rank 2 at BCG. Governance &amp; regulation (rank 5, 10.5&thinsp;%) and qualified personnel (rank 4, 13.2&thinsp;%) play a noticeably smaller role than average. This shift reflects BCG's advanced implementation stage: organisations already running AI in production have largely resolved regulatory questions and built the necessary know-how. Instead, operational challenges like data quality move to the fore. The fact that ROI proof remains at rank 2 (26.3&thinsp;%) suggests BCG is technologically ahead yet still seeking concrete, measurable use cases for parts of its AI initiatives."
+        },
+        "privacy": {
+          "de": "<strong style=\"color:var(--th-blue);\">Fazit Datenschutzbewusstsein:</strong> Im Bereich Datenschutz zeigt BCG ein nahezu identisches Bild wie der Gesamtdurchschnitt. Mit 88,1&thinsp;% konsequenter Umsetzung (Alle: 87,1&thinsp;%) und Abweichungen von maximal 2,4&thinsp;PP in den einzelnen Kategorien ist dies der Bereich mit der geringsten Differenz zwischen BCG und der Gesamtstichprobe. Anders als bei Nutzungsintensität oder Implementierungsgrad, wo BCG deutlich vorausliegt, scheint das Datenschutzbewusstsein unabhängig vom Reifegrad der KI-Nutzung auf einem branchenweit einheitlich hohen Niveau verankert zu sein.",
+          "en": "<strong style=\"color:var(--th-blue);\">Privacy assessment:</strong> In the area of data protection, BCG shows an almost identical picture to the overall benchmark. With 88.1&thinsp;% consistent compliance (all: 87.1&thinsp;%) and deviations of at most 2.4&thinsp;PP across individual categories, this is the area with the smallest gap between BCG and the overall sample. Unlike usage intensity or implementation maturity — where BCG leads clearly — privacy awareness appears to be anchored at a uniformly high level industry-wide, independent of AI maturity."
+        },
+        "growth_efficiency": {
+          "de": "<strong>Auffälligkeit:</strong> Besonders markant ist der Unterschied bei „weder noch erkennbar”: Nur 3,9&thinsp;% der BCG-Befragten sehen bisher keinen positiven Effekt von GenAI in diesen beiden Dimensionen — im Gesamtdurchschnitt sind es hingegen 19,0&thinsp;% (−15,1&thinsp;PP). Das bedeutet, dass nahezu alle BCG-Mitarbeitenden bereits einen konkreten Nutzen von GenAI wahrnehmen, sei es als Effizienz- oder Wachstumshebel. Diese hohe Wirkungswahrnehmung spiegelt den fortgeschrittenen Implementierungsstand wider und zeigt, dass reale Erfahrung mit KI-Tools die Skepsis erheblich reduziert. Darüber hinaus sehen BCG-Befragte GenAI deutlich stärker als Effizienzhebel (56,6&thinsp;% vs. 47,1&thinsp;%), und auch der Anteil, der GenAI als Wachstumstreiber einordnet, liegt höher (15,8&thinsp;% vs. 10,6&thinsp;%) — bleibt aber insgesamt moderat. Dies deutet darauf hin, dass GenAI im Unternehmenskontext primär als Optimierungswerkzeug und weniger als Transformationshebel wahrgenommen wird.",
+          "en": "<strong>Notable finding:</strong> Particularly striking is the difference for “neither visible yet”: only 3.9&thinsp;% of BCG respondents see no positive GenAI effect in either dimension — vs. 19.0&thinsp;% in the overall benchmark (−15.1&thinsp;PP). This means nearly all BCG employees already perceive a concrete benefit, whether as an efficiency or growth lever. BCG respondents see GenAI more strongly as an efficiency driver (56.6&thinsp;% vs. 47.1&thinsp;%), and the share viewing it as a growth enabler is also higher (15.8&thinsp;% vs. 10.6&thinsp;%) — though still moderate overall."
+        }
+      },
       "fazit": {
         "de": "<strong>Gesamteinschätzung:</strong> BCG validiert sich als <strong>führender GenAI-Adopter</strong> und zeigt ein kohärentes Bild gestiegener Reife in allen untersuchten Dimensionen. Die Universalität der Adoption (100 %) kombiniert mit ausgeprägter täglicher Nutzung (90,8 % vs. 55,2 % Gesamtdurchschnitt, +35,6 PP) und vorangetriebenem Implementierungsstand (63,1 % in Produktion vs. 39,4 %) belegt eine deutlich höhere operationale Durchdringung und Reife von GenAI-Einsätzen. Besonders bemerkenswert sind die <strong>gestiegenen Kompetenzerwartungen</strong>: 75 % der BCG-Befragten bewerten ihre eigene GenAI-Kompetenz als mittelhoch bis fortgeschritten (vs. 51,6 % im Gesamtdurchschnitt), was auf eine nachhaltige Fähigkeitsentwicklung hindeutet.",
         "en": "<strong>Overall assessment:</strong> BCG validates itself as a <strong>leading GenAI adopter</strong> and shows a consistent pattern of higher maturity across all analyzed dimensions. Universal adoption (100%), combined with strong daily usage (90.8% vs. 55.2% benchmark, +35.6 pp) and a more advanced implementation status (63.1% in production vs. 39.4%), indicates substantially deeper operational integration of GenAI. Particularly notable is the <strong>higher competency profile</strong>: 75% of BCG respondents rate their GenAI skills as intermediate to advanced (vs. 51.6% in the benchmark), pointing to sustained capability development."
@@ -1260,9 +1286,35 @@
           ]
         }
       },
+      "insights": {
+        "usage_frequency": {
+          "de": "Regiocom-Teilnehmer nutzen GenAI deutlich seltener als der Durchschnitt: Nur 38,7&thinsp;% verwenden GenAI täglich (Alle: 55,2&thinsp;%, −16,5&thinsp;PP), während 14,7&thinsp;% GenAI gar nicht nutzen (Alle: 8,4&thinsp;%). Die Gesamtadoption liegt mit 85,3&thinsp;% leicht unter dem Durchschnitt von 91,6&thinsp;%.",
+          "en": ""
+        },
+        "tools": {
+          "de": "Anders als im Gesamtdurchschnitt setzen Regiocom-Teilnehmer auf Microsoft Copilot und ChatGPT gleichwertig (je 58,6&thinsp;%). Copilot liegt dabei 9,1&thinsp;PP über dem Gesamtdurchschnitt (49,5&thinsp;%) — ein Hinweis auf eine firmenweit bereitgestellte Microsoft-365-Lizenz.",
+          "en": ""
+        },
+        "productivity": {
+          "de": "<strong style=\"color:var(--th-blue);\">Fazit Produktivitätswahrnehmung:</strong> Regiocom-Mitarbeitende bewerten den Produktivitätseffekt von GenAI verhaltener als der Gesamtdurchschnitt. Heute sehen 82,0&thinsp;% eine Verbesserung (Alle: 88,3&thinsp;%, −6,3&thinsp;PP), wobei der Anteil mit <em>deutlicher</em> Steigerung bei nur 21,9&thinsp;% liegt (Alle: 31,5&thinsp;%, −9,6&thinsp;PP). Für die nächsten 1–3 Jahre zeigen sich mehr Optimisten (57,8&thinsp;% erwarten eine deutliche Verbesserung), verbleiben damit aber leicht unter dem Gesamtdurchschnitt (62,8&thinsp;%). Der vergleichsweise hohe Anteil mit keiner oder negativer Erwartung (16,4&thinsp;%, Alle: 9,8&thinsp;%) deutet auf eine noch unvollständig überzeugte Belegschaft hin.",
+          "en": ""
+        },
+        "challenges": {
+          "de": "<strong>Fazit:</strong> Bei Regiocom steht IT-Integration mit Abstand an erster Stelle (27,3&thinsp;%, im Gesamtdurchschnitt Rang 3 mit 20,2&thinsp;%), was auf technische Integrationshürden bei der KI-Einführung hindeutet. Governance &amp; Regulatorik folgt auf Rang 2 (22,0&thinsp;%). Auffällig ist der niedrige Rang des unklaren ROI-Nachweises (Rang 5, 15,3&thinsp;%, Alle: Rang 1, 21,7&thinsp;%): Offenbar steht bei Regiocom die technische und regulatorische Umsetzung klar im Vordergrund. Dies passt zum frühen Implementierungsstand: 38,9&thinsp;% befinden sich noch in Phase 1, und nur 31,5&thinsp;% sind bereits im Produktiveinsatz (Alle: 40,1&thinsp;%).",
+          "en": ""
+        },
+        "privacy": {
+          "de": "<strong style=\"color:var(--th-blue);\">Fazit Datenschutzbewusstsein:</strong> Regiocom zeigt ein überdurchschnittliches Compliance-Bewusstsein. Mit 92,6&thinsp;% der Befragten, die Datenschutzregelungen kennen und (zumindest im Best-Effort-Modus) umsetzen, liegt Regiocom über dem Gesamtdurchschnitt von 87,0&thinsp;%. Besonders der Anteil ohne konkrete Regelkenntnisse ist mit 2,0&thinsp;% sehr niedrig (Alle: 3,8&thinsp;%). Dies deutet auf ein strukturell verankertes Datenschutzbewusstsein hin — trotz des insgesamt niedrigeren KI-Reifegrads.",
+          "en": ""
+        },
+        "growth_efficiency": {
+          "de": "<strong>Auffälligkeit:</strong> Bei Regiocom sehen 24,0&thinsp;% der Befragten bisher weder Effizienz- noch Wachstumseffekte durch GenAI — deutlich mehr als im Gesamtdurchschnitt (18,8&thinsp;%, +5,2&thinsp;PP). Zugleich wird GenAI seltener als reiner Effizienzhebel gesehen (40,0&thinsp;% vs. 47,7&thinsp;%) und häufiger als beides gleichzeitig (28,7&thinsp;% vs. 23,7&thinsp;%). Dies spiegelt den noch frühen Implementierungsstand wider: Wer KI noch kaum im Produktiveinsatz hat, nimmt deren Wirkung naturgemäß weniger konkret wahr.",
+          "en": ""
+        }
+      },
       "fazit": {
-        "de": "",
-        "en": ""
+        "de": "<strong style=\"color:var(--th-blue);\">Gesamteinschätzung:</strong> Regiocom (n = 150) positioniert sich in der <strong>Early Majority</strong> — mit breiter, aber noch nicht vollständig verankerter GenAI-Nutzung. Die Adoptionsrate liegt mit 85,3 % unter dem Studiendurchschnitt (91,6 %, −6,3 PP), und besonders die tägliche Nutzungsintensität fällt mit 38,7 % deutlich hinter dem Mittelwert zurück (55,2 %, −16,5 PP). Mit 38,9 % der Befragten noch in Phase 1 (Konzeption) und nur 31,5 % im Produktiveinsatz (Alle: 40,1 %) befindet sich Regiocom im Aufholmodus. Beim Kompetenzniveau zeigt sich ein ähnliches Bild: 52,3 % beschränken sich auf einfache Prompts (Alle: 42,0 %), während der Anteil mit tieferem Modell- und Prompt-Verständnis mit 27,3 % unter dem Durchschnitt liegt (33,8 %). Die Werkzeugpalette ist durch einen ausgeprägten Doppelschwerpunkt geprägt: ChatGPT und Microsoft Copilot werden gleichwertig je von 58,6 % der Nutzerinnen und Nutzer eingesetzt — ein Hinweis auf eine flächendeckende M365-Lizenzierung. Positiv sticht der hohe Datenschutz-Compliance-Grad hervor: 92,6 % setzen Datenschutzregeln konsequent oder nach Best-Effort-Prinzip um — leicht über dem Durchschnitt (87,0 %). Die größte Implementierungsbarriere ist IT-Integration (Rang 1 bei Regiocom: 27,3 %, Gesamtdurchschnitt: Rang 3), gefolgt von Governance &amp; Regulatorik (22,0 %). Mit 24,0 % sehen überdurchschnittlich viele Befragte bisher keinen erkennbaren Effizienz- oder Wachstumseffekt (Alle: 18,8 %), was den frühen Reifegrad der Nutzung widerspiegelt. Zugleich blicken 57,8 % optimistisch in die Zukunft und erwarten eine deutliche Produktivitätsverbesserung — ein Potenzial, das durch gezielte Kompetenzentwicklung und den Abbau technischer Integrationsbarrieren gehoben werden kann.",
+        "en": "<strong style=\"color:var(--th-blue);\">Overall assessment:</strong> Regiocom (n = 150) positions itself within the <strong>Early Majority</strong> — with broad but not yet fully embedded GenAI adoption. The adoption rate of 85.3 % falls below the study benchmark (91.6 %, −6.3 PP), and daily usage intensity lags significantly at 38.7 % vs. the benchmark of 55.2 % (−16.5 PP). With 38.9 % of respondents still in Phase 1 (conception) and only 31.5 % in productive use (all: 40.1 %), Regiocom is in catch-up mode. The competency profile mirrors this: 52.3 % rely on basic prompts only (all: 42.0 %), while those with deeper model and prompting knowledge stand at 27.3 % — below the benchmark of 33.8 %. The tool landscape shows a clear dual focus: ChatGPT and Microsoft Copilot are each used by 58.6 % of respondents — likely reflecting a broad M365 licensing rollout. On the positive side, data-protection compliance is above average: 92.6 % apply privacy guidelines consistently or on a best-effort basis (all: 87.0 %). The primary implementation barrier is IT integration (rank 1 at Regiocom: 27.3 %, rank 3 in the overall benchmark), followed by governance &amp; regulation (22.0 %). With 24.0 % of respondents seeing no measurable efficiency or growth effect yet (all: 18.8 %), the early maturity of usage is evident. At the same time, 57.8 % anticipate significant productivity gains in the future — a potential that can be unlocked through targeted competency development and the removal of technical integration barriers."
       }
     },
     "kuehnenagl": {

@@ -93,8 +93,6 @@
         <h1 class="hero__title">Unternehmensvergleich 2026</h1>
         <p class="hero__subtitle" id="cmp-hero-subtitle">Direkter Vergleich der <strong>BCG</strong> (n&nbsp;=&nbsp;76) mit dem Gesamtdurchschnitt der 2026-Studie (n&nbsp;=&nbsp;346). Die Auswertung zeigt Stärken, Abweichungen und strategische Positionierung.</p>
 
-        <div id="company-switcher-placeholder" data-no-pdf></div>
-
         <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap;" data-no-pdf>
             <a href="ergebnisse-2026.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);display:inline-flex;align-items:center;gap:0.5rem;">
                 <i data-lucide="arrow-left" style="width:1.25rem;height:1.25rem;"></i>
@@ -1141,12 +1139,7 @@
                     <p data-fazit style="margin:0;font-size:0.9375rem;color:var(--th-gray);line-height:1.75;">
                         <strong style="color:var(--th-blue);">Gesamteinschätzung:</strong> BCG validiert sich als <strong>führender GenAI-Adopter</strong> und zeigt ein kohärentes Bild gestiegener Reife in allen untersuchten Dimensionen. Die Universalität der Adoption (100&thinsp;%) kombiniert mit ausgeprägter täglicher Nutzung (90,8&thinsp;% vs. 55,2&thinsp;% Gesamtdurchschnitt, +35,6&thinsp;PP) und vorangetriebenem Implementierungsstand (63,1&thinsp;% in Produktion vs. 39,4&thinsp;%) belegt eine deutlich höhere operationale Durchdringung und Reife von GenAI-Einsätzen. Besonders bemerkenswert sind die <strong>gestiegenen Kompetenzerwartungen</strong>: 75&thinsp;% der BCG-Befragten bewerten ihre eigene GenAI-Kompetenz als mittelhoch bis fortgeschritten (vs. 51,6&thinsp;% im Gesamtdurchschnitt), was auf eine nachhaltige Fähigkeitsentwicklung hindeutet.
                     </p>
-                    <p style="margin:1rem 0 0 0;font-size:0.9375rem;color:var(--th-gray);line-height:1.75;">
-                        <strong style="color:var(--th-blue);">Einordnung nach Diffusionstheorie:</strong> Im Sinne von Everett Rogers' <em>Diffusion of Innovations</em> lässt sich BCG klar als <strong>Early Adopter</strong> einordnen — jene Gruppe, die nach den Innovators als erste neue Technologien gezielt übernimmt und durch ihren Einfluss als Multiplikator für die breitere Adoption wirkt. Die Daten stützen diese Einordnung auf mehreren Ebenen: Die nahezu vollständige Nutzungsrate (100&thinsp;%), die überdurchschnittlich hohe Kompetenz und vor allem die geringe Skepsis gegenüber dem Nutzen von GenAI (nur 3,9&thinsp;% sehen „weder noch" einen Effekt vs. 19,0&thinsp;% im Durchschnitt) sind typische Merkmale von Early Adopters — sie haben den konkreten Mehrwert bereits erfahren und die Technologie über das Experimentierfeld hinaus in operative Prozesse integriert. Der Gesamtdurchschnitt hingegen befindet sich eher im Übergangsbereich der <strong>Early Majority</strong>: Es gibt breite Nutzung, aber ein signifikanter Anteil (19,0&thinsp;%) nimmt bisher keinen spürbaren Effekt wahr, was auf eine noch unvollständige Integration in die tägliche Wertschöpfung hindeutet. Rogers beschreibt genau diesen Übergang — den sogenannten <em>Chasm</em> — als den kritischen Punkt, an dem eine Innovation entweder zur Selbstverständlichkeit wird oder stagniert.
-                    </p>
-                    <p style="margin:1rem 0 0 0;font-size:0.9375rem;color:var(--th-gray);line-height:1.75;">
-                        Das primäre <strong style="color:var(--th-blue)"> Handlungsfeld</strong> bleibt „Datenqualität und -verfügbarkeit" (#1 bei BCG) — ein Bottleneck, das trotz höherem Reifegrad bestehen bleibt und darauf hindeutet, dass der Implementierungserfolg von strukturellen Datenvorhaben abhängig ist. Potenzial existiert zudem bei der Erschließung von <strong>Wachstumspotenzialen</strong> durch strategische GenAI-Einsätze: Nur 15,8&thinsp;% der BCG-Befragten sehen KI als Wachstumstreiber (neue Produkte, Märkte), während 56,6&thinsp;% sie primär als Effizienzhebel betrachten. Dies deutet auf Chancen bei der Transformation vom Optimierungs- ins Transformations-Narrativ hin.
-                    </p>
+                    
                 </div>
             </div>
         </div>
@@ -1216,16 +1209,13 @@
 <script src="js/charts/compare-charts.js" defer></script>
 <script src="js/components/company-switcher.js" defer></script>
 <script type="module">
-const DEFAULT_COMPANY = 'bcg';
+const COMPANY_KEY = 'regiocom';
 
 window.Shared.loadData().then(data => {
-    window.initCompanySwitcher(data);
-    window.renderComparativePage(data, DEFAULT_COMPANY);
+    window.renderComparativePage(data, COMPANY_KEY);
 
-    document.addEventListener('languageChanged', e => {
-        const select = document.getElementById('company-select');
-        const active = select ? select.value : DEFAULT_COMPANY;
-        renderComparativePage(data, active);
+    document.addEventListener('languageChanged', () => {
+        renderComparativePage(data, COMPANY_KEY);
     });
 
     if (typeof lucide !== 'undefined') lucide.createIcons();

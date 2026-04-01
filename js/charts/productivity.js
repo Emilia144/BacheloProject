@@ -20,7 +20,7 @@
     let currentLang = 'de';
 
     // Cached forecast_from_index — updated on every render
-    let forecastFromIndex = 1;
+    let forecastFromIndex = 2;
 
     // ── forecast background plugin ────────────────────────
     var forecastBgPlugin = {
@@ -84,7 +84,7 @@
 
         forecastFromIndex = src.forecast_from_index != null
             ? src.forecast_from_index
-            : 1;
+            : 2;
         configureForecastBgPlugin(currentLang, forecastFromIndex);
 
         var labels = src.labels.map(function (l) {

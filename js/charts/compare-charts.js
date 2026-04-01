@@ -55,7 +55,7 @@
         var src = resolveTimelineSource(chartData);
         if (!src) return null;
 
-        if (window.productivityChart) {
+        if (window.productivityChart && typeof window.productivityChart.destroy === 'function') {
             window.productivityChart.destroy();
             window.productivityChart = null;
         }
@@ -67,16 +67,21 @@
         var style = getComputedStyle(document.documentElement);
         var thBlue = style.getPropertyValue('--th-blue').trim() || '#1565C0';
 
+        var FALLBACK_COLORS = [thBlue, '#90CAF9', '#BEBEBE'];
+
         var datasets = (src.datasets || []).map(function (ds, i) {
             var label = ds.label;
             if (!label && ds.label_i18n) {
                 label = t(ds.label_i18n, lang, ds.label_i18n);
             }
 
+            var rawColor = ds.color || FALLBACK_COLORS[i] || '#999999';
+            var resolvedColor = rawColor === 'var(--th-blue)' ? thBlue : rawColor;
+
             var out = {
                 label: label || ('Series ' + (i + 1)),
                 data: ds.values || [],
-                borderColor: ds.color === 'var(--th-blue)' ? thBlue : ds.color,
+                borderColor: resolvedColor,
                 order: i + 1
             };
 
@@ -86,21 +91,23 @@
             return out;
         });
 
-        var fIdx = src.forecast_from_index != null ? src.forecast_from_index : 1;
+        var fIdx = src.forecast_from_index != null ? src.forecast_from_index : 2;
         if (typeof window.configureForecastBgPlugin === 'function') {
             window.configureForecastBgPlugin(lang, fIdx);
         }
 
-        window.productivityChart = Shared.renderCombinedLine('productivityChart', {
-            labels: labels,
-            datasets: datasets,
-            yMax: 100,
-            yStepSize: 20,
-            plugins: window.forecastBgPlugin ? [window.forecastBgPlugin] : undefined,
-            tooltipLabel: function (ctx) {
-                return '  ' + ctx.dataset.label + ': ' + ctx.parsed.y + ' %';
-            }
-        });
+        if (window.Shared && typeof window.Shared.renderCombinedLine === 'function') {
+            window.productivityChart = window.Shared.renderCombinedLine('productivityChart', {
+                labels: labels,
+                datasets: datasets,
+                yMax: 100,
+                yStepSize: 20,
+                plugins: window.forecastBgPlugin ? [window.forecastBgPlugin] : undefined,
+                tooltipLabel: function (ctx) {
+                    return '  ' + ctx.dataset.label + ': ' + ctx.parsed.y + ' %';
+                }
+            });
+        }
 
         return window.productivityChart;
     }
@@ -154,7 +161,7 @@
         var canvas = document.getElementById('growthEfficiencyChart');
         if (!canvas || typeof Chart === 'undefined') return null;
 
-        if (window.growthEfficiencyChart) {
+        if (window.growthEfficiencyChart && typeof window.growthEfficiencyChart.destroy === 'function') {
             window.growthEfficiencyChart.destroy();
             window.growthEfficiencyChart = null;
         }
@@ -183,8 +190,7 @@
                 interaction: { mode: 'index', intersect: false },
                 plugins: {
                     legend: {
-                        position: 'top',
-                        align: 'start',
+                        display: false,
                         labels: {
                             font: { family: FONT, size: 12 },
                             usePointStyle: true,

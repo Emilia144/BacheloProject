@@ -105,8 +105,7 @@
             interaction: { mode: 'index', intersect: false },
             plugins: {
                 legend: {
-                    position: 'top',
-                    align: 'start',
+                    display: false,
                     labels: {
                         font: { family: FONT, size: 12 },
                         usePointStyle: true,
@@ -169,7 +168,7 @@
             interaction: { mode: 'index', intersect: false },
             plugins: {
                 legend: {
-                    position: 'bottom',
+                    display: false,
                     labels: {
                         font: { family: FONT, size: 11 },
                         usePointStyle: true,
@@ -426,5 +425,3 @@
         normalize: normalize
     };
 })();
-
-export const loadData = window.Shared.loadData;

@@ -1096,6 +1096,7 @@ def build_comparative() -> dict:
                 'growth_efficiency': growth_eff,
             },
             'charts': {
+                'growth_efficiency': growth_eff,
                 'productivity_timeline': productivity_timeline,
             },
             # NOTE: fazit text is authored manually in data/data.json and is not generated from Excel.

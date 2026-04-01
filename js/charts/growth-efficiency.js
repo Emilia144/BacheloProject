@@ -29,10 +29,10 @@
 
     // i18n keys for the four category series labels
     var CAT_KEYS = [
-        'growthEfficiency.cat.efficiency',
-        'growthEfficiency.cat.both',
-        'growthEfficiency.cat.growth',
-        'growthEfficiency.cat.neither'
+        'results2026.findings.strategy.efficiency',
+        'results2026.findings.strategy.both',
+        'results2026.findings.strategy.growth',
+        'results2026.findings.strategy.unclear'
     ];
     var CAT_FALLBACKS_DE = ['Effizienzhebel', 'Gleichermaßen beides', 'Wachstumstreiber', 'Bisher weder noch'];
     var CAT_FALLBACKS_EN = ['Efficiency Lever', 'Both equally', 'Growth Driver', 'Neither yet'];

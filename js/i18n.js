@@ -293,6 +293,7 @@ const translations = {
     'results2026.findings.productivity.header': 'Produktivität heute vs. Erwartung in 1-3 Jahren',
     'results2026.findings.productivity.today': 'HEUTE (2026)',
     'results2026.findings.productivity.future': 'IN 1-3 JAHREN',
+    'results2026.findings.productivity.negative': '➖ Verschlechterung',
     'results2026.findings.productivity.significant': '➕ Deutliche Verbesserung',
     'results2026.findings.productivity.slight': '➕ Leichte Verbesserung',
     'results2026.findings.productivity.none': 'o Keine Änderung',
@@ -300,7 +301,7 @@ const translations = {
     'results2026.findings.productivity.positiveFuture': 'Erwartete positive Effekte',
     'results2026.findings.productivity.chartTitle': 'Langzeitentwicklung der Produktivitätseinschätzung',
     'results2026.findings.productivity.chartSubtitle': 'Anteil der GenAI-Nutzer je Kategorie — reale Messwerte 2024/25 und 2026 sowie Erwartungshorizont in 1–3 Jahren (schraffierter Bereich)',
-    'results2026.findings.productivity.breakthrough': '<strong style="color:var(--th-blue);">Durchbruchmoment:</strong> Während die Gesamtquote positiver Produktivitätseffekte leicht steigt (85,4 % → 90,1 %), zeigt sich der markanteste Trend beim Shift von „leichten" zu „deutlichen" Verbesserungen: von 33,2 % heute auf erwartete 64,0 %. Parallel dazu schwindet die neutrale Haltung konsequent (11,7 % → 3,5 %) — genau dieser Schwund erklärt den positiven Zuwachs.',
+    'results2026.findings.productivity.breakthrough': '<strong style="color:var(--th-blue);">Durchbruchmoment:</strong> Während die Gesamtquote positiver Produktivitätseffekte leicht steigt (88,3 % → 90,2 %), zeigt sich der markanteste Trend beim Shift von „leichten" zu „deutlichen" Verbesserungen: von 31,5 % heute auf erwartete 62,8 %. Parallel dazu schwindet die neutrale Haltung konsequent (11,7 % → 9,8 %) — genau dieser Schwund erklärt den positiven Zuwachs.',
 
     // Kompetenz vs. Produktivität – Stacked Bar Charts
     'results2026.findings.proficiencyProductivity.title': 'Produktivitätseinschätzung nach Kompetenzstufe',
@@ -315,6 +316,8 @@ const translations = {
     'results2026.findings.proficiency.level4': 'Fortgeschritten',
     'results2026.findings.proficiency.level5': 'Profi',
     'results2026.findings.proficiency.level6': 'Modellentwickler',
+    'results2026.findings.proficiencyProductivity.axisX': 'GenAI-Kompetenz',
+    'results2026.findings.proficiencyProductivity.axisY': 'Anteil der Befragten',
 
     // Wachstumstreiber oder Effizienzhebel – Line Chart
     'results2026.findings.growthEfficiency.title': 'Wachstumstreiber oder Effizienzhebel – nach Implementierungsphase',
@@ -323,6 +326,8 @@ const translations = {
     // Wachstumstreiber oder Effizienzhebel – nach Kompetenzstufe
     'results2026.findings.growthEfficiencyProficiency.title': 'Wachstumstreiber oder Effizienzhebel – nach Kompetenzstufe',
     'results2026.findings.growthEfficiencyProficiency.insight': '<strong style="color:var(--th-blue);">Kompetenz formt die Wahrnehmung:</strong> „Effizienz" dominiert auf allen Stufen, erreicht jedoch bei Stufe 4 (erweiterte Funktionen) mit 57,6 % ihren Höchstwert. Auffällig ist Stufe 5: Hier sieht fast die Hälfte (46,7 %) GenAI <strong>gleichermaßen als Effizienz- und Wachstumshebel</strong>. Auf der niedrigsten und höchsten Kompetenzstufe ist der Anteil „weder noch" am größten — bei Einsteigern aus Unerfahrenheit, bei den Expertinnen und Experten (n=8) möglicherweise aus kritischer Distanz.',
+    'growthEfficiency.proficiency.axisX': 'GenAI-Kompetenz',
+    'growthEfficiency.proficiency.axisY': 'Anteil der Befragten',
 
     // Chart labels
     'results2026.chart.label.2026now': '2026 (heute)',
@@ -364,14 +369,14 @@ const translations = {
     'results2026.findings.privacy.consistent': 'Einhaltung der Datenschutzregeln nach bestem Wissen',
     'results2026.findings.privacy.partial': 'Inkonsequente Umsetzung trotz bekannter Richtlinien',
     'results2026.findings.privacy.insufficient': 'Unzureichendes Wissen',
-    'results2026.findings.privacy.insight': '<strong>Insight:</strong> <span style="color:var(--th-blue);">78%</span> der Teilnehmer setzen die Regeln, die sie kennen, so gut es geht um. Das ist ein positives Zeichen und zeigt, dass die Branche die Compliance-Anforderungen ernst nimmt.',
+    'results2026.findings.privacy.insight': '<strong>Insight:</strong> <span style="color:var(--th-blue);">87 %</span> der Teilnehmer setzen die Regeln, die sie kennen, so gut es geht um. Das ist ein positives Zeichen und zeigt, dass die Branche die Compliance-Anforderungen ernst nimmt.',
 
     'results2026.findings.strategy.title': 'Erwartete strategische Auswirkung',
     'results2026.findings.strategy.efficiency': 'Effizienzhebel',
     'results2026.findings.strategy.both': 'Wachstum & Effizienz',
     'results2026.findings.strategy.unclear': 'Noch nicht klar',
     'results2026.findings.strategy.growth': 'Wachstumstreiber',
-    'results2026.findings.strategy.insight': '<strong>Insight:</strong> <span style="color:var(--th-blue);">70%</span> der Teilnehmer erwarten, dass sich GenAI positiv auf die Effizienz der Unternehmen auswirken wird. Sie erwarten z.B. AI-getriebene Prozessoptimierungen.',
+    'results2026.findings.strategy.insight': '<strong>Insight:</strong> <span style="color:var(--th-blue);">81 %</span> der Teilnehmer erwarten, dass sich GenAI positiv auf die Effizienz der Unternehmen auswirken wird. Sie erwarten z.B. AI-getriebene Prozessoptimierungen.',
 
     'results2026.findings.competence.title': 'Kompetenz & kritisches Denken',
     'results2026.findings.competence.col.level': 'Stufe',
@@ -389,7 +394,7 @@ const translations = {
     'results2026.findings.longterm.dailyusers': 'TÄGLICHE NUTZER',
     'results2026.findings.longterm.insightsTitle': 'Kernerkenntnisse des Langzeitvergleichs:',
     'results2026.findings.longterm.insight1': '<strong>Adoption beschleunigt:</strong> Mit +14,8 Prozentpunkten zeigt sich eine starke Verbreitung. Die Nutzung ist von einer „Option" zur „Standard-Erwartung" geworden.',
-    'results2026.findings.longterm.insight2': '<strong>Positive Erwartungen:</strong> Der Anteil der erwarteten Produktivitätsgewinne wird sich verdoppeln (33 % → 64 %). Was eine positive Erwartungshaltung der Befragten zeigt.',
+    'results2026.findings.longterm.insight2': '<strong>Positive Erwartungen:</strong> Der Anteil der erwarteten Produktivitätsgewinne wird sich verdoppeln (32 % → 63 %). Was eine positive Erwartungshaltung der Befragten zeigt.',
     'results2026.findings.longterm.insight3': '<strong>Tägliche Integration:</strong> Über 55 % der Nutzer setzen KI täglich ein – ein Signal für wachsende Akzeptanz und Integration.',
     'results2026.findings.longterm.insight4': '<strong>Compliance im Fokus:</strong> 87 % zeigen hohes Datenschutzbewusstsein, ein Erhöhung gegenüber 2024, wo Sicherheitsbedenken dominanter Grund für Nicht-Nutzung waren.',
     'results2026.findings.longterm.note': '* Estimierte Wert aus 2024/25 Studie; genaue Vergleichswerte siehe Ergebnisse 2024/25',
@@ -405,14 +410,14 @@ const translations = {
     'results2026.findings.standards.chatgpt.nr1': 'Nr. 1',
     'results2026.findings.standards.chatgpt.desc2024': 'Klarer Marktführer, kaum Alternativen',
     'results2026.findings.standards.chatgpt.desc2026': 'Weiterhin Nr. 1 – Alternativen gewinnen',
-    'results2026.findings.standards.chatgpt.insight': '<strong style="color:var(--th-blue);">Mehr Alternativen:</strong> 2024/25 nutzten noch 93 % ChatGPT – klarer Marktführer, kaum Alternativen. 2026 sind es nur noch 73 %. Microsoft Copilot (48,8 %), Google Gemini (20,5 %) und lokale Open-Source-Modelle (19,1 %) gewinnen signifikant hinzu. Dies ist kein Marktversagen, sondern ein strategisch bewusster Wandel – wie die Zukunftserwartungen zeigen:',
+    'results2026.findings.standards.chatgpt.insight': '<strong style="color:var(--th-blue);">Mehr Alternativen:</strong> 2024/25 nutzten noch 93 % ChatGPT – klarer Marktführer, kaum Alternativen. 2026 sind es nur noch 72,2 %. Microsoft Copilot (49,5 %), Google Gemini (21,1 %) und lokale Open-Source-Modelle (18,9 %) gewinnen signifikant hinzu. Dies ist kein Marktversagen, sondern ein strategisch bewusster Wandel – wie die Zukunftserwartungen zeigen:',
     'results2026.findings.standards.models.header': 'Erwartet: Plattformvielfalt als Normalmodell',
     'results2026.findings.standards.models.hybrid': 'Hybridansatz: große + spezialisierte Modelle',
     'results2026.findings.standards.models.specialized': 'Spezialisierte, kleinere Modelle',
     'results2026.findings.standards.models.uncertain': 'Kann ich nicht einschätzen',
     'results2026.findings.standards.models.multiple': 'Mehrere große Modelle in Kombination',
     'results2026.findings.standards.models.universal': 'Ein zentrales, universelles Modell',
-    'results2026.findings.standards.models.insight': '<strong style="color:var(--th-blue);">Das Ziel ist klar:</strong> Nur 3,5 % erwarten künftig noch ein einzelnes, universelles Modell – das Pendant zu ChatGPTs einstiger Vorreiterrolle. 65 % antizipieren stattdessen diversifizierte Multi-Modell-Strategien (45 % Hybridansatz, 20 % spezialisierte Modelle). Die beobachtete Marktverschiebung ist damit kein Übergangsphänomen, sondern der bewusste Weg dorthin.',
+    'results2026.findings.standards.models.insight': '<strong style="color:var(--th-blue);">Das Ziel ist klar:</strong> Nur 3,2 % erwarten künftig noch ein einzelnes, universelles Modell – das Pendant zu ChatGPTs einstiger Vorreiterrolle. 65,6 % antizipieren stattdessen diversifizierte Multi-Modell-Strategien (45,4 % Hybridansatz, 20,2 % spezialisierte Modelle). Die beobachtete Marktverschiebung ist damit kein Übergangsphänomen, sondern der bewusste Weg dorthin.',
 
     // Company CTA
     'results2026.companycta.title': 'Firmenspezifischer Vergleich',
@@ -862,6 +867,7 @@ const translations = {
     'results2026.findings.productivity.header': 'Productivity today vs. expectations in 1–3 years',
     'results2026.findings.productivity.today': 'TODAY (2026)',
     'results2026.findings.productivity.future': 'IN 1–3 YEARS',
+    'results2026.findings.productivity.negative': '➖ Decline',
     'results2026.findings.productivity.significant': '➕ Significant Improvement',
     'results2026.findings.productivity.slight': '➕ Slight Improvement',
     'results2026.findings.productivity.none': '➖ No Change',
@@ -869,7 +875,7 @@ const translations = {
     'results2026.findings.productivity.positiveFuture': 'Expected Positive Effects',
     'results2026.findings.productivity.chartTitle': 'Long-term Development of Productivity Assessment',
     'results2026.findings.productivity.chartSubtitle': 'Share of GenAI users per category — actual measurements 2024/25 and 2026, and expectation horizon in 1–3 years (shaded area)',
-    'results2026.findings.productivity.breakthrough': '<strong style="color:var(--th-blue);">Breakthrough Moment:</strong> While the overall rate of positive productivity effects continues to rise (85.4 % → 90.1 %), the most striking trend is the shift from "slight" to "significant" improvements: from 33.2 % today to an expected 64.0 %. In parallel, neutral attitudes are consistently fading (11.7 % → 3.5 %) — this decline explains the positive gain.',
+    'results2026.findings.productivity.breakthrough': '<strong style="color:var(--th-blue);">Breakthrough Moment:</strong> While the overall rate of positive productivity effects continues to rise (88.3 % → 90.2 %), the most striking trend is the shift from "slight" to "significant" improvements: from 31.5 % today to an expected 62.8 %. In parallel, neutral attitudes are consistently fading (11.7 % → 9.8 %) — this decline explains the positive gain.',
 
     // Proficiency vs. Productivity – Stacked Bar Charts
     'results2026.findings.proficiencyProductivity.title': 'Proficiency vs. Productivity Assessment',
@@ -884,6 +890,8 @@ const translations = {
     'results2026.findings.proficiency.level4': 'Advanced',
     'results2026.findings.proficiency.level5': 'Professional',
     'results2026.findings.proficiency.level6': 'Model Developer',
+    'results2026.findings.proficiencyProductivity.axisX': 'GenAI Proficiency',
+    'results2026.findings.proficiencyProductivity.axisY': 'Share of respondents',
 
     // Growth Driver or Efficiency Lever – Line Chart
     'results2026.findings.growthEfficiency.title': 'Growth Driver or Efficiency Lever – by Implementation Phase',
@@ -892,6 +900,8 @@ const translations = {
     // Growth Driver or Efficiency Lever – by Proficiency Level
     'results2026.findings.growthEfficiencyProficiency.title': 'Growth Driver or Efficiency Lever – by Proficiency Level',
     'results2026.findings.growthEfficiencyProficiency.insight': '<strong style="color:var(--th-blue);">Proficiency Shapes Perception:</strong> "Efficiency" dominates across all levels, peaking at 57.6 % for level 4 (advanced features). Level 5 stands out: nearly half (46.7 %) see GenAI as <strong>both an efficiency and growth lever equally</strong>. At the lowest and highest proficiency levels, the "neither yet" share is largest — for beginners due to inexperience, for experts (n=8) possibly due to critical distance.',
+    'growthEfficiency.proficiency.axisX': 'GenAI Proficiency',
+    'growthEfficiency.proficiency.axisY': 'Share of respondents',
 
     // Chart labels
     'results2026.chart.label.2026now': '2026 (today)',
@@ -942,7 +952,7 @@ const translations = {
     'results2026.findings.strategy.both': 'Growth & Efficiency',
     'results2026.findings.strategy.unclear': 'Not yet clear',
     'results2026.findings.strategy.growth': 'Growth Driver',
-    'results2026.findings.strategy.insight': '<strong>Insight:</strong> 70.3 % see GenAI as an efficiency or growth driver – a significantly increased confidence compared to 2024.',
+    'results2026.findings.strategy.insight': '<strong>Insight:</strong> 81.2 % see GenAI as an efficiency or growth driver – a significantly increased confidence compared to 2024.',
 
     'results2026.findings.competence.title': 'Competence & Critical Thinking',
     'results2026.findings.competence.col.level': 'Level',
@@ -960,7 +970,7 @@ const translations = {
     'results2026.findings.longterm.dailyusers': 'DAILY USERS',
     'results2026.findings.longterm.insightsTitle': 'Key Findings of the Longitudinal Comparison:',
     'results2026.findings.longterm.insight1': '<strong>Adoption accelerated:</strong> With +14.8 percentage points, widespread adoption is evident. Usage has shifted from an "option" to a "standard expectation".',
-    'results2026.findings.longterm.insight2': '<strong>Positive Expectations:</strong> The share of productivity gains is expected to double (33 % → 64 %). What shows a positive expectation of the respondents.',
+    'results2026.findings.longterm.insight2': '<strong>Positive Expectations:</strong> The share of productivity gains is expected to double (32 % → 63 %). What shows a positive expectation of the respondents.',
     'results2026.findings.longterm.insight3': '<strong>Daily integration:</strong> Over 55 % of users employ AI daily – a signal of growing acceptance and integration.',
     'results2026.findings.longterm.insight4': '<strong>Compliance in focus:</strong> 87 % show high data privacy awareness, an increase over 2024 when security concerns were the dominant reason for non-use.',
     'results2026.findings.longterm.note': '* Estimated value from the 2024/25 study; for exact comparison values see Results 2024/25',
@@ -976,14 +986,14 @@ const translations = {
     'results2026.findings.standards.chatgpt.nr1': 'No. 1',
     'results2026.findings.standards.chatgpt.desc2024': 'Clear market leader, few alternatives',
     'results2026.findings.standards.chatgpt.desc2026': 'Still No. 1 – alternatives win',
-    'results2026.findings.standards.chatgpt.insight': '<strong style="color:var(--th-blue);">More Alternatives:</strong> In 2024/25, 93 % still used ChatGPT – a clear market leader with few alternatives. By 2026, that figure has fallen to 73 %. Microsoft Copilot (48.8 %), Google Gemini (20.5 %), and local open-source models (19.1 %) are gaining significantly. This is not market failure, but a strategically deliberate shift – as the forward-looking expectations show:',
+    'results2026.findings.standards.chatgpt.insight': '<strong style="color:var(--th-blue);">More Alternatives:</strong> In 2024/25, 93 % still used ChatGPT – a clear market leader with few alternatives. By 2026, that figure has fallen to 72.2 %. Microsoft Copilot (49.5 %), Google Gemini (21.1 %), and local open-source models (18.9 %) are gaining significantly. This is not market failure, but a strategically deliberate shift – as the forward-looking expectations show:',
     'results2026.findings.standards.models.header': 'Expected: Platform Diversity as the New Normal',
     'results2026.findings.standards.models.hybrid': 'Hybrid approach: large + specialized models',
     'results2026.findings.standards.models.specialized': 'Specialized, smaller models',
     'results2026.findings.standards.models.uncertain': 'Cannot assess',
     'results2026.findings.standards.models.multiple': 'Multiple large models in combination',
     'results2026.findings.standards.models.universal': 'One central, universal model',
-    'results2026.findings.standards.models.insight': '<strong style="color:var(--th-blue);">The destination is clear:</strong> Only 3.5 % still expect a single, universal model – the counterpart to ChatGPT\'s former pioneering role. Instead, 65 % anticipate diversified multi-model strategies (45 % hybrid approach, 20 % specialized models). The observed market shift is therefore not a transitional phenomenon, but the deliberate path toward this goal.',
+    'results2026.findings.standards.models.insight': '<strong style="color:var(--th-blue);">The destination is clear:</strong> Only 3.2 % still expect a single, universal model – the counterpart to ChatGPT\'s former pioneering role. Instead, 65.6 % anticipate diversified multi-model strategies (45.4 % hybrid approach, 20.2 % specialized models). The observed market shift is therefore not a transitional phenomenon, but the deliberate path toward this goal.',
 
     // Company CTA
     'results2026.companycta.title': 'Company-Specific Comparison',

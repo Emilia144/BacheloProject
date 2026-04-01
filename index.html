@@ -14,17 +14,6 @@
     <script src="js/components-loader.js" defer></script>
     <!-- Internationalization -->
     <script src="js/i18n.js" defer></script>
-    <script>
-        function loadAlpineFallback() {
-            var fallbackScript = document.createElement('script');
-            fallbackScript.defer = true;
-            fallbackScript.src = 'https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js';
-            document.head.appendChild(fallbackScript);
-        }
-    </script>
-    <script src="js/index-alpine.js" defer></script>
-    <!-- Alpine.js (lightweight progressive framework) -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js" onerror="loadAlpineFallback()"></script>
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
@@ -33,7 +22,7 @@
 <!-- Header wird dynamisch geladen -->
 <div id="header-placeholder"></div>
 
-<main x-data="homePageData()">
+<main>
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
@@ -46,22 +35,23 @@
             <p class="hero__subtitle" data-i18n="hero.subtitle">Wie verändert Generative KI den Arbeitsalltag insbesondere der deutschen IT-Branche? Unsere Langzeitstudie untersucht Adoption, Produktivität und strategische Entwicklungen – mit Ihrer Unterstützung.</p>
             
             <div style="display:flex;gap:1rem;justify-content:center;margin-bottom:2.5rem;flex-wrap:wrap;">
-                <a href="https://forms.cloud.microsoft/e/3h5XJv0PM2" class="btn btn--primary" data-i18n="hero.cta.participate">An Umfrage 2026 teilnehmen</a>
+                <!--<a href="https://forms.cloud.microsoft/e/3h5XJv0PM2" class="btn btn--primary" data-i18n="hero.cta.participate">An Umfrage 2026 teilnehmen</a>-->
                 <a href="ergebnisse-2024.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);" data-i18n="hero.cta.results">Ergebnisse 2024/25 ansehen</a>
+                <a href="ergebnisse-2026.html" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);" data-i18n="hero.cta.results2026">Ergebnisse 2026 ansehen</a>
             </div>
             
             <div class="hero__meta">
                 <div class="hero__meta-item">
-                    <div class="hero__meta-value">174+</div>
-                    <div class="hero__meta-label" data-i18n="hero.stats.participants">Teilnehmer 2024/25</div>
+                    <div class="hero__meta-value">> 500</div>
+                    <div class="hero__meta-label" data-i18n="hero.stats.participants">Teilnehmer seit 2024</div>
                 </div>
                 <div class="hero__meta-item">
-                    <div class="hero__meta-value">76%</div>
-                    <div class="hero__meta-label" data-i18n="hero.stats.usage">GenAI-Nutzung</div>
+                    <div class="hero__meta-value">> 20</div>
+                    <div class="hero__meta-label" data-i18n="hero.stats.usage">Unternehmen teilgenommen</div>
                 </div>
                 <div class="hero__meta-item">
-                    <div class="hero__meta-value">85%</div>
-                    <div class="hero__meta-label" data-i18n="hero.stats.productivity">Produktivitätssteigerung</div>
+                    <div class="hero__meta-value">2</div>
+                    <div class="hero__meta-label" data-i18n="hero.stats.productivity">Publikationen</div>
                 </div>
             </div>
         </div>
@@ -87,17 +77,27 @@ An der Forschungsgruppe Cloud Computing der Technischen Hochschule Brandenburg h
             </div>
             
             <div class="grid grid--3" style="margin-bottom:2.5rem;">
-                <template x-for="card in aboutCards" :key="card.titleKey">
-                    <div :class="card.featured ? 'card card--featured' : 'card'">
-                        <div class="card__body">
-                            <div class="icon-list__icon" style="margin-bottom:1rem;">
-                                <i :data-lucide="card.icon" style="width:2rem;height:2rem;color:var(--th-blue);"></i>
-                            </div>
-                            <h3 class="card__title" :data-i18n="card.titleKey" x-text="card.title">Langzeitstudie</h3>
-                            <p class="card__subtitle" :data-i18n="card.subtitleKey" x-text="card.subtitle">Jährliche Erhebungen ermöglichen die Analyse von Trends und Entwicklungen</p>
-                        </div>
+                <div class="card card--featured">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="bar-chart-2" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="about.card1.title">Langzeitstudie</h3>
+                        <p class="card__subtitle" data-i18n="about.card1.subtitle">Jährliche Erhebungen ermöglichen die Analyse von Trends und Entwicklungen</p>
                     </div>
-                </template>
+                </div>
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="building-2" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="about.card2.title">Branchenübergreifend</h3>
+                        <p class="card__subtitle" data-i18n="about.card2.subtitle">Teilnehmer aus Konzernen, Mittelstand und Startups verschiedener Branchen</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card__body">
+                        <div class="icon-list__icon" style="margin-bottom:1rem;"><i data-lucide="flask-conical" style="width:2rem;height:2rem;color:var(--th-blue);"></i></div>
+                        <h3 class="card__title" data-i18n="about.card3.title">Wissenschaftlich fundiert</h3>
+                        <p class="card__subtitle" data-i18n="about.card3.subtitle">Peer-reviewed Publikationen und offene Methodik</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -113,48 +113,86 @@ An der Forschungsgruppe Cloud Computing der Technischen Hochschule Brandenburg h
             
             <div class="section-header">
                 <h2 class="section-header__title" data-i18n="surveys.title">Umfragen & Ergebnisse</h2>
+                <p class="section-header__subtitle" data-i18n="surveys.subtitle">Nehmen Sie an unserer aktuellen Studie teil oder erkunden Sie die Ergebnisse vergangener Erhebungen.</p>
             </div>
             
             <div class="grid grid--3">
-                <template x-for="survey in surveys" :key="survey.titleKey">
-                    <div :class="survey.featured ? 'card card--featured' : 'card'">
-                        <div class="card__header">
-                            <div class="card__number" :style="survey.statusStyle" :data-i18n="survey.statusKey" x-text="survey.status">AKTIV</div>
-                            <h3 class="card__title" :data-i18n="survey.titleKey" x-text="survey.title">KI im IT-Arbeitsalltag 2026</h3>
-                        </div>
-                        <div class="card__body">
-                            <p style="margin-bottom:1.5rem;line-height:1.6;" :data-i18n="survey.descriptionKey" x-text="survey.description">Die aktuelle Erhebung untersucht die fortschreitende Integration von GenAI in der deutschen IT-Branche.</p>
-                            <div class="matrix-chart">
-                                <template x-for="item in survey.matrixItems" :key="item.labelKey">
-                                    <div class="matrix-chart__item">
-                                        <span class="matrix-chart__label" :data-i18n="item.labelKey" x-text="item.label">Zeitraum</span>
-                                        <span class="matrix-chart__value" :style="item.valueStyle" :data-i18n="item.valueKey" x-text="item.value">Q1 2026</span>
-                                    </div>
-                                </template>
-                            </div>
-                        </div>
-                        <div class="card__footer" :style="survey.footerStyle">
-                            <template x-if="survey.note">
-                                <span style="font-style:italic;color:var(--muted-foreground);" :data-i18n="survey.note.key" x-text="survey.note.text">Planung startet im Q3 2026</span>
-                            </template>
-                            <template x-for="action in survey.actions" :key="action.i18nKey">
-                                <a :href="action.href" :class="action.className" :style="action.style" :data-i18n="action.i18nKey" :download="action.download ? '' : null" x-text="action.label">Jetzt teilnehmen</a>
-                            </template>
+                <!-- Abgeschlossene Umfrage 2024 -->
+                <div class="card">
+                    <div class="card__header">
+                        <div class="card__number" style="color:#2E7D32;" data-i18n="surveys.card2.status">ABGESCHLOSSEN</div>
+                        <h3 class="card__title" data-i18n="surveys.card2.title">KI im IT-Arbeitsalltag 2024/25</h3>
+                    </div>
+                    <div class="card__body">
+                        <p style="margin-bottom:1.5rem;line-height:1.6;" data-i18n="surveys.card2.description">Erste umfassende Erhebung zur GenAI-Adoption in der deutschen IT-Branche mit 174 Teilnehmern aus verschiedenen Unternehmen.</p>
+                        <div class="matrix-chart">
+                            <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="surveys.card2.participants">Teilnehmer</span><span class="matrix-chart__value">174</span></div>
+                            <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="surveys.card2.status2">Status</span><span class="matrix-chart__value" style="font-size:0.875rem;" data-i18n="surveys.card2.statusValue">Veröffentlicht</span></div>
                         </div>
                     </div>
-                </template>
+                    <div class="card__footer" style="justify-content:center;gap:1rem;">
+                        <a href="ergebnisse-2024.html" class="btn" style="background:var(--th-blue);color:white;margin:0;" data-i18n="surveys.card2.cta1">Ergebnisse ansehen</a>
+                        <a href="AI_Survey_Paper2024.pdf" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);margin:0;" download data-i18n="surveys.card2.cta2">Paper (PDF)</a>
+                    </div>
+                </div>
+                
+                <!-- Aktuelle Umfrage 2026 -->
+                <div class="card card--featured">
+                    <div class="card__header">
+                        <div class="card__number" data-i18n="surveys.card1.status">AKTIV</div>
+                        <h3 class="card__title" data-i18n="surveys.card1.title">KI im IT-Arbeitsalltag 2026</h3>
+                    </div>
+                    <div class="card__body">
+                        <p style="margin-bottom:1.5rem;line-height:1.6;" data-i18n="surveys.card2.description">Erste umfassende Erhebung zur GenAI-Adoption in der deutschen IT-Branche mit 174 Teilnehmern aus verschiedenen Unternehmen.</p>
+                        <div class="matrix-chart">
+                            <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="surveys.card2.participants">Teilnehmer</span><span class="matrix-chart__value">357</span></div>
+                            <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="surveys.card2.status2">Status</span><span class="matrix-chart__value" style="font-size:0.875rem;" data-i18n="surveys.card1.statusValue">Wird ausgewertet</span></div>
+                        </div>
+                    </div>
+                    <div class="card__footer" style="justify-content:center;gap:1rem;">
+                        <a href="ergebnisse-2026.html" class="btn" style="background:var(--th-blue);color:white;margin:0;" data-i18n="surveys.card2.cta1">Ergebnisse ansehen</a>
+                        <!--<a href="AI_Survey_Paper2024.pdf" class="btn" style="background:white;color:var(--th-blue);border:2px solid var(--th-blue);margin:0;" download data-i18n="surveys.card2.cta2">Paper (PDF)</a>-->
+                    </div>
+                </div>
+                
+                <!-- Geplante Umfrage 2027 -->
+                <div class="card">
+                    <div class="card__header">
+                        <div class="card__number" style="color:#9E9E9E;" data-i18n="surveys.card3.status">GEPLANT</div>
+                        <h3 class="card__title" data-i18n="surveys.card3.title">KI im IT-Arbeitsalltag 2027</h3>
+                    </div>
+                    <div class="card__body">
+                        <p style="margin-bottom:1.5rem;line-height:1.6;" data-i18n="surveys.card3.description">Die Fortsetzung unserer Langzeitstudie – mit erweiterten Fragestellungen zu KI-Governance und Arbeitsmarktentwicklungen.</p>
+                        <div class="matrix-chart">
+                            <div class="matrix-chart__item"><span class="matrix-chart__label" data-i18n="surveys.card3.period">Zeitraum</span><span class="matrix-chart__value" style="font-size:0.875rem;" data-i18n="surveys.card3.periodValue">Q1 2027</span></div>
+                        </div>
+                    </div>
+                    <div class="card__footer" style="justify-content:center;">
+                        <span style="font-style:italic;color:var(--muted-foreground);" data-i18n="surveys.card3.planning">Planung startet im Q3 2026</span>
+                    </div>
+                </div>
             </div>
             
             <!-- Ergebnis-Highlights -->
             <div style="margin-top:3rem;">
                 <h3 style="text-align:center;margin-bottom:2rem;font-size:1.5rem;" data-i18n="surveys.highlights.title">Highlights aus der Studie 2024/25</h3>
                 <div class="stats-grid">
-                    <template x-for="highlight in highlights" :key="highlight.labelKey">
-                        <div class="stat-card">
-                            <div class="stat-card__value" x-html="highlight.valueHtml">76.5<span>%</span></div>
-                            <div class="stat-card__label" :data-i18n="highlight.labelKey" x-text="highlight.label">nutzen GenAI beruflich</div>
-                        </div>
-                    </template>
+                    <div class="stat-card">
+                        <div class="stat-card__value">76.5<span>%</span></div>
+                        <div class="stat-card__label" data-i18n="surveys.highlights.stat1">nutzen GenAI beruflich</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__value">84.8<span>%</span></div>
+                        <div class="stat-card__label" data-i18n="surveys.highlights.stat2">sehen Produktivitätsgewinn</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__value">50<span>%</span></div>
+                        <div class="stat-card__label" data-i18n="surveys.highlights.stat3">betrachten Datensicherheit als Hürde</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card__value">100<span>%</span></div>
+                        <div class="stat-card__label" data-i18n="surveys.highlights.stat4">Adoption bei Beratungen</div>
+                    </div>
                 </div>
                 <div style="text-align:center;margin-top:2rem;">
                     <a href="ergebnisse-2024.html" class="btn btn--primary" data-i18n="surveys.highlights.cta">Alle Ergebnisse ansehen →</a>
@@ -162,8 +200,6 @@ An der Forschungsgruppe Cloud Computing der Technischen Hochschule Brandenburg h
             </div>
         </div>
     </section>
-
-    
 
 </main>
 
@@ -179,9 +215,6 @@ An der Forschungsgruppe Cloud Computing der Technischen Hochschule Brandenburg h
             setTimeout(initLucide, 50);
         }
     }
-
-    // Re-run once Alpine has rendered template blocks.
-    document.addEventListener('alpine:initialized', initLucide);
     
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initLucide);

@@ -45,6 +45,24 @@
         el.appendChild(document.createTextNode(text));
     }
 
+    function updateLegendByRole(role, text) {
+        document.querySelectorAll('[data-cmp-legend-role="' + role + '"]').forEach(function (el) {
+            var labeled = el.querySelector('[data-cmp-legend-label="' + role + '"]');
+            if (labeled) {
+                labeled.textContent = text;
+                return;
+            }
+
+            var spans = el.querySelectorAll('span');
+            if (spans.length > 0) {
+                spans[spans.length - 1].textContent = text;
+                return;
+            }
+
+            updateTextNode(el, ' ' + text);
+        });
+    }
+
     // ── 1. Hero ───────────────────────────────────────────────────────────────
 
     function updateHero(meta) {
@@ -66,18 +84,10 @@
             + '). Die Auswertung zeigt St\u00e4rken, Abweichungen und strategische Positionierung.';
 
         // Update all legend labels that carry n values
-        document.querySelectorAll('[data-cmp-legend-role="bench"]').forEach(function (el) {
-            updateTextNode(el, ' Alle (n=' + meta.n_benchmark + ')');
-        });
-        document.querySelectorAll('[data-cmp-legend-role="bench-tools"]').forEach(function (el) {
-            updateTextNode(el, ' Alle (Nutzer, n=' + meta.n_benchmark_users + ')');
-        });
-        document.querySelectorAll('[data-cmp-legend-role="company"]').forEach(function (el) {
-            updateTextNode(el, ' ' + meta.display + ' (n=' + meta.n_company + ')');
-        });
-        document.querySelectorAll('[data-cmp-legend-role="company-noN"]').forEach(function (el) {
-            updateTextNode(el, ' ' + meta.display);
-        });
+        updateLegendByRole('bench', 'Alle (n=' + meta.n_benchmark + ')');
+        updateLegendByRole('bench-tools', 'Alle (Nutzer, n=' + meta.n_benchmark_users + ')');
+        updateLegendByRole('company', meta.display + ' (n=' + meta.n_company + ')');
+        updateLegendByRole('company-noN', meta.display);
     }
 
     // ── 2. KPI cards ──────────────────────────────────────────────────────────
@@ -93,7 +103,7 @@
             if (benchEl) benchEl.textContent = 'Alle: ' + fmt(kpi.bench_value) + '\u2009%';
             if (deltaEl) {
                 deltaEl.textContent = fmtDelta(kpi.delta);
-                deltaEl.style.cssText = 'display:inline-block;font-size:0.875rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;' + deltaInlineStyle(kpi.delta);
+                deltaEl.style.cssText = 'display:inline-block;font-size:0.875rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:999px;background:#EEF5FF;color:#004A99;';
             }
         });
     }
@@ -290,7 +300,6 @@
         var svgRect = svgWrap.getBoundingClientRect();
         var svgW    = svgRect.width;
 
-        var COLORS = { data:'#1B5E20', roi:'#E65100', it:'#E65100', staff:'#1B5E20', gov:'#E65100' };
         var lines = '';
 
         leftItems.forEach(function (leftEl) {
@@ -301,7 +310,7 @@
             var rRect = rightEl.getBoundingClientRect();
             var y1    = (lRect.top + lRect.height / 2) - svgRect.top;
             var y2    = (rRect.top + rRect.height / 2) - svgRect.top;
-            var color = COLORS[cat] || '#9E9E9E';
+            var color = (y2 > y1 + 4) ? '#BF360C' : '#2E7D32';
             var pad   = 10;
             var x1    = pad;
             var x2    = svgW - pad;
@@ -373,7 +382,25 @@
         }
     }
 
-    // ── 9. Fazit ─────────────────────────────────────────────────────────────
+    // ── 9. Inline insight boxes ───────────────────────────────────────────────
+
+    function updateInsights(insights, lang) {
+        if (!insights) return;
+        var preferred = lang === 'en' ? 'en' : 'de';
+        var fallback  = preferred === 'en' ? 'de' : 'en';
+
+        Object.keys(insights).forEach(function (key) {
+            var el = document.querySelector('[data-insight="' + key + '"]');
+            if (!el) return;
+            var box  = insights[key];
+            var text = (box && box[preferred]) ? box[preferred]
+                     : (box && box[fallback])   ? box[fallback]
+                     : null;
+            if (text !== null) el.innerHTML = text;
+        });
+    }
+
+    // ── 10. Fazit ─────────────────────────────────────────────────────────────
 
     function updateFazit(fazit, lang) {
         var el = document.querySelector('[data-fazit]');
@@ -393,7 +420,7 @@
         }
     }
 
-    // ── 10. PDF meta ─────────────────────────────────────────────────────────
+    // ── 11. PDF meta ─────────────────────────────────────────────────────────
 
     function updatePDFMeta(name, n) {
         if (typeof initPDFExport === 'function') {
@@ -427,6 +454,7 @@
         updateProficiency(sections.proficiency);
         updateProductivityChart(cmp);
         updateGrowthEfficiencyChart(cmp, meta);
+        updateInsights(cmp.insights, lang);
         updateFazit(cmp.fazit, lang);
         updatePDFMeta(meta.display, meta.n_company);
     }
@@ -478,6 +506,3 @@
     window.renderComparativePage = renderComparativePage;
 
 })();
-
-export const initCompanySwitcher = window.initCompanySwitcher;
-export const renderComparativePage = window.renderComparativePage;

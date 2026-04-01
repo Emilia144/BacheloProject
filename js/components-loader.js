@@ -74,8 +74,8 @@ async function initComponents() {
     
     // Header und Footer parallel laden
     const [headerLoaded, footerLoaded] = await Promise.all([
-        loadComponent('header-placeholder', 'header.html'),
-        loadComponent('footer-placeholder', 'footer.html')
+        loadComponent('header-placeholder', './../header.html'),
+        loadComponent('footer-placeholder', './../footer.html')
     ]);
     
     // Loading-Indikator entfernen

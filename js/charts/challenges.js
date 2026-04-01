@@ -27,7 +27,9 @@
         if (!src) return null;
 
         var labels = src.labels.map(function (l) {
-            return (typeof l === 'object') ? (l[lang] || l.de) : l;
+            if (typeof l === 'object') return l[lang] || l.de;
+            if (window.languageManager) return window.languageManager.getTranslation(l, lang);
+            return l;
         });
 
         var datasets = src.datasets.map(function (ds, i) {
